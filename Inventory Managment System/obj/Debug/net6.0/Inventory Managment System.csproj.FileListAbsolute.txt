@@ -1,0 +1,15 @@
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\bin\Debug\net6.0\Inventory Managment System.exe
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\bin\Debug\net6.0\Inventory Managment System.deps.json
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\bin\Debug\net6.0\Inventory Managment System.runtimeconfig.json
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\bin\Debug\net6.0\Inventory Managment System.dll
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\bin\Debug\net6.0\Inventory Managment System.pdb
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\Inventory Managment System.csproj.AssemblyReference.cache
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\Inventory Managment System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\Inventory Managment System.AssemblyInfoInputs.cache
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\Inventory Managment System.AssemblyInfo.cs
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\Inventory Managment System.csproj.CoreCompileInputs.cache
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\Inventory Managment System.dll
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\refint\Inventory Managment System.dll
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\Inventory Managment System.pdb
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\Inventory Managment System.genruntimeconfig.cache
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System\obj\Debug\net6.0\ref\Inventory Managment System.dll
