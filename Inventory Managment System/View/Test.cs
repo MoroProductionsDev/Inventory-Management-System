@@ -15,17 +15,25 @@ namespace Inventory_Managment_System.View
         {
             try
             {
-                var product = new Product("screw", -3.99M, 1, 1, 1);
+                var product = new Product("screw", 3.99M, 1, 1, 2);
                 Output.PrintProductObj(product);
             }
-            catch(NullReferenceException nullRefExcp)
+            catch (NullReferenceException nullRefExcp)
             {
                 Console.WriteLine($"{nullRefExcp.Message} CAUGHT!");
             }
-            catch(ArgumentException argExcp)
+            catch (ArgumentOutOfRangeException argOutofRangeExcp)
             {
-                Console.WriteLine($"{argExcp.Message} CAUGHT!");
+                Console.WriteLine($"{argOutofRangeExcp.Message} CAUGHT!");
             }
+            catch (ArgumentException argNullExcp)
+            {
+                Console.WriteLine($"{argNullExcp.Message} CAUGHT!");
+            }
+            //catch (ArgumentException argExcp)
+            //{
+            //    Console.WriteLine($"{argExcp.Message} CAUGHT!");
+            //}
         }
     }
 }
