@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -15,7 +16,8 @@ namespace Inventory_Managment_System.View
         {
             try
             {
-                var product = new Product("screw", 3.99M, 1, 1, 2);
+                var list = new BindingList<Part>();
+                var product = new Product(list , "screw", 3.99M, 1, 1, 2);
                 Output.PrintProductObj(product);
             }
             catch (NullReferenceException nullRefExcp)

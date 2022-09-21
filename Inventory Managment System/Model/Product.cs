@@ -10,8 +10,9 @@ namespace Inventory_Managment_System.Model
 {
     internal class Product : Part
     {
-        public BindingList<Part> AssociatedParts { get; set; }
+       
         public int ProductID { get; set; }
+        private BindingList<Part> associatedParts;
         private string name;
         private decimal price;
         private int inStock;
@@ -20,9 +21,12 @@ namespace Inventory_Managment_System.Model
         //private int min = int.MaxValue; // these value will facilitate the validation between min and max. In case of a default constructor
         //private int max = int.MinValue; 
 
-        public Product(string name, decimal price, int inStock, int min, int max) :
+        public Product(BindingList<Part> partList, string name, decimal price, int inStock, int min, int max) :
             base(name, price, inStock, min, max)
         {
+            associatedParts = partList;
+
+            // abstract overriden base parameters
             Name = name;
             Price = price;
             InStock = inStock;
@@ -30,9 +34,14 @@ namespace Inventory_Managment_System.Model
             Max = max;
         }
 
+        public BindingList<Part> AssociatedParts
+        {
+            get => associatedParts;
+        }
+
         public override string Name
         {
-            get => this.name;
+            get => name;
             set
             {
                 if (String.IsNullOrWhiteSpace(value))
@@ -105,5 +114,23 @@ namespace Inventory_Managment_System.Model
                 inStock = value;
             }
         }
+
+        //public void addAssociatedPart(Part addingPart)
+        //{
+        //    associatedParts.Add(addingPart);
+        //}
+
+        //public bool removeAssociatedPart(int index)
+        //{
+        //    if (associatedParts[])
+        //    {
+
+        //    }
+        //}
+
+        //public Part lookupAssociatedPart(int index)
+        //{
+
+        //}
     }
 }
