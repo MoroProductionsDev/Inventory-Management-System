@@ -26,7 +26,7 @@ namespace Inventory_Managment_System.Model
                 if (String.IsNullOrWhiteSpace(value))
                 {
                     throw new NullReferenceException(
-                        $"\n<{nameof(Inventory_Managment_System.Model.Product)}> : <{nameof(this.Name)}> " +
+                        $"\n<{nameof(Part)}> : <{nameof(Name)}> " +
                         $"cannot be empty or whitespace only.\nMust have characters!");
                 }
                 name = value;
@@ -41,7 +41,7 @@ namespace Inventory_Managment_System.Model
                 if (value < 0.0M)
                 {
                     throw new ArgumentOutOfRangeException(
-                        $"\n<{nameof(Inventory_Managment_System.Model.Product)}> : <{nameof(this.Price)}> cannot a negative number!");
+                        $"\n<{nameof(Part)}> : <{nameof(Price)}> cannot a negative number!");
                 }
                 price = value;
             }
@@ -56,7 +56,7 @@ namespace Inventory_Managment_System.Model
                 {
                     Console.WriteLine(min);
                     throw new ArgumentOutOfRangeException(
-                        $"\n<{nameof(Inventory_Managment_System.Model.Product)}> : <{nameof(this.Min)}> {value} cannot be less than or equal to 0.");
+                        $"\n<{nameof(Part)}> : <{nameof(Min)}> {value} cannot be less than or equal to 0.");
                 }
                 min = value;
             }
@@ -70,12 +70,12 @@ namespace Inventory_Managment_System.Model
                 if (value == int.MaxValue)
                 {
                     throw new ArgumentNullException(
-                        $"\n<{nameof(Inventory_Managment_System.Model.Product)}> : <{nameof(this.Min)}> {min} hasn't been initialize yet!");
+                        $"\n<{nameof(Part)}> : <{nameof(Min)}> {min} hasn't been initialize yet!");
                 }
                 else if (value < min)
                 {
                     throw new ArgumentOutOfRangeException(
-                        $"\n<{nameof(Inventory_Managment_System.Model.Product)}> : <{nameof(this.Max)}> {value} cannot be less than {min}");
+                        $"\n<{nameof(Part)}> : <{nameof(Max)}> {value} cannot be less than {min}");
                 }
                 max = value;
             }
