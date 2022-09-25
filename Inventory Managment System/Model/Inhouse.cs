@@ -8,7 +8,7 @@ namespace Inventory_Managment_System.Model
 {
     internal class Inhouse : Part
     {
-        public int MachineID { get; set; }
+        public int MachineID { get; }
 
         public Inhouse(int machineID, string name, decimal price, int inStock, int min, int max) : base(name, price, inStock, min, max)
         {
