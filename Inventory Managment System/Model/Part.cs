@@ -14,8 +14,15 @@ namespace Inventory_Managment_System.Model
         private int inStock;
         private int min;
         private int max;
-        public Part(string name, decimal price, int inStock, int min, int max) {
 
+        private static int partCount; // keeps the count statically for all part created.
+        public Part(string name, decimal price, int inStock, int min, int max) {
+            PartID = ++partCount;
+            Name = name;
+            Price = price;
+            InStock = inStock;
+            Min = min;
+            Max = max;
         }
 
         public string Name

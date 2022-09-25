@@ -23,6 +23,11 @@ namespace Inventory_Managment_System.View
                 list.Add(new Inhouse(332, "hammer", 3.99M, 5, 4, 8));
                 list.Add(new Inhouse(578, "brush", 2.45M, 2, 3, 3));
 
+                list.Add(new Outsourced("Lowes", "fence", 3.99M, 1, 1, 2));
+                list.Add(new Outsourced("Home Depot", "block", 10.34M, 3, 5, 10));
+                list.Add(new Outsourced("Intel", "Silicon Chip", 659.99M, 5, 4, 8));
+                list.Add(new Outsourced("Asus", "MotherBoard", 479.98M, 2, 3, 3));
+
                 foreach (var part in list)
                 {
                     Console.WriteLine(part);
