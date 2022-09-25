@@ -17,7 +17,7 @@ namespace Inventory_Managment_System.Model
 
         public override string ToString()
         {
-            return $"{nameof(MachineID)} {MachineID}\n" + base.ToString();
+            return $"{nameof(MachineID)}: {MachineID}\n" + base.ToString();
         }
     }
 }

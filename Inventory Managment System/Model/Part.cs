@@ -8,7 +8,7 @@ namespace Inventory_Managment_System.Model
 {
     internal abstract class Part
     {
-        public int PartID { get; set; }
+        public int PartID { get; }
         private string name;
         private decimal price;
         private int inStock;
@@ -30,7 +30,7 @@ namespace Inventory_Managment_System.Model
             get => name;
             set
             {
-                if (String.IsNullOrWhiteSpace(value))
+                if (String.IsNullOrWhiteSpace(value)) // This go in the [VIEW]!!!!
                 {
                     throw new NullReferenceException(
                         $"\n<{nameof(Part)}> : <{nameof(Name)}> " +
@@ -96,7 +96,7 @@ namespace Inventory_Managment_System.Model
                 //if (value > max || value < min)
                 //{
                 //    throw new ArgumentOutOfRangeException(
-                //        $"\n<{nameof(Inventory_Managment_System.Model.Product)}> : <{nameof(this.inStock)}> {value} cannot be less than {min} " +
+                //        $"\n<{nameof(.Part)}> : <{nameof(this.inStock)}> {value} cannot be less than {min} " +
                 //        $"nor greather than {max}");
                 //}
                 inStock = value;
@@ -105,13 +105,22 @@ namespace Inventory_Managment_System.Model
 
         public override string ToString()
         {
-            return $"{nameof(PartID)} {PartID}\n" +
-                $"{nameof(Name)} {Name}\n" +
-                $"{nameof(Price)} {Price}\n" +
-                $"{nameof(InStock)} {InStock}\n" +
-                $"{nameof(Min)} {Min}\n" +
-                $"{nameof(Max)} {Max}\n";
+            return $"{nameof(PartID)}: {PartID}\n" +
+                $"{nameof(Name)}: {Name}\n" +
+                $"{nameof(Price)}: {Price}\n" +
+                $"{nameof(InStock)}: {InStock}\n" +
+                $"{nameof(Min)}: {Min}\n" +
+                $"{nameof(Max)}: {Max}\n";
         }
 
+        public string ToStringForProducts()
+        {
+            return $"----{nameof(PartID)}: {PartID}\n" +
+                $"---{nameof(Name)}: {Name}\n" +
+                $"---{nameof(Price)}: {Price}\n" +
+                $"---{nameof(InStock)}: {InStock}\n" +
+                $"---{nameof(Min)}: {Min}\n" +
+                $"---{nameof(Max)}: {Max}\n";
+        }
     }
 }

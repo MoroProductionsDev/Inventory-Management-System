@@ -19,7 +19,7 @@ namespace Inventory_Managment_System.Model
 
         public override string ToString()
         {
-            return $"{nameof(CompanyName)} {CompanyName}\n" + base.ToString();
+            return $"{nameof(CompanyName)}: {CompanyName}\n" + base.ToString();
         }
     }
 }
