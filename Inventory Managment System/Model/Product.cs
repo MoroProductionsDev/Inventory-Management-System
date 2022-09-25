@@ -14,12 +14,13 @@ namespace Inventory_Managment_System.Model
 
         public BindingList<Part> AssociatedParts { get; }
         public int ProductID { get; }
-        private static int productCount;
-        private string Name { get; set; }
+        public string Name { get; set; }
         private decimal price;
         private int inStock;
         private int min;
         private int max;
+
+        private static int productCount;    // keeps the count statically for all products created.
 
         //private int min = int.MaxValue; // these value will facilitate the validation between min and max. In case of a default constructor
         //private int max = int.MinValue;
@@ -98,30 +99,35 @@ namespace Inventory_Managment_System.Model
             }
         }
 
-        //public BindingList<Part> AssociatedParts
-        //{
-        //    get => associatedParts;
-        //}
-
-        //
-
         public void addAssociatedPart(Part addingPart)
         {
             AssociatedParts.Add(addingPart);
         }
 
-        //public bool removeAssociatedPart(int index)
-        //{
-        //    if (associatedParts[])
-        //    {
+        public bool removeAssociatedPart(int index)
+        {
+            bool isSuccessful;
+            if (index < 0 || index >= AssociatedParts.Count) {
+                isSuccessful = false;
+            } else
+            {
+                AssociatedParts.RemoveAt(index);
+                isSuccessful = true;
+            }
+            return isSuccessful;
+        }
 
-        //    }
-        //}
+        public Part lookupAssociatedPart(int index)
+        {
+            if (index < 0 || index >= AssociatedParts.Count)
+            {
+                throw new IndexOutOfRangeException(
+                $"\n<{nameof(Product)}> : <{nameof(index)}> {index} is out of range.\n" +
+                $"{nameof(AssociatedParts)} list has {AssociatedParts.Count} elements.");
+            }
 
-        //public Part lookupAssociatedPart(int index)
-        //{
-
-        //}
+            return AssociatedParts[index];
+        }
 
         public override string ToString()
         {
@@ -135,7 +141,7 @@ namespace Inventory_Managment_System.Model
                 $"{toStringParts()}";
         }
 
-        // Returns a string concatination of all the parts listed in the product
+        // Returns a string concatination of all the parts listed in the psroduct
         private string toStringParts()
         {
             string productsParts = "";

@@ -15,7 +15,7 @@ namespace Inventory_Managment_System.Model
         private int min;
         private int max;
 
-        private static int partCount; // keeps the count statically for all part created.
+        private static int partCount; // keeps the count statically for all parts created.
         public Part(string name, decimal price, int inStock, int min, int max) {
             PartID = ++partCount;
             Name = name;
@@ -115,7 +115,7 @@ namespace Inventory_Managment_System.Model
 
         public string ToStringForProducts()
         {
-            return $"----{nameof(PartID)}: {PartID}\n" +
+            return $"---{nameof(PartID)}: {PartID}\n" +
                 $"---{nameof(Name)}: {Name}\n" +
                 $"---{nameof(Price)}: {Price}\n" +
                 $"---{nameof(InStock)}: {InStock}\n" +

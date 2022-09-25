@@ -46,10 +46,28 @@ namespace Inventory_Managment_System.View
                 productList[1].addAssociatedPart(partList[0]);
                 productList[1].addAssociatedPart(partList[2]);
 
-                foreach (var product in productList)
-                {
-                    Console.WriteLine(product);
-                }
+                productList[2].addAssociatedPart(partList[1]);
+                productList[2].addAssociatedPart(partList[4]);
+                productList[2].addAssociatedPart(partList[7]);
+
+                //foreach (var product in productList)
+                //{
+                //    Console.WriteLine(product);
+                //}
+
+                //Console.WriteLine($"Part ID:\"{partList[0].PartID}\" Name:\"{partList[0].Name}\" removed / does not exists in " +
+                //                   $"Product ID:\"{productList[2].ProductID}\" Name:\"{productList[2].Name}\"? " + productList[2].removeAssociatedPart(0));
+
+                //Console.WriteLine($"Part ID:\"{partList[1].PartID}\" Name:\"{partList[1].Name}\" removed / does not exists in " +
+                //                   $"Product ID:\"{productList[2].ProductID}\" Name:\"{productList[2].Name}\"? " + productList[2].removeAssociatedPart(1));
+
+                //foreach (var product in productList)
+                //{
+                //    Console.WriteLine(product);
+                //}
+
+                Console.WriteLine(productList[1] + "\n------------\n");
+                Console.WriteLine(productList[1].lookupAssociatedPart(1).ToString());
             }
             catch (NullReferenceException nullRefExcp)
             {
