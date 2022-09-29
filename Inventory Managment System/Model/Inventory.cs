@@ -67,36 +67,36 @@ namespace Inventory_Managment_System.Model
         //--------------------------------------------------------------
         public static void addPart(Part addingPart)
         {
-            AllParts.Add(addingPart);
+            allParts.Add(addingPart);
         }
 
-        public static void deletePart(Part deletingPart)
+        public static bool deletePart(Part deletingPart)
         {
-            AllParts.Remove(deletingPart);
+            return allParts.Remove(deletingPart);
         }
 
         public static Part lookupPart(int index)
         {
-            if (index < 0 || index >= AllParts.Count)
+            if (index < 0 || index >= allParts.Count)
             {
                 throw new IndexOutOfRangeException(
                 $"\n<{nameof(Inventory)}> : <{nameof(index)}> {index} is out of range.\n" +
-                $"{nameof(AllParts)} list has {AllParts.Count} elements.");
+                $"{nameof(allParts)} list has {allParts.Count} element(s).");
             }
 
-            return AllParts[index];
+            return allParts[index];
         }
 
         public static void updatePart(int index, Part updatingPart)
         {
-            if (index < 0 || index >= AllParts.Count)
+            if (index < 0 || index >= allParts.Count)
             {
                 throw new IndexOutOfRangeException(
                 $"\n<{nameof(Inventory)}> : <{nameof(index)}> {index} is out of range.\n" +
-                $"{nameof(AllParts)} list has {AllParts.Count} elements.");
+                $"{nameof(allParts)} list has {allParts.Count} element(s).");
             }
 
-            AllParts[index] = updatingPart;
+            allParts[index] = updatingPart;
         }
 
         public static new string ToString()
@@ -108,5 +108,15 @@ namespace Inventory_Managment_System.Model
             }
             return prodList;
         }
+        public static new string ToStringParts()
+        {
+            string partList = "";
+            foreach (var prod in allParts)
+            {
+                partList += prod;
+            }
+            return partList;
+        }
+
     }
 }

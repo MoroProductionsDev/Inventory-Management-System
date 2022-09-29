@@ -85,15 +85,30 @@ namespace Inventory_Managment_System.View
                 // Inventory.lookupProduct(1); // exception.
 
                 Inventory.updateProduct(0, productList[2]);
-                Console.WriteLine(Inventory.ToString());
+                //Console.WriteLine(Inventory.ToString());
 
-                Console.WriteLine(productList[2]);
+                //Console.WriteLine(productList[2]);
 
                 //productList[2] = productList[0];
 
                 //Console.WriteLine(productList[2]);
 
-                Console.WriteLine(Inventory.ToString());
+                Console.WriteLine(Inventory.ToStringParts());
+
+                Inventory.addPart(partList[0]);
+                Inventory.addPart(partList[5]);
+
+                // Console.WriteLine(Inventory.ToStringParts());
+
+                // Console.WriteLine(Inventory.deletePart(partList[0]));
+
+                Console.WriteLine(Inventory.ToStringParts());
+                Console.WriteLine("-----");
+                // Console.WriteLine(Inventory.lookupPart(0));
+
+                Inventory.updatePart(0, partList[7]);
+
+                Console.WriteLine(Inventory.ToStringParts());
             }
             catch (NullReferenceException nullRefExcp)
             {

@@ -110,7 +110,7 @@ namespace Inventory_Managment_System.Model
                 $"{nameof(Price)}: {Price}\n" +
                 $"{nameof(InStock)}: {InStock}\n" +
                 $"{nameof(Min)}: {Min}\n" +
-                $"{nameof(Max)}: {Max}\n";
+                $"{nameof(Max)}: {Max}\n\n";
         }
 
         public string ToStringForProducts()
