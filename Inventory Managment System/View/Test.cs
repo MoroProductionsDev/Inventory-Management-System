@@ -214,6 +214,13 @@ namespace Inventory_Managment_System.View
             {
                 Console.WriteLine($"{nullRefExcp.Message} CAUGHT!");
             }
+
+            var partList = new BindingList<Part>();
+            partList.Add(new Inhouse(133, "screw", 3.99M, 1, 1, 2));
+            partList.Add(new Outsourced("Lowes", "fence", 3.99M, 1, 1, 2));
+
+            Validate.ValidateType(partList[0]);
+            Validate.ValidateType(partList[1]);
         }
     }
 }

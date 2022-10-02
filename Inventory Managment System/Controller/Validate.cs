@@ -34,5 +34,16 @@ namespace Inventory_Managment_System.Controller
                     $"cannot be empty or whitespace only.\nMust have characters!");
             }
         }
+
+        public static void ValidateType(Part part)
+        {
+            if (part is Inhouse)
+            {
+                Console.WriteLine(part.GetType());
+            } else if (part is Outsourced)
+            {
+                Console.WriteLine(part.GetType());
+            }
+        }
     }
 }
