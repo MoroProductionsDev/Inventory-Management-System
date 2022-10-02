@@ -28,16 +28,7 @@ namespace Inventory_Managment_System.Model
         public string Name
         {
             get => name;
-            set
-            {
-                if (String.IsNullOrWhiteSpace(value)) // This go in the [VIEW]!!!!
-                {
-                    throw new NullReferenceException(
-                        $"\n<{nameof(Part)}> : <{nameof(Name)}> " +
-                        $"cannot be empty or whitespace only.\nMust have characters!");
-                }
-                name = value;
-            }
+            set => name = value;
         }
 
         public decimal Price

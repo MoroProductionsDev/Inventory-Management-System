@@ -3,5 +3,5 @@ using Inventory_Managment_System.View;
 using System.Reflection;
 
 
-Test.RunTest();
-
+//Test.RunTest();
+Test.RunPartValdiation(); ;

@@ -6,26 +6,33 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Inventory_Managment_System.Controller
 {
-    internal class Validate
+    internal static class Validate
     {
-        //public Validate()
-        //{
-            
-        //}
+        public static bool ValidateNumericInput(ref string userInput, out int id)
+        {
+            //if (id.All(char.IsNumber)) {
+            //    Console.WriteLine($"{id} is a num!");
+            //} else
+            //{
+            //    Console.WriteLine($"{id} is a not num!");
+            //}
 
-    //    public EmptyProductName()
-    //    {
-    //        try
-    //        {
+            return int.TryParse(userInput, out id);
 
-    //        }
-    //        catch (NullReferenceException nullRefExcp)
-    //        {
-    //            Console.WriteLine($"{nullRefExcp.Message} CAUGHT!");
-    //        }
-    //    }
+        }
+
+        public static void ValidateNullorEmptyString(ref string userinput)
+        {
+            if (string.IsNullOrWhiteSpace(userinput))
+            {
+                throw new NullReferenceException(
+                    $"\n<{nameof(Part)}> : <{nameof(userinput)}> " +
+                    $"cannot be empty or whitespace only.\nMust have characters!");
+            }
+        }
     }
 }
