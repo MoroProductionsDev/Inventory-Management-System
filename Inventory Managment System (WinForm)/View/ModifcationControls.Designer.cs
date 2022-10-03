@@ -35,30 +35,33 @@
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(165, 3);
+            this.deleteBtn.Location = new System.Drawing.Point(169, 3);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(56, 27);
             this.deleteBtn.TabIndex = 8;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // modifyBtn
             // 
-            this.modifyBtn.Location = new System.Drawing.Point(84, 3);
+            this.modifyBtn.Location = new System.Drawing.Point(88, 3);
             this.modifyBtn.Name = "modifyBtn";
             this.modifyBtn.Size = new System.Drawing.Size(56, 27);
             this.modifyBtn.TabIndex = 7;
             this.modifyBtn.Text = "Modify";
             this.modifyBtn.UseVisualStyleBackColor = true;
+            this.modifyBtn.Click += new System.EventHandler(this.modifyBtn_Click);
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(3, 3);
+            this.addBtn.Location = new System.Drawing.Point(7, 3);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(56, 27);
             this.addBtn.TabIndex = 6;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // ModifcationControls
             // 
@@ -69,6 +72,7 @@
             this.Controls.Add(this.addBtn);
             this.Name = "ModifcationControls";
             this.Size = new System.Drawing.Size(226, 35);
+            this.Load += new System.EventHandler(this.ModifcationControls_Load);
             this.ResumeLayout(false);
 
         }

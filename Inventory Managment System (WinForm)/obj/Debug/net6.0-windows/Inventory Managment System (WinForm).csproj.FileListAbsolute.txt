@@ -17,3 +17,4 @@ C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment
 C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.MainForm.resources
 C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.ModifcationControls.resources
 C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.SearchControl.resources
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.TabControl.resources

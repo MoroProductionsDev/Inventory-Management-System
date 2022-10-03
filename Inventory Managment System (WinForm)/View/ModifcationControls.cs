@@ -16,5 +16,25 @@ namespace Inventory_Managment_System.View
         {
             InitializeComponent();
         }
+
+        private void modifyBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ModifcationControls_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

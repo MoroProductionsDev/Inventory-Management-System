@@ -8,10 +8,9 @@ using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Inventory_Managment_System.Controller;
 using Inventory_Managment_System.Model; // Part, Product class
 
-namespace Inventory_Managment_System
+namespace Inventory_Managment_System.Controller
 {
     internal class Test
     {

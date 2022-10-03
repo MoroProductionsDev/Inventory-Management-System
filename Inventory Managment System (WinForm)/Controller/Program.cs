@@ -1,6 +1,6 @@
 using System.Windows.Forms;
 
-namespace Inventory_Managment_System.View
+namespace Inventory_Managment_System.Controller
 {
     internal static class Program
     {

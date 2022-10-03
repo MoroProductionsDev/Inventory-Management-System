@@ -38,7 +38,6 @@
             this.searchTxtbox.Name = "searchTxtbox";
             this.searchTxtbox.Size = new System.Drawing.Size(168, 23);
             this.searchTxtbox.TabIndex = 4;
-            this.searchTxtbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // searchLbl
             // 

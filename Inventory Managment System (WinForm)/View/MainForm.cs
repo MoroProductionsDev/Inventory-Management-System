@@ -11,5 +11,15 @@ namespace Inventory_Managment_System
         {
 
         }
+
+        private void modifcationControls_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

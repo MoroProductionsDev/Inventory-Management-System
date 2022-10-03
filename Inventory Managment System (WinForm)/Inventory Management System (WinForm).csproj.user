@@ -10,5 +10,8 @@
     <Compile Update="View\SearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\TabControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

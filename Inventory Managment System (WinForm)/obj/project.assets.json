@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\r-developer\\source\\repos\\Inventory Managment System\\Inventory Managment System (WinForm)\\Inventory Managment System (WinForm).csproj",
-      "projectName": "Inventory Managment System (WinForm)",
-      "projectPath": "C:\\Users\\r-developer\\source\\repos\\Inventory Managment System\\Inventory Managment System (WinForm)\\Inventory Managment System (WinForm).csproj",
+      "projectUniqueName": "C:\\Users\\r-developer\\source\\repos\\Inventory Managment System\\Inventory Managment System (WinForm)\\Inventory Management System (WinForm).csproj",
+      "projectName": "Inventory Management System (WinForm)",
+      "projectPath": "C:\\Users\\r-developer\\source\\repos\\Inventory Managment System\\Inventory Managment System (WinForm)\\Inventory Management System (WinForm).csproj",
       "packagesPath": "C:\\Users\\r-developer\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\r-developer\\source\\repos\\Inventory Managment System\\Inventory Managment System (WinForm)\\obj\\",
       "projectStyle": "PackageReference",
