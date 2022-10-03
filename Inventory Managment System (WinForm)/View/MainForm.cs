@@ -6,5 +6,10 @@ namespace Inventory_Managment_System
         {
             InitializeComponent();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
