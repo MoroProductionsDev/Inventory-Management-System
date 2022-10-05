@@ -47,7 +47,7 @@
             // 
             // modifcationControls
             // 
-            this.modifcationControls.Location = new System.Drawing.Point(347, 368);
+            this.modifcationControls.Location = new System.Drawing.Point(423, 368);
             this.modifcationControls.Name = "modifcationControls";
             this.modifcationControls.Size = new System.Drawing.Size(226, 35);
             this.modifcationControls.TabIndex = 3;
@@ -55,7 +55,7 @@
             // 
             // searchControl
             // 
-            this.searchControl.Location = new System.Drawing.Point(321, 39);
+            this.searchControl.Location = new System.Drawing.Point(397, 39);
             this.searchControl.Name = "searchControl";
             this.searchControl.Size = new System.Drawing.Size(252, 32);
             this.searchControl.TabIndex = 4;
@@ -64,7 +64,7 @@
             // 
             this.inventoryTabController.Location = new System.Drawing.Point(16, 77);
             this.inventoryTabController.Name = "inventoryTabController";
-            this.inventoryTabController.Size = new System.Drawing.Size(561, 285);
+            this.inventoryTabController.Size = new System.Drawing.Size(645, 285);
             this.inventoryTabController.TabIndex = 5;
             this.inventoryTabController.Load += new System.EventHandler(this.tabControl1_Load);
             // 
@@ -72,7 +72,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 427);
+            this.ClientSize = new System.Drawing.Size(678, 427);
             this.Controls.Add(this.inventoryTabController);
             this.Controls.Add(this.searchControl);
             this.Controls.Add(this.modifcationControls);
