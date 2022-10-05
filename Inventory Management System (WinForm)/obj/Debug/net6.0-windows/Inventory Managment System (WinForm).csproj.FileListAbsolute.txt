@@ -1,0 +1,20 @@
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\bin\Debug\net6.0-windows\Inventory Managment System (WinForm).exe
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\bin\Debug\net6.0-windows\Inventory Managment System (WinForm).deps.json
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\bin\Debug\net6.0-windows\Inventory Managment System (WinForm).runtimeconfig.json
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\bin\Debug\net6.0-windows\Inventory Managment System (WinForm).dll
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\bin\Debug\net6.0-windows\Inventory Managment System (WinForm).pdb
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory Managment System (WinForm).csproj.AssemblyReference.cache
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory Managment System (WinForm).csproj.GenerateResource.cache
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory Managment System (WinForm).GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory Managment System (WinForm).AssemblyInfoInputs.cache
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory Managment System (WinForm).AssemblyInfo.cs
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory Managment System (WinForm).csproj.CoreCompileInputs.cache
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory Managment System (WinForm).dll
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\refint\Inventory Managment System (WinForm).dll
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory Managment System (WinForm).pdb
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory Managment System (WinForm).genruntimeconfig.cache
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\ref\Inventory Managment System (WinForm).dll
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.MainForm.resources
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.ModifcationControls.resources
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.SearchControl.resources
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managment System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.TabControl.resources
