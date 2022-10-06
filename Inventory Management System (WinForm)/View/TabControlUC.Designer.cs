@@ -1,10 +1,11 @@
 ﻿using Inventory_Managment_System.Model;
 using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Inventory_Managment_System.View
 {
-    partial class TabControl
+    partial class TabControlUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -76,12 +77,14 @@ namespace Inventory_Managment_System.View
             this.partsTabPage.TabIndex = 0;
             this.partsTabPage.Text = "Parts";
             this.partsTabPage.UseVisualStyleBackColor = true;
+
             // 
             // partsDataGridView
             // 
             this.partsDataGridView.AllowUserToAddRows = false;
             this.partsDataGridView.AllowUserToDeleteRows = false;
             this.partsDataGridView.AllowUserToResizeColumns = false;
+            this.partsDataGridView.AllowUserToResizeRows = false;
             this.partsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.partID,
             this.partName,
@@ -285,19 +288,8 @@ namespace Inventory_Managment_System.View
 
         }
 
-        //private void loadData()
-        //{
-        //    var partList = new BindingList<Part>();
-        //    partList.Add(new Inhouse(133, "screw", 3.99M, 1, 1, 2));
-        //    partList.Add(new Inhouse(224, "nail", 10.34M, 3, 5, 10));
-
-        //    foreach (var part in partList)
-        //    {
-        //        // Object type to cover all different types.
-        //        partsDataGridView.Rows.Add(new object[] { part.PartID, part.Name, part.InStock,
-        //            part.Price, part.Min, part.Max });
-        //    }
-        //}
+        public TabPage PartsPage {get => partsTabPage;}
+        public TabPage ProductsPage { get => productsTabPage; }
         // 
         #endregion
 

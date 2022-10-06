@@ -1,4 +1,5 @@
 using System.Windows.Forms;
+using Inventory_Managment_System.View;
 
 namespace Inventory_Managment_System.Controller
 {

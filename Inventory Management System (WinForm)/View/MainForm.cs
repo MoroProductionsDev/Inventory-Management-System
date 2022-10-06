@@ -1,4 +1,4 @@
-namespace Inventory_Managment_System
+namespace Inventory_Managment_System.View
 {
     public partial class MainForm : Form
     {
@@ -9,12 +9,9 @@ namespace Inventory_Managment_System
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            StateMng.setState("partPage", this.tabControlUC.PartsPage);
         }
 
-        private void modifcationControls_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

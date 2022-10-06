@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Inventory_Managment_System.View
 {
-    public partial class SearchControl : UserControl
+    public partial class AddPartForm : Form
     {
-        public SearchControl()
+        public AddPartForm()
         {
             InitializeComponent();
         }

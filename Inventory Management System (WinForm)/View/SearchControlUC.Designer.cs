@@ -1,6 +1,6 @@
 ﻿namespace Inventory_Managment_System.View
 {
-    partial class SearchControl
+    partial class SearchControlUC
     {
         /// <summary> 
         /// Required designer variable.

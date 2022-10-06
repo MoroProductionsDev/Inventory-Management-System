@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Inventory_Managment_System.View
 {
-    public partial class TabControl : UserControl
+    public partial class TabControlUC : UserControl
     {
-        public TabControl()
+        public TabControlUC()
         {
             InitializeComponent();
         }

@@ -1,4 +1,4 @@
-﻿namespace Inventory_Managment_System
+﻿namespace Inventory_Managment_System.View
 {
     partial class MainForm
     {
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.appNameLbl = new System.Windows.Forms.Label();
-            this.modifcationControls = new Inventory_Managment_System.View.ModifcationControls();
-            this.searchControl = new Inventory_Managment_System.View.SearchControl();
-            this.inventoryTabController = new Inventory_Managment_System.View.TabControl();
+            this.modifcationControlsUC = new Inventory_Managment_System.View.ModifcationControlsUC();
+            this.searchControlUC = new Inventory_Managment_System.View.SearchControlUC();
+            this.tabControlUC = new Inventory_Managment_System.View.TabControlUC();
             this.SuspendLayout();
             // 
             // appNameLbl
@@ -45,36 +45,35 @@
             this.appNameLbl.Text = "Inventory Management System";
             this.appNameLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // modifcationControls
+            // modifcationControlsUC
             // 
-            this.modifcationControls.Location = new System.Drawing.Point(423, 368);
-            this.modifcationControls.Name = "modifcationControls";
-            this.modifcationControls.Size = new System.Drawing.Size(226, 35);
-            this.modifcationControls.TabIndex = 3;
-            this.modifcationControls.Load += new System.EventHandler(this.modifcationControls_Load);
+            this.modifcationControlsUC.Location = new System.Drawing.Point(423, 368);
+            this.modifcationControlsUC.Name = "modifcationControlsUC";
+            this.modifcationControlsUC.Size = new System.Drawing.Size(226, 35);
+            this.modifcationControlsUC.TabIndex = 3;
             // 
-            // searchControl
+            // searchControlUC
             // 
-            this.searchControl.Location = new System.Drawing.Point(397, 39);
-            this.searchControl.Name = "searchControl";
-            this.searchControl.Size = new System.Drawing.Size(252, 32);
-            this.searchControl.TabIndex = 4;
+            this.searchControlUC.Location = new System.Drawing.Point(397, 39);
+            this.searchControlUC.Name = "searchControlUC";
+            this.searchControlUC.Size = new System.Drawing.Size(252, 32);
+            this.searchControlUC.TabIndex = 4;
             // 
-            // inventoryTabController
+            // tabControlUC
             // 
-            this.inventoryTabController.Location = new System.Drawing.Point(16, 77);
-            this.inventoryTabController.Name = "inventoryTabController";
-            this.inventoryTabController.Size = new System.Drawing.Size(645, 285);
-            this.inventoryTabController.TabIndex = 5;
+            this.tabControlUC.Location = new System.Drawing.Point(16, 77);
+            this.tabControlUC.Name = "tabControlUC";
+            this.tabControlUC.Size = new System.Drawing.Size(645, 285);
+            this.tabControlUC.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 427);
-            this.Controls.Add(this.inventoryTabController);
-            this.Controls.Add(this.searchControl);
-            this.Controls.Add(this.modifcationControls);
+            this.Controls.Add(this.tabControlUC);
+            this.Controls.Add(this.searchControlUC);
+            this.Controls.Add(this.modifcationControlsUC);
             this.Controls.Add(this.appNameLbl);
             this.Name = "MainForm";
             this.Text = "Main Screen";
@@ -86,8 +85,8 @@
 
         #endregion
         private Label appNameLbl;
-        private View.ModifcationControls modifcationControls;
-        private View.SearchControl searchControl;
-        private View.TabControl inventoryTabController;
+        private View.ModifcationControlsUC modifcationControlsUC;
+        private View.SearchControlUC searchControlUC;
+        private View.TabControlUC tabControlUC;
     }
 }

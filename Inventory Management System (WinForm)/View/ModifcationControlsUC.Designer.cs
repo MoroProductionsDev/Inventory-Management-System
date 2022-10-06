@@ -1,6 +1,6 @@
 ﻿namespace Inventory_Managment_System.View
 {
-    partial class ModifcationControls
+    partial class ModifcationControlsUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -72,7 +72,6 @@
             this.Controls.Add(this.addBtn);
             this.Name = "ModifcationControls";
             this.Size = new System.Drawing.Size(226, 35);
-            this.Load += new System.EventHandler(this.ModifcationControls_Load);
             this.ResumeLayout(false);
 
         }
