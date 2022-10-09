@@ -77,7 +77,6 @@
             this.Controls.Add(this.appNameLbl);
             this.Name = "MainForm";
             this.Text = "Main Screen";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

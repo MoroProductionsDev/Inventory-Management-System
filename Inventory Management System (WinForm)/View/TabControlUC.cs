@@ -13,9 +13,13 @@ namespace Inventory_Managment_System.View
 {
     public partial class TabControlUC : UserControl
     {
+        public static TabControlUC Instance;
+        public TabControl InventoryTbCtrl;
         public TabControlUC()
         {
             InitializeComponent();
+            Instance = this;
+            InventoryTbCtrl = this.inventoryTbCtrl;
         }
 
         private void tabControl_Load(object sender, EventArgs e)
@@ -40,6 +44,29 @@ namespace Inventory_Managment_System.View
             {
                 this.partsDataGridView.Rows.Add(new object[] { part.PartID, part.Name, part.InStock,
                     part.Price, part.Min, part.Max });
+            }
+
+            var productList = new BindingList<Product>();
+            productList.Add(new Product("Yellow Bicycle", 15.67M, 12, 20, 25));
+            productList.Add(new Product("Red Bicycle", 19.34M, 15, 20, 25));
+            productList.Add(new Product("Blue Bicycle", 23.86M, 19, 20, 25));
+
+            productList[0].addAssociatedPart(partList[2]);
+            productList[0].addAssociatedPart(partList[3]);
+
+            productList[1].addAssociatedPart(partList[5]);
+            productList[1].addAssociatedPart(partList[6]);
+            productList[1].addAssociatedPart(partList[0]);
+            productList[1].addAssociatedPart(partList[2]);
+
+            productList[2].addAssociatedPart(partList[1]);
+            productList[2].addAssociatedPart(partList[4]);
+            productList[2].addAssociatedPart(partList[7]);
+
+            foreach (var product in productList)
+            {
+                this.productsDataGridView.Rows.Add(new object[] { product.ProductID, product.Name, product.InStock,
+                    product.Price, product.Min, product.Max });
             }
         }
     }

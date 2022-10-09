@@ -6,12 +6,5 @@ namespace Inventory_Managment_System.View
         {
             InitializeComponent();
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            StateMng.setState("partPage", this.tabControlUC.PartsPage);
-        }
-
-
     }
 }

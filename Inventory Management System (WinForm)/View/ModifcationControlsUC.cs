@@ -13,21 +13,23 @@ namespace Inventory_Managment_System.View
 {
     public partial class ModifcationControlsUC : UserControl
     {
+        private static string[] tabPageNames = { "partsTabPage", "productsTabPage" };
         public ModifcationControlsUC()
         {
             InitializeComponent();
         }
         private void addBtn_Click(object sender, EventArgs e) {
-            // StateMng.State["partPage"].;
-            //if ( )
-            //{
-            //    var addPartForm = new AddPartForm();
-            //    addPartForm.Show();
 
-            //}
-            //else if ()
-            //{
+            if (TabControlUC.Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
+            {
+                var addPartForm = new AddPartForm();
+                addPartForm.Show();
 
+            }
+            //else if (TabControlUC.Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+            //{
+            //    var addProductForm = new AddProductForm();
+            //    AddProductForm.Show();
             //}
         }
         private void modifyBtn_Click(object sender, EventArgs e)
