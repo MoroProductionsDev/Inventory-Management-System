@@ -42,3 +42,5 @@ C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Managemen
 C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Management System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.ProductUC.resources
 C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Management System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.SearchControlUC.resources
 C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Management System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.TabControlUC.resources
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Management System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.ModifyProductForm.resources
+C:\Users\r-developer\source\repos\Inventory Managment System\Inventory Management System (WinForm)\obj\Debug\net6.0-windows\Inventory_Managment_System.View.AddProductForm.resources

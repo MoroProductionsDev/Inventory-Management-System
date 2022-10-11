@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,11 +10,13 @@ using System.Windows.Forms;
 
 namespace Inventory_Managment_System.View
 {
-    public partial class ModifyPartForm : Form
+    public partial class AddProductForm : Form
     {
-        public ModifyPartForm()
+        public AddProductForm()
         {
             InitializeComponent();
         }
+
+
     }
 }
