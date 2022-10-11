@@ -16,7 +16,6 @@ namespace Inventory_Managment_System.View
     {
         public static TabControlUC tabControlUC_Instance;
         public TabControl InventoryTbCtrl;
-        private readonly static Data data = Controller.Controller.Data; // Data use by the Controller
         public TabControlUC()
         {
             InitializeComponent();
@@ -26,8 +25,11 @@ namespace Inventory_Managment_System.View
 
         private void tabControl_Load(object sender, EventArgs e)
         {
-            var partList = data.PartList;
-            var productList = data.ProductList;
+            Controller.Controller.createPartList();
+            Controller.Controller.createProductList();
+
+            var partList = Inventory.AllParts;
+            var productList = Inventory.Products;
 
             foreach (var part in partList)
             {

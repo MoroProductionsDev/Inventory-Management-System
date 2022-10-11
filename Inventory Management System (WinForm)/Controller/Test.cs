@@ -134,27 +134,27 @@ namespace Inventory_Managment_System.Controller
             string userInput = "2";
             int id;
 
-            Console.WriteLine(Validate.ValidateNumericInput(ref userInput, out id));
+            Console.WriteLine(Validate.ValidateNumericInput(userInput, out id));
             Console.WriteLine(id);
 
             userInput = "3s";
 
-            Console.WriteLine(Validate.ValidateNumericInput(ref userInput, out id));
+            Console.WriteLine(Validate.ValidateNumericInput(userInput, out id));
             Console.WriteLine(id);
 
             userInput = null;
 
-            Console.WriteLine(Validate.ValidateNumericInput(ref userInput, out id));
+            Console.WriteLine(Validate.ValidateNumericInput(userInput, out id));
             Console.WriteLine(id);
 
             userInput = string.Empty;
 
-            Console.WriteLine(Validate.ValidateNumericInput(ref userInput, out id));
+            Console.WriteLine(Validate.ValidateNumericInput(userInput, out id));
             Console.WriteLine(id);
 
             userInput = "";
 
-            Console.WriteLine(Validate.ValidateNumericInput(ref userInput, out id));
+            Console.WriteLine(Validate.ValidateNumericInput(userInput, out id));
             Console.WriteLine(id);
 
             Console.WriteLine();
@@ -163,7 +163,7 @@ namespace Inventory_Managment_System.Controller
             {
                 // userInput == "";
                 Console.WriteLine($"String length: {userInput.Length}");
-                Validate.ValidateNullorEmptyString(ref userInput);
+                Validate.ValidateNullorEmptyString(userInput);
             }
             catch (NullReferenceException nullRefExcp)
             {
@@ -176,7 +176,7 @@ namespace Inventory_Managment_System.Controller
                 userInput = string.Empty;
 
                 Console.WriteLine($"String length: {userInput.Length}");
-                Validate.ValidateNullorEmptyString(ref userInput);
+                Validate.ValidateNullorEmptyString(userInput);
             }
             catch (NullReferenceException nullRefExcp)
             {
@@ -188,7 +188,7 @@ namespace Inventory_Managment_System.Controller
                 userInput = "   ";
 
                 Console.WriteLine($"String length: {userInput.Length}");
-                Validate.ValidateNullorEmptyString(ref userInput);
+                Validate.ValidateNullorEmptyString(userInput);
             }
             catch (NullReferenceException nullRefExcp)
             {
@@ -199,7 +199,7 @@ namespace Inventory_Managment_System.Controller
             {
                 userInput = "  3 ";
                 Console.WriteLine($"String length: {userInput.Length}");
-                Validate.ValidateNullorEmptyString(ref userInput);
+                Validate.ValidateNullorEmptyString(userInput);
 
                 Console.WriteLine(userInput);
 

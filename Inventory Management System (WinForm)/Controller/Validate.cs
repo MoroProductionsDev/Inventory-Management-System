@@ -12,7 +12,7 @@ namespace Inventory_Managment_System.Controller
 {
     internal static class Validate
     {
-        public static bool ValidateNumericInput(ref string userInput, out int id)
+        public static bool ValidateNumericInput(string userInput, out int id)
         {
             //if (id.All(char.IsNumber)) {
             //    Console.WriteLine($"{id} is a num!");
@@ -25,7 +25,7 @@ namespace Inventory_Managment_System.Controller
 
         }
 
-        public static void ValidateNullorEmptyString(ref string userinput)
+        public static void ValidateNullorEmptyString(string userinput)
         {
             if (string.IsNullOrWhiteSpace(userinput))
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventory_Managment_System.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,10 @@ namespace Inventory_Managment_System.View
         private void saveBtn_Click(object sender, EventArgs e)
         {
             // Save
-            
+            //AddInventoryPart();
+            //data.addInventoryPart(in partUC);
+            Controller.Controller.validateUITextBox(in partUC);
+            //Controller.Controller.addInventoryPart(in partUC);
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
