@@ -79,7 +79,6 @@
             this.Text = "Main Screen";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

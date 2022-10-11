@@ -25,12 +25,12 @@ namespace Inventory_Managment_System.View
         private void addBtn_Click(object sender, EventArgs e) {
             closeAllPartsForms();
             closeAllProductsForms();
-            if (TabControlUC.Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
+            if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
             {
                 partForms["addPartForm"] = new AddPartForm(); // Form has to be added her to avoid opening disposed object
                 partForms["addPartForm"].Show();
             }
-            else if (TabControlUC.Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+            else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
             {
                 productForms["addProductForm"] = new AddProductForm(); // Form has to be added her to avoid opening disposed object
                 productForms["addProductForm"].Show();
@@ -40,12 +40,12 @@ namespace Inventory_Managment_System.View
         {
             closeAllPartsForms();
             closeAllProductsForms();
-            if (TabControlUC.Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
+            if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
             {
                 partForms["modifyPartForm"] = new ModifyPartForm(); // Form has to be added her to avoid opening disposed object
                 partForms["modifyPartForm"].Show();
             }
-            else if (TabControlUC.Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+            else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
             {
                 productForms["modifyProductForm"] = new ModifyProductForm(); // Form has to be added her to avoid opening disposed object
                 productForms["modifyProductForm"].Show();

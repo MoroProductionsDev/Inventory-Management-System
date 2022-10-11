@@ -15,6 +15,7 @@ namespace Inventory_Managment_System.Controller
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
+            
         }
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Inventory_Managment_System.Controller
 {
-    internal class Controller
+    internal static class Controller
     {
+        public static Data Data = new Data();
     }
 }
