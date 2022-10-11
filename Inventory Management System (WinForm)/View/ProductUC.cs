@@ -43,17 +43,17 @@ namespace Inventory_Managment_System.View
             //productList.Add(new Product("Red Bicycle", 19.34M, 15, 20, 25));
             //productList.Add(new Product("Blue Bicycle", 23.86M, 19, 20, 25));
 
-            //productList[0].addAssociatedPart(partList[2]);
-            //productList[0].addAssociatedPart(partList[3]);
+            //productList[0].addAssociatedPart(allPartList[2]);
+            //productList[0].addAssociatedPart(allPartList[3]);
 
-            //productList[1].addAssociatedPart(partList[5]);
-            //productList[1].addAssociatedPart(partList[6]);
-            //productList[1].addAssociatedPart(partList[0]);
-            //productList[1].addAssociatedPart(partList[2]);
+            //productList[1].addAssociatedPart(allPartList[5]);
+            //productList[1].addAssociatedPart(allPartList[6]);
+            //productList[1].addAssociatedPart(allPartList[0]);
+            //productList[1].addAssociatedPart(allPartList[2]);
 
-            //productList[2].addAssociatedPart(partList[1]);
-            //productList[2].addAssociatedPart(partList[4]);
-            //productList[2].addAssociatedPart(partList[7]);
+            //productList[2].addAssociatedPart(allPartList[1]);
+            //productList[2].addAssociatedPart(allPartList[4]);
+            //productList[2].addAssociatedPart(allPartList[7]);
 
             //foreach (var product in productList)
             //{

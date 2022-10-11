@@ -12,6 +12,20 @@ namespace Inventory_Managment_System.View
 {
     public partial class PartUC : UserControl
     {
+        private RadioButton InHouseRadioButton { get => inHouseRdBtn; }
+        public RadioButton OutSourcedRadioButton { get => outSourcedRdBtn; }
+        public TextBox IDTxtBox { get => partIDTxtBox; }
+        public TextBox NameTxtBox { get => partNameTxtBox; }
+
+        public TextBox InventoryTxtBox { get => partInventoryTxtBox; }
+        public TextBox Price { get => partPriceTxtBox; }
+
+        public TextBox MinTxtBox { get => partMinTxtBox; }
+        public TextBox MaxTxtBox { get => partMaxTxtBox; }
+
+        public Button SaveButton { get => saveBtn; }
+        public Button CancelButton { get => cancelBtn; }
+
         public PartUC()
         {
             InitializeComponent();

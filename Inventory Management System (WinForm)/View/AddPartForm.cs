@@ -16,5 +16,20 @@ namespace Inventory_Managment_System.View
         {
             InitializeComponent();
         }
+        private void partUC_Load(object sender, EventArgs e)
+        {
+            //partUC.Inventory.Text);
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            // Save
+            
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

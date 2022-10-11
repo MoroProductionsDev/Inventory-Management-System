@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.partuc1 = new Inventory_Managment_System.View.PartUC();
+            this.partUC = new Inventory_Managment_System.View.PartUC();
             this.addPartLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // partuc1
+            // partUC
             // 
-            this.partuc1.Location = new System.Drawing.Point(12, 12);
-            this.partuc1.Name = "partuc1";
-            this.partuc1.Size = new System.Drawing.Size(461, 355);
-            this.partuc1.TabIndex = 1;
+            this.partUC.Location = new System.Drawing.Point(12, 13);
+            this.partUC.Name = "partUC";
+            this.partUC.Size = new System.Drawing.Size(461, 355);
+            this.partUC.TabIndex = 1;
+            this.partUC.Load += new System.EventHandler(this.partUC_Load);
             // 
             // addPartLbl
             // 
@@ -54,17 +55,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 380);
             this.Controls.Add(this.addPartLbl);
-            this.Controls.Add(this.partuc1);
+            this.Controls.Add(this.partUC);
             this.Name = "AddPartForm";
             this.Text = "Add Part";
             this.ResumeLayout(false);
             this.PerformLayout();
-
+            this.partUC.SaveButton.Click += new System.EventHandler(this.saveBtn_Click); // save btn event for its child
+            this.partUC.CancelButton.Click += new System.EventHandler(this.cancelBtn_Click);
         }
 
         #endregion
 
-        private PartUC partuc1;
+        private PartUC partUC;
         private Label addPartLbl;
     }
 }
