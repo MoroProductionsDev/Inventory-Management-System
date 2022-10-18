@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Inventory_Managment_System.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,6 +43,49 @@ namespace Inventory_Managment_System.View
         {
             this.machineID.Visible = false;
             this.partCompanyNameLbl.Visible = true;
+        }
+
+        private void partNameTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
+        }
+
+        private void partInventoryTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
+        }
+
+        private void partPriceTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
+        }
+
+        private void partMinTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
+        }
+
+        private void partMaxTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
+        }
+
+        private void modifyNullOrEmptyTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            if (sender.GetType().Equals(typeof(TextBox))) 
+            {
+                try
+                {
+                    
+                    Controller.Validate.ValidateNullorEmptyString(((TextBox)sender).Text);
+                    ((TextBox)sender).BackColor = Color.White;
+                }
+                catch (NullReferenceException nullRefExcp)
+                {
+                    ((TextBox)sender).BackColor = Color.OrangeRed;
+                    //Console.WriteLine($"{nullRefExcp.Message} CAUGHT!");
+                }
+            }
         }
     }
 }

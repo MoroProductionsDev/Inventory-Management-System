@@ -27,7 +27,7 @@ namespace Inventory_Managment_System.View
             // Save
             //AddInventoryPart();
             //data.addInventoryPart(in partUC);
-            Controller.Controller.validateUITextBox(in partUC);
+            //Controller.Controller.validateUITextBox(in partUC);
             //Controller.Controller.addInventoryPart(in partUC);
         }
 

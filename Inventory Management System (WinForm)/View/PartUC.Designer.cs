@@ -1,4 +1,6 @@
-﻿namespace Inventory_Managment_System.View
+﻿using System.ComponentModel;
+
+namespace Inventory_Managment_System.View
 {
     partial class PartUC
     {
@@ -135,6 +137,7 @@
             this.partNameTxtBox.Name = "partNameTxtBox";
             this.partNameTxtBox.Size = new System.Drawing.Size(119, 23);
             this.partNameTxtBox.TabIndex = 5;
+            this.partNameTxtBox.TextChanged += new EventHandler(partNameTxtBox_TextChanged);
             // 
             // partInventoryTxtBox
             // 
@@ -142,6 +145,15 @@
             this.partInventoryTxtBox.Name = "partInventoryTxtBox";
             this.partInventoryTxtBox.Size = new System.Drawing.Size(119, 23);
             this.partInventoryTxtBox.TabIndex = 7;
+            this.partInventoryTxtBox.TextChanged += new EventHandler(partInventoryTxtBox_TextChanged);
+            // 
+            // partPriceTxtBox
+            // 
+            this.partPriceTxtBox.Location = new System.Drawing.Point(153, 187);
+            this.partPriceTxtBox.Name = "partPriceTxtBox";
+            this.partPriceTxtBox.Size = new System.Drawing.Size(119, 23);
+            this.partPriceTxtBox.TabIndex = 9;
+            this.partPriceTxtBox.TextChanged += new EventHandler(partPriceTxtBox_TextChanged);
             // 
             // partMinTxtBox
             // 
@@ -149,6 +161,7 @@
             this.partMinTxtBox.Name = "partMinTxtBox";
             this.partMinTxtBox.Size = new System.Drawing.Size(69, 23);
             this.partMinTxtBox.TabIndex = 13;
+            this.partMinTxtBox.TextChanged += new EventHandler(partMinTxtBox_TextChanged);
             // 
             // partMaxTxtBox
             // 
@@ -156,6 +169,7 @@
             this.partMaxTxtBox.Name = "partMaxTxtBox";
             this.partMaxTxtBox.Size = new System.Drawing.Size(69, 23);
             this.partMaxTxtBox.TabIndex = 11;
+            this.partMaxTxtBox.TextChanged += new EventHandler(partMaxTxtBox_TextChanged);
             // 
             // inHouseRdBtn
             // 
@@ -187,13 +201,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(119, 23);
             this.textBox1.TabIndex = 14;
-            // 
-            // partPriceTxtBox
-            // 
-            this.partPriceTxtBox.Location = new System.Drawing.Point(153, 187);
-            this.partPriceTxtBox.Name = "partPriceTxtBox";
-            this.partPriceTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.partPriceTxtBox.TabIndex = 9;
             // 
             // saveBtn
             // 

@@ -63,18 +63,10 @@ namespace Inventory_Managment_System.Controller
 
         public static void validateUITextBox(in PartUC partUC)
         {
-            foreach (var txtBox in partUC.Controls.OfType<TextBox>())
-            {
-                try
-                {
-                    Validate.ValidateNullorEmptyString(txtBox.Text);
-                }
-                catch (NullReferenceException nullRefExcp)
-                {
-                    txtBox.BackColor = Color.Red;
-                    //Console.WriteLine($"{nullRefExcp.Message} CAUGHT!");
-                }
-            }
+            //foreach (var txtBox in partUC.Controls.OfType<TextBox>())
+            //{
+
+            //}
         }
     }
 
