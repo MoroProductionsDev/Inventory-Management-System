@@ -12,16 +12,20 @@ namespace Inventory_Managment_System.Controller
 {
     internal static class Validate
     {
-        public static bool ValidateNumericInput(string userInput, out int id)
+        public static bool ValidateNumericInput(string userInput)
         {
-            //if (id.All(char.IsNumber)) {
-            //    Console.WriteLine($"{id} is a num!");
-            //} else
-            //{
-            //    Console.WriteLine($"{id} is a not num!");
-            //}
+            bool isNumeric;
+            if (userInput.All(char.IsNumber))
+            {
+                isNumeric = true;
+            }
+            else
+            {
+                isNumeric = false;
+            }
 
-            return int.TryParse(userInput, out id);
+            return isNumeric;
+            //return int.TryParse(userInput, out id);
 
         }
 

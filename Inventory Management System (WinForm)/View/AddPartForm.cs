@@ -25,6 +25,13 @@ namespace Inventory_Managment_System.View
         private void saveBtn_Click(object sender, EventArgs e)
         {
             // Save
+            if (((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked) {
+                MessageBox.Show("InHouse");
+                
+            } else if (((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked)
+            {
+                MessageBox.Show("OutSource");
+            }
             //AddInventoryPart();
             //data.addInventoryPart(in partUC);
             //Controller.Controller.validateUITextBox(in partUC);

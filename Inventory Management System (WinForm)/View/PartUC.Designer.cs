@@ -45,7 +45,7 @@ namespace Inventory_Managment_System.View
             this.partMaxTxtBox = new System.Windows.Forms.TextBox();
             this.inHouseRdBtn = new System.Windows.Forms.RadioButton();
             this.outSourcedRdBtn = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.machineIDorCompanyNameTxtBox = new System.Windows.Forms.TextBox();
             this.partPriceTxtBox = new System.Windows.Forms.TextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -137,7 +137,7 @@ namespace Inventory_Managment_System.View
             this.partNameTxtBox.Name = "partNameTxtBox";
             this.partNameTxtBox.Size = new System.Drawing.Size(119, 23);
             this.partNameTxtBox.TabIndex = 5;
-            this.partNameTxtBox.TextChanged += new EventHandler(partNameTxtBox_TextChanged);
+            this.partNameTxtBox.TextChanged += new System.EventHandler(this.partNameTxtBox_TextChanged);
             // 
             // partInventoryTxtBox
             // 
@@ -145,15 +145,7 @@ namespace Inventory_Managment_System.View
             this.partInventoryTxtBox.Name = "partInventoryTxtBox";
             this.partInventoryTxtBox.Size = new System.Drawing.Size(119, 23);
             this.partInventoryTxtBox.TabIndex = 7;
-            this.partInventoryTxtBox.TextChanged += new EventHandler(partInventoryTxtBox_TextChanged);
-            // 
-            // partPriceTxtBox
-            // 
-            this.partPriceTxtBox.Location = new System.Drawing.Point(153, 187);
-            this.partPriceTxtBox.Name = "partPriceTxtBox";
-            this.partPriceTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.partPriceTxtBox.TabIndex = 9;
-            this.partPriceTxtBox.TextChanged += new EventHandler(partPriceTxtBox_TextChanged);
+            this.partInventoryTxtBox.TextChanged += new System.EventHandler(this.partInventoryTxtBox_TextChanged);
             // 
             // partMinTxtBox
             // 
@@ -161,7 +153,7 @@ namespace Inventory_Managment_System.View
             this.partMinTxtBox.Name = "partMinTxtBox";
             this.partMinTxtBox.Size = new System.Drawing.Size(69, 23);
             this.partMinTxtBox.TabIndex = 13;
-            this.partMinTxtBox.TextChanged += new EventHandler(partMinTxtBox_TextChanged);
+            this.partMinTxtBox.TextChanged += new System.EventHandler(this.partMinTxtBox_TextChanged);
             // 
             // partMaxTxtBox
             // 
@@ -169,7 +161,7 @@ namespace Inventory_Managment_System.View
             this.partMaxTxtBox.Name = "partMaxTxtBox";
             this.partMaxTxtBox.Size = new System.Drawing.Size(69, 23);
             this.partMaxTxtBox.TabIndex = 11;
-            this.partMaxTxtBox.TextChanged += new EventHandler(partMaxTxtBox_TextChanged);
+            this.partMaxTxtBox.TextChanged += new System.EventHandler(this.partMaxTxtBox_TextChanged);
             // 
             // inHouseRdBtn
             // 
@@ -195,12 +187,21 @@ namespace Inventory_Managment_System.View
             this.outSourcedRdBtn.UseVisualStyleBackColor = true;
             this.outSourcedRdBtn.CheckedChanged += new System.EventHandler(this.outSourcedRdBtn_CheckedChanged);
             // 
-            // textBox1
+            // machineIDorCompanyNameTxtBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(153, 267);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 23);
-            this.textBox1.TabIndex = 14;
+            this.machineIDorCompanyNameTxtBox.Location = new System.Drawing.Point(153, 267);
+            this.machineIDorCompanyNameTxtBox.Name = "machineIDorCompanyNameTxtBox";
+            this.machineIDorCompanyNameTxtBox.Size = new System.Drawing.Size(119, 23);
+            this.machineIDorCompanyNameTxtBox.TabIndex = 14;
+            this.machineIDorCompanyNameTxtBox.TextChanged += new System.EventHandler(this.machineIDorCompanyNameTxtBox_TextChanged);
+            // 
+            // partPriceTxtBox
+            // 
+            this.partPriceTxtBox.Location = new System.Drawing.Point(153, 187);
+            this.partPriceTxtBox.Name = "partPriceTxtBox";
+            this.partPriceTxtBox.Size = new System.Drawing.Size(119, 23);
+            this.partPriceTxtBox.TabIndex = 9;
+            this.partPriceTxtBox.TextChanged += new System.EventHandler(this.partPriceTxtBox_TextChanged);
             // 
             // saveBtn
             // 
@@ -236,7 +237,7 @@ namespace Inventory_Managment_System.View
             this.Controls.Add(this.machineID);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.machineIDorCompanyNameTxtBox);
             this.Controls.Add(this.outSourcedRdBtn);
             this.Controls.Add(this.inHouseRdBtn);
             this.Controls.Add(this.partMaxTxtBox);
@@ -277,7 +278,7 @@ namespace Inventory_Managment_System.View
         private TextBox partMaxTxtBox;
         private RadioButton inHouseRdBtn;
         private RadioButton outSourcedRdBtn;
-        private TextBox textBox1;
+        private TextBox machineIDorCompanyNameTxtBox;
         private TextBox partPriceTxtBox;
         private Button saveBtn;
         private Button cancelBtn;

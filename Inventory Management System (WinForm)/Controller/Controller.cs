@@ -51,23 +51,15 @@ namespace Inventory_Managment_System.Controller
         {
             //AllPartList.Add(part);
         }
-        public static void addInventoryPart(in PartUC partUC)
-        {
-            int id;
-            Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
-            Validate.ValidateNumericInput(partUC.IDTxtBox.Text, out id);
-            Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
-            Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
-            Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
-        }
-
-        public static void validateUITextBox(in PartUC partUC)
-        {
-            //foreach (var txtBox in partUC.Controls.OfType<TextBox>())
-            //{
-
-            //}
-        }
+        //public static void addInventoryPart(in PartUC partUC)
+        //{
+        //    int id;
+        //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
+        //    Validate.ValidateNumericInput(partUC.IDTxtBox.Text, out id);
+        //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
+        //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
+        //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
+        //}
     }
 
 
