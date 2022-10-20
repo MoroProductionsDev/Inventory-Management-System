@@ -34,9 +34,12 @@ namespace Inventory_Managment_System.View
 
         private String[] textBoxName;
 
+        private ToolTip toolTip; //to display the textbox tool messages
+
         public PartUC()
         {
             InitializeComponent();
+            toolTip = new ToolTip();
             textBoxList = new List<TextBox>() { NameTxtBox, InventoryTxtBox,
                 partPriceTxtBox, partMinTxtBox, partMaxTxtBox };
             textBoxName = new String[] {InventoryTxtBox.Name, partPriceTxtBox.Name,
@@ -45,86 +48,194 @@ namespace Inventory_Managment_System.View
 
         private void inHouseRdBtn_CheckedChanged(object sender, EventArgs e)
         {
-            this.machineID.Visible = true;
+            this.partMachineIDLbl.Visible = true;
             this.partCompanyNameLbl.Visible = false;
+            toolTip.RemoveAll();
+            machineIDorCompanyNameTxtBox.BackColor = Color.White;
+            machineIDorCompanyNameTxtBox.Clear();
         }
 
         private void outSourcedRdBtn_CheckedChanged(object sender, EventArgs e)
         {
-            this.machineID.Visible = false;
+            this.partMachineIDLbl.Visible = false;
             this.partCompanyNameLbl.Visible = true;
+            toolTip.RemoveAll();
+            machineIDorCompanyNameTxtBox.BackColor = Color.White;
+            machineIDorCompanyNameTxtBox.Clear();
         }
 
         private void partNameTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
+            modifyTextbox(sender, e, false);
         }
 
         private void partInventoryTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
             if (inHouseRdBtn.Checked)
             {
-                modifyNonNumericTxtBox_TextChanged(sender, e);
+                hasNumericInput(sender, e);
             }
+            modifyTextbox(sender, e, true);
         }
 
         private void partPriceTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
-            modifyNonNumericTxtBox_TextChanged(sender, e);
+            modifyTextbox(sender, e, true);
         }
 
         private void partMinTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
-            modifyNonNumericTxtBox_TextChanged(sender, e);
+            modifyTextbox(sender, e, true);
+            
         }
 
         private void partMaxTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
-            modifyNonNumericTxtBox_TextChanged(sender, e);
+            modifyTextbox(sender, e, true);
+
         }
 
         private void machineIDorCompanyNameTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyNullOrEmptyTxtBox_TextChanged(sender, e);
-
             if (inHouseRdBtn.Checked)
             {
-                modifyNonNumericTxtBox_TextChanged(sender, e);
-            }
-        }
-
-        private void modifyNullOrEmptyTxtBox_TextChanged(object sender, EventArgs e)
-        {
-            if (sender.GetType().Equals(typeof(TextBox)))
+                modifyTextbox(sender, e, true);
+            } else
             {
-                try
-                {
-                    Controller.Validate.ValidateNullorEmptyString(((TextBox)sender).Text);
-                    ((TextBox)sender).BackColor = Color.White;
-                }
-                catch (NullReferenceException)
-                {
-                    ((TextBox)sender).BackColor = Color.OrangeRed;
-                }
+                modifyTextbox(sender, e, false);
             }
+
+            
         }
-
-        private void modifyNonNumericTxtBox_TextChanged(object sender, EventArgs e)
+        private void modifyTextbox(object sender, EventArgs e, bool checkNumericTxtBox)
         {
-            if (sender.GetType().Equals(typeof(TextBox)))
+            if (checkNumericTxtBox)
             {
-
-                if (Controller.Validate.ValidateNumericInput(((TextBox)sender).Text))
+                if (!hasEmptyOrNullString(sender, e) && hasNumericInput(sender, e))
                 {
                     ((TextBox)sender).BackColor = Color.White;
                 }
                 else
                 {
                     ((TextBox)sender).BackColor = Color.OrangeRed;
+                    displayTheIndicatedToolTip(sender, e, checkNumericTxtBox);
+                }
+            } else
+            {
+                if (!hasEmptyOrNullString(sender, e))
+                {
+                    ((TextBox)sender).BackColor = Color.White;
+                }
+                else
+                {
+                    ((TextBox)sender).BackColor = Color.OrangeRed;
+                    displayTheIndicatedToolTip(sender, e, checkNumericTxtBox);
+                }
+            }
+        }
+
+        private bool hasEmptyOrNullString(object sender, EventArgs e)
+        {
+            bool isItEmptyOrNull = true;
+            if (sender.GetType().Equals(typeof(TextBox)))
+            {
+                try
+                {
+                    Controller.Validate.ValidateNullorEmptyString(((TextBox)sender).Text);
+                    isItEmptyOrNull =  false;
+                    
+                }
+                catch (NullReferenceException)
+                {
+                    isItEmptyOrNull = true;
+                }
+            }
+            return isItEmptyOrNull;
+        }
+
+        private bool hasNumericInput(object sender, EventArgs e)
+        {
+            bool isItNumeric = false;
+            if (sender.GetType().Equals(typeof(TextBox)))
+            {
+
+                if (Controller.Validate.ValidateNumericInput(((TextBox)sender).Text))
+                {
+                    isItNumeric = true;
+                }
+                else
+                {
+                    isItNumeric = false;
+                    
+                }
+            }
+            return isItNumeric;
+        }
+
+        private void displayTheIndicatedToolTip(object sender, EventArgs e, bool checkNumericTxtBox)
+        {
+            if(((TextBox)sender).Equals(NameTxtBox)) {
+                    toolTip.SetToolTip((TextBox)sender, $"{partNameLbl.Text} is required");
+            }
+            else if (((TextBox)sender).Equals(InventoryTxtBox))
+            {
+                if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
+                {
+                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");
+                }
+                else
+                {
+                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
+                }
+            }
+            else if (((TextBox)sender).Equals(PriceTxtBox))
+            {
+                if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
+                {
+                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");
+                }
+                else
+                {
+                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
+                }
+            }
+            else if (((TextBox)sender).Equals(MinTxtBox))
+            {
+                if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
+                {
+                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");
+                }
+                else
+                {
+                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
+                }
+            }
+            else if (((TextBox)sender).Equals(MaxTxtBox))
+            {
+                if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
+                {
+                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");
+                }
+                else
+                {
+                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
+                }
+            }
+            else if (((TextBox)sender).Equals(machineIDorCompanyNameTxtBox))
+            {
+                if (inHouseRdBtn.Checked)
+                {
+                    if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
+                    {
+                        toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");               
+                    }
+                    else
+                    {
+                        toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
+                    }
+                } else
+                {
+                    toolTip.SetToolTip((TextBox)sender, $"{partCompanyNameLbl.Text} is required");
                 }
             }
         }

@@ -49,7 +49,7 @@ namespace Inventory_Managment_System.View
             this.partPriceTxtBox = new System.Windows.Forms.TextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
-            this.machineID = new System.Windows.Forms.Label();
+            this.partMachineIDLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // partIDLbl
@@ -221,20 +221,20 @@ namespace Inventory_Managment_System.View
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             // 
-            // machineID
+            // partMachineIDLbl
             // 
-            this.machineID.AutoSize = true;
-            this.machineID.Location = new System.Drawing.Point(62, 270);
-            this.machineID.Name = "machineID";
-            this.machineID.Size = new System.Drawing.Size(67, 15);
-            this.machineID.TabIndex = 17;
-            this.machineID.Text = "Machine ID";
+            this.partMachineIDLbl.AutoSize = true;
+            this.partMachineIDLbl.Location = new System.Drawing.Point(62, 270);
+            this.partMachineIDLbl.Name = "partMachineIDLbl";
+            this.partMachineIDLbl.Size = new System.Drawing.Size(67, 15);
+            this.partMachineIDLbl.TabIndex = 17;
+            this.partMachineIDLbl.Text = "Machine ID";
             // 
             // PartUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.machineID);
+            this.Controls.Add(this.partMachineIDLbl);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.machineIDorCompanyNameTxtBox);
@@ -282,6 +282,6 @@ namespace Inventory_Managment_System.View
         private TextBox partPriceTxtBox;
         private Button saveBtn;
         private Button cancelBtn;
-        private Label machineID;
+        private Label partMachineIDLbl;
     }
 }
