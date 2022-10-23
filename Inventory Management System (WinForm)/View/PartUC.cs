@@ -39,13 +39,18 @@ namespace Inventory_Managment_System.View
                         partMinTxtBox.Name, partMaxTxtBox.Name };
         }
 
+
+        private void PartUC_Load(object sender, EventArgs e)
+        {
+            machineIDorCompanyNameTxtBox.BackColor = Color.White;
+            machineIDorCompanyNameTxtBox.Clear();
+        }
+
         private void inHouseRdBtn_CheckedChanged(object sender, EventArgs e)
         {
             this.partMachineIDLbl.Visible = true;
             this.partCompanyNameLbl.Visible = false;
             toolTip.RemoveAll();
-            //machineIDorCompanyNameTxtBox.BackColor = Color.White;
-            machineIDorCompanyNameTxtBox.Clear();
         }
 
         private void outSourcedRdBtn_CheckedChanged(object sender, EventArgs e)
@@ -53,8 +58,9 @@ namespace Inventory_Managment_System.View
             this.partMachineIDLbl.Visible = false;
             this.partCompanyNameLbl.Visible = true;
             toolTip.RemoveAll();
-            //machineIDorCompanyNameTxtBox.BackColor = Color.White;
             machineIDorCompanyNameTxtBox.Clear();
+            // covers scenerio when the radiobutton [Inhouse, Outsource] are toggle
+            machineIDorCompanyNameTxtBox_TextChanged(sender, e);
         }
 
         private void partNameTxtBox_TextChanged(object sender, EventArgs e)
@@ -87,47 +93,56 @@ namespace Inventory_Managment_System.View
             if (inHouseRdBtn.Checked)
             {
                 modifyTextbox(sender, e, ValType.Integer);
-            } else
+            }
+            else
             {
                 modifyTextbox(sender, e, ValType.NullAndEmptyString);
-            }            
+            }
         }
         private void modifyTextbox(object sender, EventArgs e, ValType validationType)
         {
-            if (validationType.Equals(ValType.NullAndEmptyString))
+            if (sender.GetType().Equals(typeof(TextBox)))
             {
-                if (!hasEmptyOrNullString(sender, e))
+                if (validationType.Equals(ValType.NullAndEmptyString))
                 {
-                    ((TextBox)sender).BackColor = Color.White;
+                    if (!hasEmptyOrNullString(sender, e))
+                    {
+                        ((TextBox)sender).BackColor = Color.White;
+                    }
+                    else
+                    {
+                        ((TextBox)sender).BackColor = Color.OrangeRed;
+                        displayTheIndicatedToolTip(sender, e, ValType.NullAndEmptyString);
+                    }
                 }
-                else
+                else if (validationType.Equals(ValType.Integer))
                 {
-                    ((TextBox)sender).BackColor = Color.OrangeRed;
-                    displayTheIndicatedToolTip(sender, e, ValType.NullAndEmptyString);
+                    if (!hasEmptyOrNullString(sender, e) && hasIntegerNumericInput(sender, e))
+                    {
+                        ((TextBox)sender).BackColor = Color.White;
+                    }
+                    else
+                    {
+                        ((TextBox)sender).BackColor = Color.OrangeRed;
+                        displayTheIndicatedToolTip(sender, e, ValType.Integer);
+                    }
                 }
-            } 
-            else if (validationType.Equals(ValType.Integer))
+                else if (validationType.Equals(ValType.Decimal))
+                {
+                    if (!hasEmptyOrNullString(sender, e) && hasDecimalNumericInput(sender, e))
+                    {
+                        ((TextBox)sender).BackColor = Color.White;
+                    }
+                    else
+                    {
+                        ((TextBox)sender).BackColor = Color.OrangeRed;
+                        displayTheIndicatedToolTip(sender, e, ValType.Decimal);
+                    }
+                }
+            } else
             {
-                if (!hasEmptyOrNullString(sender, e) && hasIntegerNumericInput(sender, e))
-                {
-                    ((TextBox)sender).BackColor = Color.White;
-                } else
-                {
-                    ((TextBox)sender).BackColor = Color.OrangeRed;
-                    displayTheIndicatedToolTip(sender, e, ValType.Integer);
-                }
-            } 
-            else if (validationType.Equals(ValType.Decimal))
-            {
-                if (!hasEmptyOrNullString(sender, e) && hasDecimalNumericInput(sender, e))
-                {
-                    ((TextBox)sender).BackColor = Color.White;
-                }
-                else
-                {
-                    ((TextBox)sender).BackColor = Color.OrangeRed;
-                    displayTheIndicatedToolTip(sender, e, ValType.Decimal);
-                }
+                // covers scenerio when the radiobutton [Inhouse, Outsource] are toggle
+                displayTheIndicatedToolTip(machineIDorCompanyNameTxtBox, e, ValType.Decimal);
             }
         }
 
@@ -194,6 +209,11 @@ namespace Inventory_Managment_System.View
                 {
                     userInputVarName = partNameLbl.Text;
                 }
+                else if (((TextBox)sender).Equals(machineIDorCompanyNameTxtBox) && outSourcedRdBtn.Checked)
+                {
+                    userInputVarName = partCompanyNameLbl.Text;
+                }
+
                 toolTip.SetToolTip((TextBox)sender, $"{userInputVarName} is required");
             }
             else if (validationType.Equals(ValType.Integer) || validationType.Equals(ValType.Decimal))
@@ -201,18 +221,22 @@ namespace Inventory_Managment_System.View
                 if (((TextBox)sender).Equals(partInventoryTxtBox))
                 {
                     userInputVarName = partInventoryLbl.Text;
-                } 
-                else if (((TextBox)sender).Equals(partMinTxtBox.Text))
-                {
-                    userInputVarName = partMinTxtBox.Text;
                 }
-                else if (((TextBox)sender).Equals(partMaxTxtBox.Text))
+                else if (((TextBox)sender).Equals(partMinTxtBox))
                 {
-                    userInputVarName = partMaxTxtBox.Text;
+                    userInputVarName = partMinLbl.Text;
+                }
+                else if (((TextBox)sender).Equals(partMaxTxtBox))
+                {
+                    userInputVarName = partMaxLbl.Text;
                 }
                 else if (((TextBox)sender).Equals(partPriceTxtBox))
                 {
                     userInputVarName = partPriceLbl.Text;
+                }
+                else if (((TextBox)sender).Equals(machineIDorCompanyNameTxtBox) && inHouseRdBtn.Checked)
+                {
+                    userInputVarName = partMachineIDLbl.Text;
                 }
 
                 toolTip.SetToolTip((TextBox)sender, $"{userInputVarName} requires a number");

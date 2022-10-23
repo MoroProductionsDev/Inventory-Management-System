@@ -68,12 +68,16 @@ namespace Inventory_Managment_System.Controller
                  int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text)
             ));
         }
-
-
-        public static void addPart(Part part)
+        public static Part lookUpPartFromTheInventory(in int index)
         {
-            //AllPartList.Add(part);
+            return Inventory.lookupPart(index);
         }
+
+
+        //public static void addPart(Part part)
+        //{
+        //    //AllPartList.Add(part);
+        //}
         //public static void addInventoryPart(in PartUC partUC)
         //{
         //    int id;

@@ -93,7 +93,6 @@ namespace Inventory_Managment_System.Model
                 inStock = value;
             }
         }
-
         public override string ToString()
         {
             return $"{nameof(PartID)}: {PartID}\n" +
