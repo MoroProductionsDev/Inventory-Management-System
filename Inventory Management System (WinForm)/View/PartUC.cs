@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -16,34 +17,26 @@ namespace Inventory_Managment_System.View
 {
     public partial class PartUC : UserControl
     {
-        private RadioButton InHouseRadioButton { get => inHouseRdBtn; }
-        public RadioButton OutSourcedRadioButton { get => outSourcedRdBtn; }
-        public TextBox IDTxtBox { get => partIDTxtBox; }
-        public TextBox NameTxtBox { get => partNameTxtBox; }
-
-        public TextBox InventoryTxtBox { get => partInventoryTxtBox; }
-        public TextBox PriceTxtBox { get => partPriceTxtBox; }
-
-        public TextBox MinTxtBox { get => partMinTxtBox; }
-        public TextBox MaxTxtBox { get => partMaxTxtBox; }
-
-        public Button SaveButton { get => saveBtn; }
-        public Button CancelButton { get => cancelBtn; }
-
         private List<TextBox> textBoxList;
 
-        private String[] textBoxName;
+        public readonly String[] numericIntegerTextBoxName;
 
         private ToolTip toolTip; //to display the textbox tool messages
 
+        private enum ValType
+        {
+            NullAndEmptyString,
+            Integer,
+            Decimal
+        }
         public PartUC()
         {
             InitializeComponent();
             toolTip = new ToolTip();
-            textBoxList = new List<TextBox>() { NameTxtBox, InventoryTxtBox,
+            textBoxList = new List<TextBox>() { partNameTxtBox, partInventoryTxtBox,
                 partPriceTxtBox, partMinTxtBox, partMaxTxtBox };
-            textBoxName = new String[] {InventoryTxtBox.Name, partPriceTxtBox.Name,
-                        partMinTxtBox.Text, partMaxTxtBox.Text };
+            numericIntegerTextBoxName = new String[] {partInventoryTxtBox.Name,
+                        partMinTxtBox.Name, partMaxTxtBox.Name };
         }
 
         private void inHouseRdBtn_CheckedChanged(object sender, EventArgs e)
@@ -51,7 +44,7 @@ namespace Inventory_Managment_System.View
             this.partMachineIDLbl.Visible = true;
             this.partCompanyNameLbl.Visible = false;
             toolTip.RemoveAll();
-            machineIDorCompanyNameTxtBox.BackColor = Color.White;
+            //machineIDorCompanyNameTxtBox.BackColor = Color.White;
             machineIDorCompanyNameTxtBox.Clear();
         }
 
@@ -60,67 +53,48 @@ namespace Inventory_Managment_System.View
             this.partMachineIDLbl.Visible = false;
             this.partCompanyNameLbl.Visible = true;
             toolTip.RemoveAll();
-            machineIDorCompanyNameTxtBox.BackColor = Color.White;
+            //machineIDorCompanyNameTxtBox.BackColor = Color.White;
             machineIDorCompanyNameTxtBox.Clear();
         }
 
         private void partNameTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyTextbox(sender, e, false);
+            modifyTextbox(sender, e, ValType.NullAndEmptyString);
         }
 
         private void partInventoryTxtBox_TextChanged(object sender, EventArgs e)
         {
-            if (inHouseRdBtn.Checked)
-            {
-                hasNumericInput(sender, e);
-            }
-            modifyTextbox(sender, e, true);
+           modifyTextbox(sender, e, ValType.Integer);
         }
 
         private void partPriceTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyTextbox(sender, e, true);
+            modifyTextbox(sender, e, ValType.Decimal);
         }
 
         private void partMinTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyTextbox(sender, e, true);
-            
+            modifyTextbox(sender, e, ValType.Integer);
         }
 
         private void partMaxTxtBox_TextChanged(object sender, EventArgs e)
         {
-            modifyTextbox(sender, e, true);
-
+            modifyTextbox(sender, e, ValType.Integer);
         }
 
         private void machineIDorCompanyNameTxtBox_TextChanged(object sender, EventArgs e)
         {
             if (inHouseRdBtn.Checked)
             {
-                modifyTextbox(sender, e, true);
+                modifyTextbox(sender, e, ValType.Integer);
             } else
             {
-                modifyTextbox(sender, e, false);
-            }
-
-            
+                modifyTextbox(sender, e, ValType.NullAndEmptyString);
+            }            
         }
-        private void modifyTextbox(object sender, EventArgs e, bool checkNumericTxtBox)
+        private void modifyTextbox(object sender, EventArgs e, ValType validationType)
         {
-            if (checkNumericTxtBox)
-            {
-                if (!hasEmptyOrNullString(sender, e) && hasNumericInput(sender, e))
-                {
-                    ((TextBox)sender).BackColor = Color.White;
-                }
-                else
-                {
-                    ((TextBox)sender).BackColor = Color.OrangeRed;
-                    displayTheIndicatedToolTip(sender, e, checkNumericTxtBox);
-                }
-            } else
+            if (validationType.Equals(ValType.NullAndEmptyString))
             {
                 if (!hasEmptyOrNullString(sender, e))
                 {
@@ -129,7 +103,30 @@ namespace Inventory_Managment_System.View
                 else
                 {
                     ((TextBox)sender).BackColor = Color.OrangeRed;
-                    displayTheIndicatedToolTip(sender, e, checkNumericTxtBox);
+                    displayTheIndicatedToolTip(sender, e, ValType.NullAndEmptyString);
+                }
+            } 
+            else if (validationType.Equals(ValType.Integer))
+            {
+                if (!hasEmptyOrNullString(sender, e) && hasIntegerNumericInput(sender, e))
+                {
+                    ((TextBox)sender).BackColor = Color.White;
+                } else
+                {
+                    ((TextBox)sender).BackColor = Color.OrangeRed;
+                    displayTheIndicatedToolTip(sender, e, ValType.Integer);
+                }
+            } 
+            else if (validationType.Equals(ValType.Decimal))
+            {
+                if (!hasEmptyOrNullString(sender, e) && hasDecimalNumericInput(sender, e))
+                {
+                    ((TextBox)sender).BackColor = Color.White;
+                }
+                else
+                {
+                    ((TextBox)sender).BackColor = Color.OrangeRed;
+                    displayTheIndicatedToolTip(sender, e, ValType.Decimal);
                 }
             }
         }
@@ -153,7 +150,7 @@ namespace Inventory_Managment_System.View
             return isItEmptyOrNull;
         }
 
-        private bool hasNumericInput(object sender, EventArgs e)
+        private bool hasIntegerNumericInput(object sender, EventArgs e)
         {
             bool isItNumeric = false;
             if (sender.GetType().Equals(typeof(TextBox)))
@@ -172,72 +169,53 @@ namespace Inventory_Managment_System.View
             return isItNumeric;
         }
 
-        private void displayTheIndicatedToolTip(object sender, EventArgs e, bool checkNumericTxtBox)
+        private bool hasDecimalNumericInput(object sender, EventArgs e)
         {
-            if(((TextBox)sender).Equals(NameTxtBox)) {
-                    toolTip.SetToolTip((TextBox)sender, $"{partNameLbl.Text} is required");
-            }
-            else if (((TextBox)sender).Equals(InventoryTxtBox))
+            bool isItADecimal;
+            try
             {
-                if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
-                {
-                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");
-                }
-                else
-                {
-                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
-                }
+                Decimal.Parse(((TextBox) sender).Text);
+                isItADecimal = true;
             }
-            else if (((TextBox)sender).Equals(PriceTxtBox))
+            catch (FormatException)
             {
-                if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
-                {
-                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");
-                }
-                else
-                {
-                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
-                }
+                isItADecimal = false;
             }
-            else if (((TextBox)sender).Equals(MinTxtBox))
+            return isItADecimal;
+        }
+
+        private void displayTheIndicatedToolTip(object sender, EventArgs e, ValType validationType)
+        {
+            string userInputVarName = null;
+            if (validationType.Equals(ValType.NullAndEmptyString))
             {
-                if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
+                if (((TextBox)sender).Equals(partNameTxtBox))
                 {
-                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");
+                    userInputVarName = partNameLbl.Text;
                 }
-                else
-                {
-                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
-                }
+                toolTip.SetToolTip((TextBox)sender, $"{userInputVarName} is required");
             }
-            else if (((TextBox)sender).Equals(MaxTxtBox))
+            else if (validationType.Equals(ValType.Integer) || validationType.Equals(ValType.Decimal))
             {
-                if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
+                if (((TextBox)sender).Equals(partInventoryTxtBox))
                 {
-                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");
+                    userInputVarName = partInventoryLbl.Text;
+                } 
+                else if (((TextBox)sender).Equals(partMinTxtBox.Text))
+                {
+                    userInputVarName = partMinTxtBox.Text;
                 }
-                else
+                else if (((TextBox)sender).Equals(partMaxTxtBox.Text))
                 {
-                    toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
+                    userInputVarName = partMaxTxtBox.Text;
                 }
-            }
-            else if (((TextBox)sender).Equals(machineIDorCompanyNameTxtBox))
-            {
-                if (inHouseRdBtn.Checked)
+                else if (((TextBox)sender).Equals(partPriceTxtBox))
                 {
-                    if (checkNumericTxtBox && !hasEmptyOrNullString(sender, e))
-                    {
-                        toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} requires a number");               
-                    }
-                    else
-                    {
-                        toolTip.SetToolTip((TextBox)sender, $"{partInventoryLbl.Text} is required");
-                    }
-                } else
-                {
-                    toolTip.SetToolTip((TextBox)sender, $"{partCompanyNameLbl.Text} is required");
+                    userInputVarName = partPriceLbl.Text;
                 }
-            }
+
+                toolTip.SetToolTip((TextBox)sender, $"{userInputVarName} requires a number");
+            } 
         }
 
         //public bool validTextBoxText()
@@ -247,7 +225,7 @@ namespace Inventory_Managment_System.View
         //        try
         //        {
         //            Controller.Validate.ValidateNullorEmptyString(textBox.Text);
-        //            if (Array.Exists(textBoxName, name => textBox.Name == name))
+        //            if (Array.Exists(numericIntegerTextBoxName, name => textBox.Name == name))
         //            {
         //                Validate.ValidateNumericInput(textBox);
         //            }
