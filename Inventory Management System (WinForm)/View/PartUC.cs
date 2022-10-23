@@ -218,25 +218,5 @@ namespace Inventory_Managment_System.View
                 toolTip.SetToolTip((TextBox)sender, $"{userInputVarName} requires a number");
             } 
         }
-
-        //public bool validTextBoxText()
-        //{
-        //    foreach(var textBox in textBoxList)
-        //    {
-        //        try
-        //        {
-        //            Controller.Validate.ValidateNullorEmptyString(textBox.Text);
-        //            if (Array.Exists(numericIntegerTextBoxName, name => textBox.Name == name))
-        //            {
-        //                Validate.ValidateNumericInput(textBox);
-        //            }
-        //        }
-        //        catch (NullReferenceException)
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    return true;
-        //}
     }
 }

@@ -15,12 +15,16 @@ namespace Inventory_Managment_System.View
     public partial class TabControlUC : UserControl
     {
         public static TabControlUC tabControlUC_Instance;
-        public TabControl InventoryTbCtrl;
+        public readonly TabControl InventoryTbCtrl;
+        public readonly Dictionary<string, DataGridView> tableDataGridView;
+       
         public TabControlUC()
         {
             InitializeComponent();
             tabControlUC_Instance = this;
             InventoryTbCtrl = this.inventoryTbCtrl;
+            tableDataGridView = new Dictionary<string, DataGridView>() { {partsDataGridView.Name, partsDataGridView }, 
+                                            {productsDataGridView.Name, productsDataGridView }};
         }
 
         private void tabControl_Load(object sender, EventArgs e)

@@ -42,7 +42,7 @@ namespace Inventory_Managment_System.View
             closeAllProductsForms();
             if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
             {
-                partForms["modifyPartForm"] = new ModifyPartForm(); // Form has to be added her to avoid opening disposed object
+                partForms["modifyPartForm"] = new ModifyPartForm(getCellValues()); // Form has to be added her to avoid opening disposed object
                 partForms["modifyPartForm"].Show();
             }
             else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
@@ -71,6 +71,27 @@ namespace Inventory_Managment_System.View
             {
                 form.Value.Close();
             }
+        }
+
+        private Dictionary<string, string> getCellValues()
+        {
+            var tableColumns = TabControlUC.tabControlUC_Instance.tableDataGridView["partsDataGridView"].Columns;
+            var selectedRow = TabControlUC.tabControlUC_Instance.tableDataGridView["partsDataGridView"].SelectedRows;
+            var selectedRowCellsCount = selectedRow[0].Cells.Count;
+            var selectedRowCells = selectedRow[0].Cells;
+
+            var selectedRowCellsValuesDict = new Dictionary<string, string>();
+
+
+            for (int i = 0; i < selectedRowCellsCount; ++i)
+            {
+                //MessageBox.Show(col[selectedRow[0].Cells[i].ColumnIndex].Name.ToString());
+                //selectedRowCellsValuesDict.Add("d", "ff");
+                selectedRowCellsValuesDict.Add(tableColumns[selectedRowCells[i].ColumnIndex].Name.ToString(), 
+                        selectedRowCells[i].Value.ToString());
+            }
+
+            return selectedRowCellsValuesDict;
         }
     }
 }

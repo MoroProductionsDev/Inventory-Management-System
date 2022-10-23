@@ -274,12 +274,12 @@ namespace Inventory_Managment_System.View
         private TextBox partIDTxtBox;
         private TextBox partNameTxtBox;
         private TextBox partInventoryTxtBox;
+        private TextBox partPriceTxtBox;
         private TextBox partMinTxtBox;
         private TextBox partMaxTxtBox;
+        private TextBox machineIDorCompanyNameTxtBox;
         private RadioButton inHouseRdBtn;
         private RadioButton outSourcedRdBtn;
-        private TextBox machineIDorCompanyNameTxtBox;
-        private TextBox partPriceTxtBox;
         private Button saveBtn;
         private Button cancelBtn;
         private Label partMachineIDLbl;

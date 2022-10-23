@@ -46,6 +46,29 @@ namespace Inventory_Managment_System.Controller
             Inventory.lookupProduct(2).addAssociatedPart(data.AllPartList[7]);
         }
 
+        public static void addInhousePartToInventory(in PartUC partUserComponent) {
+            Inventory.addPart(new Inhouse(
+                 int.Parse(partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text),
+                 partUserComponent.Controls["partNameTxtBox"].Text,
+                 decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
+                 int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
+                 int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
+                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text)
+            ));
+        }
+
+        public static void addOutsourcedPartToInventory(in PartUC partUserComponent)
+        {
+            Inventory.addPart(new Outsourced(
+                 partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text,
+                 partUserComponent.Controls["partNameTxtBox"].Text,
+                 decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
+                 int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
+                 int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
+                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text)
+            ));
+        }
+
 
         public static void addPart(Part part)
         {

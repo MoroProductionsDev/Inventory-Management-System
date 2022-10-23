@@ -1,4 +1,5 @@
 ﻿using Inventory_Managment_System.Controller;
+using Inventory_Managment_System.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,15 +26,17 @@ namespace Inventory_Managment_System.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            // Save
-            if (((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked) {
-                if (!hasEmptyStringOrNullTextBoxes() && areAllNumericInput())
-                {
-                    MessageBox.Show("InHouse");
-                } 
-            } else if (((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked)
+            if (!hasEmptyStringOrNullTextBoxes() && areAllNumericInput())
             {
-                MessageBox.Show("OutSource");
+            }
+                // Save
+            if (((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked) {
+
+                    Controller.Controller.addInhousePartToInventory(in partUC);
+            } 
+            else if (((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked)
+            {
+                Controller.Controller.addOutsourcedPartToInventory(in partUC);
             }
             //AddInventoryPart();
             //data.addInventoryPart(in partUC);
@@ -61,7 +64,7 @@ namespace Inventory_Managment_System.View
             bool hasEmptyStringOrNullValue = false;
             foreach (var textBox in partUC.Controls.OfType<TextBox>())
             {
-                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false)
+                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false) // readonly to skip the partID text box
                 {
                     hasEmptyStringOrNullValue = true;
                     break;

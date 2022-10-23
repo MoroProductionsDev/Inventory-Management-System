@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.partuc1 = new Inventory_Managment_System.View.PartUC();
+            this.partUC = new Inventory_Managment_System.View.PartUC();
             this.modifyPartLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // partuc1
+            // partUC
             // 
-            this.partuc1.Location = new System.Drawing.Point(12, 12);
-            this.partuc1.Name = "partuc1";
-            this.partuc1.Size = new System.Drawing.Size(461, 355);
-            this.partuc1.TabIndex = 2;
+            this.partUC.Location = new System.Drawing.Point(12, 12);
+            this.partUC.Name = "partUC";
+            this.partUC.Size = new System.Drawing.Size(461, 355);
+            this.partUC.TabIndex = 2;
             // 
             // modifyPartLbl
             // 
@@ -54,9 +54,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 380);
             this.Controls.Add(this.modifyPartLbl);
-            this.Controls.Add(this.partuc1);
+            this.Controls.Add(this.partUC);
             this.Name = "ModifyPartForm";
             this.Text = "Modify Part";
+            this.Load += new System.EventHandler(this.ModifyPartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -64,7 +65,7 @@
 
         #endregion
 
-        private PartUC partuc1;
+        private PartUC partUC;
         private Label modifyPartLbl;
     }
 }

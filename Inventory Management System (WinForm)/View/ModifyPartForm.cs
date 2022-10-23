@@ -13,9 +13,19 @@ namespace Inventory_Managment_System.View
 {
     public partial class ModifyPartForm : Form
     {
-        public ModifyPartForm()
+        private readonly Dictionary<string, string> textBoxesValues;
+        public ModifyPartForm(Dictionary<string, string> selectedRowCellValues)
         {
             InitializeComponent();
+            textBoxesValues = selectedRowCellValues;
+        }
+
+        private void ModifyPartForm_Load(object sender, EventArgs e)
+        {
+            foreach (string key in textBoxesValues.Keys)
+            {
+                partUC.Controls[$"{key}TxtBox"].Text = textBoxesValues[key];
+            }
         }
     }
 }
