@@ -37,10 +37,14 @@ namespace Inventory_Managment_System.View
             if (selectedPart.GetType().Equals(typeof(Inhouse)))
             {
                 partUC.Controls["machineIDorCompanyNameTxtBox"].Text = ((Inhouse)selectedPart).MachineID.ToString();
+                partUC.Controls["inHouseRdBtn"].Select();
+                partUC.Controls["outSourcedRdBtn"].Enabled = false;
             }
             else if (selectedPart.GetType().Equals(typeof(Outsourced)))
             {
                 partUC.Controls["machineIDorCompanyNameTxtBox"].Text = ((Outsourced)selectedPart).CompanyName;
+                partUC.Controls["outSourcedRdBtn"].Select();
+                partUC.Controls["inHouseRdBtn"].Enabled = false;
             }
         }
     }

@@ -58,7 +58,7 @@ namespace Inventory_Managment_System.View
             this.partMachineIDLbl.Visible = false;
             this.partCompanyNameLbl.Visible = true;
             toolTip.RemoveAll();
-            machineIDorCompanyNameTxtBox.Clear();
+            //machineIDorCompanyNameTxtBox.Clear();
             // covers scenerio when the radiobutton [Inhouse, Outsource] are toggle
             machineIDorCompanyNameTxtBox_TextChanged(sender, e);
         }
