@@ -186,6 +186,7 @@ namespace Inventory_Managment_System.View
 
         private void displayTheIndicatedToolTip(object sender, EventArgs e, ValType validationType)
         {
+            //
             string userInputVarName = null;
             if (validationType.Equals(ValType.NullAndEmptyString))
             {
