@@ -36,17 +36,17 @@ namespace Inventory_Managment_System.View
             insertDataInProductsTable();
         }
 
-        public void clearPartsDataTable()
+        private void clearPartsDataTable()
         {
             partsDataGridView.Rows.Clear();
         }
 
-        public void clearProductsDataTable()
+        private void clearProductsDataTable()
         {
             productsDataGridView.Rows.Clear();
         }
 
-        public void insertDataInPartsTable()
+        private void insertDataInPartsTable()
         {
             var partList = Inventory.AllParts;
 
@@ -58,7 +58,7 @@ namespace Inventory_Managment_System.View
             }
         }
 
-        public void insertDataInProductsTable()
+        private void insertDataInProductsTable()
         {
             var productList = Inventory.Products;
 
@@ -68,6 +68,18 @@ namespace Inventory_Managment_System.View
                 product.Price, product.Min, product.Max
                 });
             }
+        }
+
+        public void recreatePartsDataTable()
+        {
+            clearPartsDataTable();
+            insertDataInPartsTable();
+        }
+
+        public void recreateProductsDataTable()
+        {
+            clearProductsDataTable();
+            insertDataInProductsTable();
         }
     }
 }

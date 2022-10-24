@@ -30,6 +30,7 @@ namespace Inventory_Managment_System.View
             {
                 partForms["addPartForm"] = new AddPartForm(); // Form has to be added her to avoid opening disposed object
                 partForms["addPartForm"].Show();
+                Application.OpenForms["MainForm"].Hide();
             }
             else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
             {
@@ -44,7 +45,7 @@ namespace Inventory_Managment_System.View
             if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
             {
                 partForms["modifyPartForm"] = new ModifyPartForm(getSelectedRowIndex()); // Form has to be added her to avoid opening disposed object
-                partForms["modifyPartForm"].Show();
+                partForms["modifyPartForm"].Show();;
             }
             else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
             {

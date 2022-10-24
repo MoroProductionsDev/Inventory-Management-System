@@ -28,20 +28,20 @@ namespace Inventory_Managment_System.View
         {
             if (!hasEmptyStringOrNullTextBoxes() && areAllNumericInput())
             {
-            }
-                // Save
-            if (((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked) {
+                if (((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked)
+                {
 
                     Controller.Controller.addInhousePartToInventory(in partUC);
-            } 
-            else if (((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked)
-            {
-                Controller.Controller.addOutsourcedPartToInventory(in partUC);
+                }
+                else if (((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked)
+                {
+                    Controller.Controller.addOutsourcedPartToInventory(in partUC);
+                }
+                TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
+                
+                this.Close();
+                Application.OpenForms["MainForm"].Show();
             }
-            //AddInventoryPart();
-            //data.addInventoryPart(in partUC);
-            //Controller.Controller.validateUITextBox(in partUC);
-            //Controller.Controller.addInventoryPart(in partUC);
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
