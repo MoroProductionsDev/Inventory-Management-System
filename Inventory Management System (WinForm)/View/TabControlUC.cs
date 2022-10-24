@@ -32,8 +32,23 @@ namespace Inventory_Managment_System.View
             Controller.Controller.createPartList();
             Controller.Controller.createProductList();
 
+            insertDataInPartsTable();
+            insertDataInProductsTable();
+        }
+
+        public void clearPartsDataTable()
+        {
+            partsDataGridView.Rows.Clear();
+        }
+
+        public void clearProductsDataTable()
+        {
+            productsDataGridView.Rows.Clear();
+        }
+
+        public void insertDataInPartsTable()
+        {
             var partList = Inventory.AllParts;
-            var productList = Inventory.Products;
 
             foreach (var part in partList)
             {
@@ -41,6 +56,11 @@ namespace Inventory_Managment_System.View
                         part.Price, part.Min, part.Max
                 });
             }
+        }
+
+        public void insertDataInProductsTable()
+        {
+            var productList = Inventory.Products;
 
             foreach (var product in productList)
             {

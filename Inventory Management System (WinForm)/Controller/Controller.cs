@@ -11,7 +11,6 @@ namespace Inventory_Managment_System.Controller
     internal static class Controller
     {
         public static Data data = new Data();
-
         public static void createPartList()
         {
             Inventory.addPart(new Inhouse(133, "screw", 3.99M, 1, 1, 2));
@@ -31,7 +30,6 @@ namespace Inventory_Managment_System.Controller
             Inventory.addProduct(new Product("Yellow Bicycle", 15.67M, 12, 20, 25));
             Inventory.addProduct(new Product("Red Bicycle", 19.34M, 15, 20, 25));
             Inventory.addProduct(new Product("Blue Bicycle", 23.86M, 19, 20, 25));
-
 
             Inventory.lookupProduct(0).addAssociatedPart(data.AllPartList[2]);
             Inventory.lookupProduct(0).addAssociatedPart(data.AllPartList[3]);
