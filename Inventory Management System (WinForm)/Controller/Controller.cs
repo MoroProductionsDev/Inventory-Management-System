@@ -45,27 +45,46 @@ namespace Inventory_Managment_System.Controller
         }
 
         public static void addInhousePartToInventory(in PartUC partUserComponent) {
-            Inventory.addPart(new Inhouse(
+            var newInhousePart = new Inhouse(
                  int.Parse(partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text),
                  partUserComponent.Controls["partNameTxtBox"].Text,
                  decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
                  int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
                  int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
-                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text)
-            ));
+                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text));
+
+            Inventory.addPart(newInhousePart);
         }
 
         public static void addOutsourcedPartToInventory(in PartUC partUserComponent)
         {
-            Inventory.addPart(new Outsourced(
+            var newOutsourcedPart = new Outsourced(
                  partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text,
                  partUserComponent.Controls["partNameTxtBox"].Text,
                  decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
                  int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
                  int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
-                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text)
-            ));
+                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text));
+
+            Inventory.addPart(newOutsourcedPart);
         }
+
+        public static void updateInhousePartToInventory(in int index)
+        {
+            var storedInhousePart = Inventory.lookupPart(index);
+
+            Inventory.updatePart(index, storedInhousePart);
+            MessageBox.Show(Controller.data.AllPartList[index].ToString());
+        }
+
+        public static void updateOutsourcedPartToInventory(in int index)
+        {
+            var storedOutsourcedPart = Inventory.lookupPart(index);
+
+            Inventory.updatePart(index, storedOutsourcedPart);
+            MessageBox.Show(Controller.data.AllPartList[index].ToString());
+        }
+
         public static Part lookUpPartFromTheInventory(in int index)
         {
             return Inventory.lookupPart(index);

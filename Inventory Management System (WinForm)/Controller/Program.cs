@@ -16,5 +16,15 @@ namespace Inventory_Managment_System.Controller
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
         }
+
+        public static void ShowInitialAppForm()
+        {
+            Application.OpenForms["MainForm"].Show();
+        }
+
+        public static void HideInitialAppForm()
+        {
+            Application.OpenForms["MainForm"].Hide();
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace Inventory_Managment_System.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (!hasEmptyStringOrNullTextBoxes() && areAllNumericInput())
+            if (!partUC.hasEmptyStringOrNullTextBoxes() && partUC.areAllNumericInput())
             {
                 if (((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked)
                 {
@@ -40,13 +40,14 @@ namespace Inventory_Managment_System.View
                 TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
                 
                 this.Close();
-                Application.OpenForms["MainForm"].Show();
+                Program.ShowInitialAppForm();
             }
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+            Program.ShowInitialAppForm();
         }
 
         private void modifyAllEmptyOrNullTextbox()
@@ -58,54 +59,6 @@ namespace Inventory_Managment_System.View
                     textBox.BackColor = Color.OrangeRed;
                 }
             }
-        }
-        private bool hasEmptyStringOrNullTextBoxes()
-        {
-            bool hasEmptyStringOrNullValue = false;
-            foreach (var textBox in partUC.Controls.OfType<TextBox>())
-            {
-                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false) // readonly to skip the partID text box
-                {
-                    hasEmptyStringOrNullValue = true;
-                    break;
-                }
-            }
-
-            return hasEmptyStringOrNullValue;
-        }
-
-        private bool areAllNumericInput()
-        {
-            bool isItNumeric = true;
-
-            try
-            {
-                Decimal.Parse(partUC.Controls["partPriceTxtBox"].Text);
-            } catch(FormatException)
-            {
-                return false;
-            }
-
-            foreach (var textBox in getNumericTextBoxes())
-            {
-                if (!Controller.Validate.ValidateNumericInput(textBox.Text))
-                {
-                    isItNumeric = false;
-                    break;
-                }
-            }
-            return isItNumeric;
-        }
-        private List<TextBox> getNumericTextBoxes()
-        {
-            var numericTextBoxes = new List<TextBox>();
-
-            foreach (var numericTextBoxName in partUC.numericIntegerTextBoxName)
-            {
-                numericTextBoxes.Add((TextBox)partUC.Controls[numericTextBoxName]);
-            }
-
-            return numericTextBoxes;
         }
     }
 }

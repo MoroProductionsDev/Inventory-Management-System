@@ -81,5 +81,22 @@ namespace Inventory_Managment_System.View
             clearProductsDataTable();
             insertDataInProductsTable();
         }
+
+
+        public int getPartsSelectedRowIndex()
+        {
+            var selectedRow = partsDataGridView.SelectedRows;
+            var selectedRowIndex = selectedRow[0].Index;
+
+            return selectedRowIndex;
+        }
+
+        public int getProductsSelectedRowIndex()
+        {
+            var selectedRow = productsDataGridView.SelectedRows;
+            var selectedRowIndex = selectedRow[0].Index;
+
+            return selectedRowIndex;
+        }
     }
 }

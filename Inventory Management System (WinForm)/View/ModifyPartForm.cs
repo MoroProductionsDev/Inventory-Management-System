@@ -10,6 +10,7 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Inventory_Managment_System.Controller;
 using Inventory_Managment_System.Model;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 
@@ -46,6 +47,32 @@ namespace Inventory_Managment_System.View
                 partUC.Controls["outSourcedRdBtn"].Select();
                 partUC.Controls["inHouseRdBtn"].Enabled = false;
             }
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            if (!partUC.hasEmptyStringOrNullTextBoxes() && partUC.areAllNumericInput())
+            {
+                var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
+                if (((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked)
+                {
+                    Controller.Controller.updateInhousePartToInventory(in selectedPartsRowIndex);
+                }
+                else if (((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked)
+                {
+                    Controller.Controller.updateOutsourcedPartToInventory(in selectedPartsRowIndex);
+                }
+                TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
+
+                this.Close();
+                Program.ShowInitialAppForm();
+            }
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Program.ShowInitialAppForm();
         }
     }
 }

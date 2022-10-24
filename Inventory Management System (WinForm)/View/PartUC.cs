@@ -242,5 +242,55 @@ namespace Inventory_Managment_System.View
                 toolTip.SetToolTip((TextBox)sender, $"{userInputVarName} requires a number");
             } 
         }
+
+        public bool hasEmptyStringOrNullTextBoxes()
+        {
+            bool hasEmptyStringOrNullValue = false;
+            foreach (var textBox in Controls.OfType<TextBox>())
+            {
+                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false) // readonly to skip the partID text box
+                {
+                    hasEmptyStringOrNullValue = true;
+                    break;
+                }
+            }
+
+            return hasEmptyStringOrNullValue;
+        }
+
+        public bool areAllNumericInput()
+        {
+            bool isItNumeric = true;
+
+            try
+            {
+                Decimal.Parse(partPriceTxtBox.Text);
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+
+            foreach (var textBox in getNumericTextBoxes())
+            {
+                if (!Controller.Validate.ValidateNumericInput(textBox.Text))
+                {
+                    isItNumeric = false;
+                    break;
+                }
+            }
+            return isItNumeric;
+        }
+        private List<TextBox> getNumericTextBoxes()
+        {
+            var numericTextBoxes = new List<TextBox>();
+
+            foreach (var numericTextBoxName in numericIntegerTextBoxName)
+            {
+                numericTextBoxes.Add((TextBox) Controls[numericTextBoxName]);
+            }
+
+            return numericTextBoxes;
+        }
     }
 }

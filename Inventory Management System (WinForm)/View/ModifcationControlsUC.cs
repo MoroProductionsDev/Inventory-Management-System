@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Inventory_Managment_System.Controller;
 using Inventory_Managment_System.Model;
 using Inventory_Managment_System.View;
 
@@ -30,12 +31,13 @@ namespace Inventory_Managment_System.View
             {
                 partForms["addPartForm"] = new AddPartForm(); // Form has to be added her to avoid opening disposed object
                 partForms["addPartForm"].Show();
-                Application.OpenForms["MainForm"].Hide();
+                Program.HideInitialAppForm();
             }
             else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
             {
                 productForms["addProductForm"] = new AddProductForm(); // Form has to be added her to avoid opening disposed object
                 productForms["addProductForm"].Show();
+                Program.HideInitialAppForm();
             }
         }
         private void modifyBtn_Click(object sender, EventArgs e)
@@ -44,13 +46,17 @@ namespace Inventory_Managment_System.View
             closeAllProductsForms();
             if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
             {
-                partForms["modifyPartForm"] = new ModifyPartForm(getSelectedRowIndex()); // Form has to be added her to avoid opening disposed object
-                partForms["modifyPartForm"].Show();;
+                var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
+                partForms["modifyPartForm"] = new ModifyPartForm(selectedPartsRowIndex); // Form has to be added her to avoid opening disposed object
+                partForms["modifyPartForm"].Show();
+                Program.HideInitialAppForm();
             }
             else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
             {
+                var selectedProductsRowIndex = TabControlUC.tabControlUC_Instance.getProductsSelectedRowIndex();
                 productForms["modifyProductForm"] = new ModifyProductForm(); // Form has to be added her to avoid opening disposed object
                 productForms["modifyProductForm"].Show();
+                Program.HideInitialAppForm();
             }
 
         }
@@ -73,14 +79,6 @@ namespace Inventory_Managment_System.View
             {
                 form.Value.Close();
             }
-        }
-
-        private int getSelectedRowIndex()
-        {
-            var selectedRow = TabControlUC.tabControlUC_Instance.tableDataGridView["partsDataGridView"].SelectedRows;
-            var selectedRowIndex = selectedRow[0].Index;
-
-            return selectedRowIndex;
         }
     }
 }
