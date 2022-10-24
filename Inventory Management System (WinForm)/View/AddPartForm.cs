@@ -26,14 +26,16 @@ namespace Inventory_Managment_System.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (!partUC.hasEmptyStringOrNullTextBoxes() && partUC.areAllNumericInput())
+            var isInhouseRdBtnChecked = ((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked;
+
+            if (!partUC.checkTextBoxesForEmptyString() && partUC.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
-                if (((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked)
+                if (isInhouseRdBtnChecked)
                 {
 
                     Controller.Controller.addInhousePartToInventory(in partUC);
                 }
-                else if (((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked)
+                else
                 {
                     Controller.Controller.addOutsourcedPartToInventory(in partUC);
                 }

@@ -51,16 +51,18 @@ namespace Inventory_Managment_System.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (!partUC.hasEmptyStringOrNullTextBoxes() && partUC.areAllNumericInput())
+            var isInhouseRdBtnChecked = ((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked;
+
+            if (!partUC.checkTextBoxesForEmptyString() && partUC.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
                 var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
-                if (((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked)
+                if (isInhouseRdBtnChecked)
                 {
-                    Controller.Controller.updateInhousePartToInventory(in selectedPartsRowIndex);
+                    Controller.Controller.updateInhousePartToInventory(in selectedPartsRowIndex, in partUC);
                 }
-                else if (((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked)
+                else
                 {
-                    Controller.Controller.updateOutsourcedPartToInventory(in selectedPartsRowIndex);
+                    Controller.Controller.updateOutsourcedPartToInventory(in selectedPartsRowIndex, in partUC);
                 }
                 TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
 

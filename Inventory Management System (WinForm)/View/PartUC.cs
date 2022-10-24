@@ -243,7 +243,7 @@ namespace Inventory_Managment_System.View
             } 
         }
 
-        public bool hasEmptyStringOrNullTextBoxes()
+        public bool checkTextBoxesForEmptyString()
         {
             bool hasEmptyStringOrNullValue = false;
             foreach (var textBox in Controls.OfType<TextBox>())
@@ -258,12 +258,17 @@ namespace Inventory_Managment_System.View
             return hasEmptyStringOrNullValue;
         }
 
-        public bool areAllNumericInput()
+        public bool checkTextBoxesForNumericInput(bool isInhouseChecked)
         {
             bool isItNumeric = true;
 
             try
             {
+                if (isInhouseChecked)
+                {
+                    int.Parse(machineIDorCompanyNameTxtBox.Text);
+                }
+
                 Decimal.Parse(partPriceTxtBox.Text);
             }
             catch (FormatException)
