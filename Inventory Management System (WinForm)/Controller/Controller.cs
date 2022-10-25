@@ -97,6 +97,12 @@ namespace Inventory_Managment_System.Controller
             Inventory.updatePart(index, storedOutsourcedPart);
         }
 
+        public static void deletePartFromInventory(in int index)
+        {
+            var deletePart = Inventory.lookupPart(index);
+            Inventory.deletePart(deletePart);
+        }
+
         public static Part lookUpPartFromTheInventory(in int index)
         {
             return Inventory.lookupPart(index);

@@ -62,9 +62,23 @@ namespace Inventory_Managment_System.View
         }
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+            var hasClickedYes = displayDeletionWarning();
 
+            if (hasClickedYes)
+            {
+                if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
+                {
+                    var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
+                    Controller.Controller.deletePartFromInventory(selectedPartsRowIndex);
+                }
+                else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+                {
+                    var selectedProductsRowIndex = TabControlUC.tabControlUC_Instance.getProductsSelectedRowIndex();
+                    
+                }
+                TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
+            }
         }
-
         private void closeAllPartsForms()
         {
             foreach (var form in partForms)
@@ -79,6 +93,16 @@ namespace Inventory_Managment_System.View
             {
                 form.Value.Close();
             }
+        }
+
+        private bool displayDeletionWarning()
+        {
+            string warningMsg = "Are you sure you want to delete this part?";
+            MessageBoxButtons msgBoxButtons = MessageBoxButtons.YesNo;
+
+            var result = MessageBox.Show(warningMsg, "Warning", msgBoxButtons, MessageBoxIcon.Warning);
+
+            return result == DialogResult.Yes;
         }
     }
 }

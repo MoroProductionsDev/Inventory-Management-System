@@ -107,7 +107,9 @@ namespace Inventory_Managment_System.View
             this.partsDataGridView.Size = new System.Drawing.Size(622, 244);
             this.partsDataGridView.TabIndex = 0;
             this.partsDataGridView.BackColor = System.Drawing.Color.LightYellow;
-            
+            this.partsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.partsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
             // 
             // partID
             // 
@@ -207,7 +209,9 @@ namespace Inventory_Managment_System.View
             this.productsDataGridView.RowTemplate.Height = 25;
             this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productsDataGridView.Size = new System.Drawing.Size(622, 244);
-            this.productsDataGridView.TabIndex = 1;    
+            this.productsDataGridView.TabIndex = 1;
+            this.productsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.productsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             // 
             // productID
             // 
