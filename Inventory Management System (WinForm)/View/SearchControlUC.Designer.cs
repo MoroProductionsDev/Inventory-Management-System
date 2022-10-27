@@ -47,14 +47,15 @@
             this.searchLbl.TabIndex = 3;
             this.searchLbl.Text = "Search";
             this.searchLbl.UseVisualStyleBackColor = true;
+            this.searchLbl.Click += new System.EventHandler(this.searchLbl_Click);
             // 
-            // SearchControl
+            // SearchControlUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.searchTxtbox);
             this.Controls.Add(this.searchLbl);
-            this.Name = "SearchControl";
+            this.Name = "SearchControlUC";
             this.Size = new System.Drawing.Size(252, 32);
             this.ResumeLayout(false);
             this.PerformLayout();

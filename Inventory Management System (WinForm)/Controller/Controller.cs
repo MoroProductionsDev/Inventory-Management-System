@@ -108,6 +108,10 @@ namespace Inventory_Managment_System.Controller
             return Inventory.lookupPart(index);
         }
 
+        public static int searchForPartNameInTheInventory(in string searchString)
+        {
+            return TabControlUC.tabControlUC_Instance.findMatchingPart(searchString);
+        }
 
         //public static void addPart(Part part)
         //{

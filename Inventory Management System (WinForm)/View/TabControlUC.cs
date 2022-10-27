@@ -70,6 +70,22 @@ namespace Inventory_Managment_System.View
             }
         }
 
+        public int findMatchingPart(string searchString)
+        {
+            var partList = Inventory.AllParts;
+            int matchingPartID = -1;
+            foreach (var part in partList)
+            {
+                if(part.Name.ToUpper().Contains(searchString.ToUpper()))
+                {
+                    matchingPartID = part.PartID;
+                    break;
+                }
+            }
+
+            return matchingPartID;
+        }
+
         public void recreatePartsDataTable()
         {
             clearPartsDataTable();
@@ -97,6 +113,15 @@ namespace Inventory_Managment_System.View
             var selectedRowIndex = selectedRow[0].Index;
 
             return selectedRowIndex;
+        }
+
+        public void setPartsSelectedRowIndex(in int index)
+        {
+            partsDataGridView.Rows[index].Selected = true;
+        }
+        public void setProductsSelectedRowInd(in int index)
+        {
+            productsDataGridView.Rows[index].Selected = true;
         }
     }
 }

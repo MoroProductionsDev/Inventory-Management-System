@@ -108,8 +108,7 @@ namespace Inventory_Managment_System.View
             this.partsDataGridView.TabIndex = 0;
             this.partsDataGridView.BackColor = System.Drawing.Color.LightYellow;
             this.partsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.partsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
+            this.partsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing; // disables 
             // 
             // partID
             // 
@@ -198,7 +197,7 @@ namespace Inventory_Managment_System.View
             this.productsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productsDataGridView.Location = new System.Drawing.Point(3, 3);
             this.productsDataGridView.Name = "productsDataGridView";
-            this.productsDataGridView.RowsDefaultCellStyle.SelectionForeColor = DefaultForeColor; // default fore colore == font color
+            this.productsDataGridView.RowsDefaultCellStyle.SelectionForeColor = DefaultForeColor; // default fore color == font color
             this.productsDataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.Yellow;
             this.productsDataGridView.AllowUserToResizeColumns = false;
             this.productsDataGridView.AllowUserToResizeRows = false;
@@ -211,7 +210,8 @@ namespace Inventory_Managment_System.View
             this.productsDataGridView.Size = new System.Drawing.Size(622, 244);
             this.productsDataGridView.TabIndex = 1;
             this.productsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.productsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.productsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing; // disables header resizing
+            this.productsDataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = productsDataGridView.ColumnHeadersDefaultCellStyle.BackColor; // disables header highlighting
             // 
             // productID
             // 
