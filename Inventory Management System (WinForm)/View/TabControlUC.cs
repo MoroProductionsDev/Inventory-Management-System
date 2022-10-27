@@ -73,17 +73,25 @@ namespace Inventory_Managment_System.View
         public int findMatchingPart(string searchString)
         {
             var partList = Inventory.AllParts;
-            int matchingPartID = -1;
+            bool found = false;
+            int matchingRow = 0; // this will match the size of the partList
+
             foreach (var part in partList)
             {
-                if(part.Name.ToUpper().Contains(searchString.ToUpper()))
+                if (part.Name.ToUpper().Contains(searchString.ToUpper()))
                 {
-                    matchingPartID = part.PartID;
+                    found = true;
                     break;
                 }
+                ++matchingRow;
+            }
+            
+            if (!found)
+            {
+                matchingRow = -1;
             }
 
-            return matchingPartID;
+            return matchingRow;
         }
 
         public void recreatePartsDataTable()
