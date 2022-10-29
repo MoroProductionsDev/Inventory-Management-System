@@ -12,6 +12,7 @@ namespace Inventory_Managment_System.Model
     internal class Outsourced : Part
     {
         public string CompanyName { get; set; }
+
         public Outsourced(string companyName, string name, decimal price, int inStock, int min, int max) : base(name, price, inStock, min, max)
         {
             CompanyName = companyName;
@@ -21,7 +22,6 @@ namespace Inventory_Managment_System.Model
         {
             return $"{nameof(CompanyName)} {CompanyName}\n" + base.ToString();
         }
-
 
         public string ToStringForProducts()
         {

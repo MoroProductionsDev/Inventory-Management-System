@@ -15,7 +15,8 @@ namespace Inventory_Managment_System.View
 {
     public partial class ModifcationControlsUC : UserControl
     {
-        private static string[] tabPageNames = { "partsTabPage", "productsTabPage" };
+        private static string[] tabPageNames = {TabControlUC.tabControlUC_Instance.PartsPage.Name,
+                                                TabControlUC.tabControlUC_Instance.ProductsPage.Name};
         private Dictionary<string, Form> partForms;
         private Dictionary<string, Form> productForms;
         public ModifcationControlsUC()

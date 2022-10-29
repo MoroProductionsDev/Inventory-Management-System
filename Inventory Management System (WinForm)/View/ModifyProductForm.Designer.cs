@@ -32,10 +32,10 @@
             this.modifyProductLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // productuc1
+            // productUC
             // 
             this.productuc1.Location = new System.Drawing.Point(12, 12);
-            this.productuc1.Name = "productuc1";
+            this.productuc1.Name = "productUC";
             this.productuc1.Size = new System.Drawing.Size(1077, 549);
             this.productuc1.TabIndex = 0;
             // 

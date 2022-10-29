@@ -13,8 +13,8 @@ namespace Inventory_Managment_System.View
 {
     public partial class SearchControlUC : UserControl
     {
-        private static string[] tabPageNames = { "partsTabPage", "productsTabPage" };
-        private Dictionary<string, Form> partForms;
+        private static string[] tabPageNames = {TabControlUC.tabControlUC_Instance.PartsPage.Name,
+                                                TabControlUC.tabControlUC_Instance.ProductsPage.Name};
         public SearchControlUC()
         {
             InitializeComponent();

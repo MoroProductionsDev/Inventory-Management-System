@@ -84,15 +84,10 @@ namespace Inventory_Managment_System.Model
             get => inStock;
             set
             {
-                //if (value > max || value < min)
-                //{
-                //    throw new ArgumentOutOfRangeException(
-                //        $"\n<{nameof(.Part)}> : <{nameof(this.inStock)}> {value} cannot be less than {min} " +
-                //        $"nor greather than {max}");
-                //}
                 inStock = value;
             }
         }
+
         public override string ToString()
         {
             return $"{nameof(PartID)}: {PartID}\n" +

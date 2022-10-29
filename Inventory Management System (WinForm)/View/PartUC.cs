@@ -18,11 +18,10 @@ namespace Inventory_Managment_System.View
     public partial class PartUC : UserControl
     {
         private List<TextBox> textBoxList;
-
-        public readonly String[] numericIntegerTextBoxName;
-
+        public readonly string[] numericIntegerTextBoxName;
         private ToolTip toolTip; //to display the textbox tool messages
 
+        // Enum type use to validate Textbox inputs.
         private enum ValType
         {
             NullAndEmptyString,
@@ -35,7 +34,7 @@ namespace Inventory_Managment_System.View
             toolTip = new ToolTip();
             textBoxList = new List<TextBox>() { partNameTxtBox, partInventoryTxtBox,
                 partPriceTxtBox, partMinTxtBox, partMaxTxtBox };
-            numericIntegerTextBoxName = new String[] {partInventoryTxtBox.Name,
+            numericIntegerTextBoxName = new string[] {partInventoryTxtBox.Name,
                         partMinTxtBox.Name, partMaxTxtBox.Name };
         }
 
@@ -201,7 +200,6 @@ namespace Inventory_Managment_System.View
 
         private void displayTheIndicatedToolTip(object sender, EventArgs e, ValType validationType)
         {
-            //
             string userInputVarName = null;
             if (validationType.Equals(ValType.NullAndEmptyString))
             {

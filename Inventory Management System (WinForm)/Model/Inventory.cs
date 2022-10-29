@@ -10,15 +10,10 @@ namespace Inventory_Managment_System.Model
 {
     internal static class Inventory
     {
-        private static BindingList<Product> products = new BindingList<Product>(); 
+        private static BindingList<Product> products = new BindingList<Product>();
         public static BindingList<Product> Products { get => products; }
         private static BindingList<Part> allParts = new BindingList<Part>();
         public static BindingList<Part> AllParts { get => allParts; }
-
-        //public Inventory() {
-        //    Products = new BindingList<Product>();
-        //    AllParts = new BindingList<Part>();
-        //}
 
         public static void addProduct(Product addingProduct)
         {
@@ -108,6 +103,7 @@ namespace Inventory_Managment_System.Model
             }
             return prodList;
         }
+
         public static new string ToStringParts()
         {
             string partList = "";
@@ -117,6 +113,5 @@ namespace Inventory_Managment_System.Model
             }
             return partList;
         }
-
     }
 }

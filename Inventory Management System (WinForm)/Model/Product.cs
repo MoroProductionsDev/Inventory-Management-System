@@ -11,7 +11,6 @@ namespace Inventory_Managment_System.Model
 {
     internal class Product
     {
-
         public BindingList<Part> AssociatedParts { get; }
         public int ProductID { get; }
         public string Name { get; set; }
@@ -19,11 +18,7 @@ namespace Inventory_Managment_System.Model
         private int inStock;
         private int min;
         private int max;
-
         private static int productCount;    // keeps the count statically for all products created.
-
-        //private int min = int.MaxValue; // these value will facilitate the validation between min and max. In case of a default constructor
-        //private int max = int.MinValue;
 
         public Product(string name, decimal price, int inStock, int min, int max)
         {
@@ -89,12 +84,6 @@ namespace Inventory_Managment_System.Model
             get => inStock;
             set
             {
-                //if (value > max || value < min)
-                //{
-                //    throw new ArgumentOutOfRangeException(
-                //        $"\n<{nameof(Product)}> : <{nameof(inStock)}> {value} cannot be less than {min} " +
-                //        $"nor greather than {max}");
-                //}
                 inStock = value;
             }
         }
