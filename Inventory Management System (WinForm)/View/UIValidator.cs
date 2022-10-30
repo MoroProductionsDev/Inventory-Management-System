@@ -15,7 +15,7 @@ namespace Inventory_Managment_System.View
         public static readonly Color validTextBox_Color = Color.White;
         public static readonly Color invalidTextBox_Color = Color.OrangeRed;
         public readonly ToolTip toolTip; //to display the textbox tool message
-        public readonly string[] ucNumericIntegerTextBoxName;
+        public readonly string[] ucNumericIntegerTextBoxNames;
         private bool validatingPartUC;
         private List<TextBox> ucTextBoxList;
         private List<Label> ucLabelList;
@@ -49,7 +49,7 @@ namespace Inventory_Managment_System.View
                 ucLabelList = new List<Label>() { userControl.Controls["partNameLbl"], userControl.Controls["partInventoryLbl"],
                                 userControl.Controls["partPriceLbl"], userControl.Controls["partMinLbl"], userControl.Controls["partMaxLbl"] };
 
-                ucNumericIntegerTextBoxName = new string[] {userControl.Controls["partInventoryTxtBox"].Name,
+                ucNumericIntegerTextBoxNames = new string[] {userControl.Controls["partInventoryTxtBox"].Name,
                         userControl.Controls["partMinTxtBox"].Name, userControl.Controls["partMaxTxtBox"].Name };
                 
                 validatingPartUC = true;
@@ -62,7 +62,7 @@ namespace Inventory_Managment_System.View
                 ucLabelList = new List<Label>() { userControl.Controls["productNameLbl"], userControl.Controls["productInventoryLbl"],
                                 userControl.Controls["productPriceLbl"], userControl.Controls["productMinLbl"], userControl.Controls["productMaxLbl"]};
 
-                ucNumericIntegerTextBoxName = new string[] {userControl.Controls["productInventoryTxtBox"].Name,
+                ucNumericIntegerTextBoxNames = new string[] {userControl.Controls["productInventoryTxtBox"].Name,
                         userControl.Controls["productMinTxtBox"].Name, userControl.Controls["productMaxTxtBox"].Name};
 
                 validatingPartUC = false;
@@ -118,7 +118,63 @@ namespace Inventory_Managment_System.View
             }
         }
 
-        private static bool hasEmptyOrNullString(object sender, EventArgs e)
+        public bool checkTextBoxesForNumericInput(bool isInhouseChecked)
+        {
+            bool isItNumeric = true;
+
+            try
+            {
+                if (validatingPartUC && isInhouseChecked)
+                {
+                    int.Parse(userControl.Controls["machineIDorCompanyNameTxtBox"].Text);
+                }
+
+                Decimal.Parse(ucTextBoxList[(int)Prop.Price].Text);
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+
+            foreach (var textBox in getNumericTextBoxes())
+            {
+                if (!Controller.Validate.ValidateNumericInput(textBox.Text))
+                {
+                    isItNumeric = false;
+                    break;
+                }
+            }
+            return isItNumeric;
+        }
+
+        public static bool checkTextBoxesForEmptyString(UserControl uc)
+        {
+            bool hasEmptyStringOrNullValue = false;
+            foreach (var textBox in uc.Controls.OfType<TextBox>())
+            {
+                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false) // readonly to skip the partID text box
+                {
+                    hasEmptyStringOrNullValue = true;
+                    break;
+                }
+            }
+
+            return hasEmptyStringOrNullValue;
+        }
+
+        public static void modifyAllEmptyOrNullTextbox(UserControl uc)
+        {
+            foreach (var textBox in uc.Controls.OfType<TextBox>())
+            {
+                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false)
+                {
+                    textBox.BackColor = invalidTextBox_Color;
+                }
+            }
+        }
+        //--------------------------------------------------------------------
+
+        private bool hasEmptyOrNullString(object sender, EventArgs e)
         {
             bool isItEmptyOrNull = true;
             if (sender.GetType().Equals(typeof(TextBox)))
@@ -137,7 +193,7 @@ namespace Inventory_Managment_System.View
             return isItEmptyOrNull;
         }
 
-        private static bool hasIntegerNumericInput(object sender, EventArgs e)
+        private bool hasIntegerNumericInput(object sender, EventArgs e)
         {
             bool isItNumeric = false;
             if (sender.GetType().Equals(typeof(TextBox)))
@@ -156,7 +212,7 @@ namespace Inventory_Managment_System.View
             return isItNumeric;
         }
 
-        private static bool hasDecimalNumericInput(object sender, EventArgs e)
+        private bool hasDecimalNumericInput(object sender, EventArgs e)
         {
             bool isItADecimal;
             try
@@ -215,70 +271,17 @@ namespace Inventory_Managment_System.View
                 toolTip.SetToolTip((TextBox)sender, $"{userInputVarName} requires a number");
             }
         }
-
-        public bool checkTextBoxesForEmptyString()
-        {
-            bool hasEmptyStringOrNullValue = false;
-            foreach (var textBox in userControl.Controls.OfType<TextBox>())
-            {
-                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false) // readonly to skip the partID text box
-                {
-                    hasEmptyStringOrNullValue = true;
-                    break;
-                }
-            }
-
-            return hasEmptyStringOrNullValue;
-        }
-
-        public bool checkTextBoxesForNumericInput(bool isInhouseChecked)
-        {
-            bool isItNumeric = true;
-
-            try
-            {
-                if (validatingPartUC && isInhouseChecked)
-                {
-                    int.Parse(userControl.Controls["machineIDorCompanyNameTxtBox"].Text);
-                }
-
-                Decimal.Parse(ucTextBoxList[(int)Prop.Price].Text);
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
-
-            foreach (var textBox in getNumericTextBoxes())
-            {
-                if (!Controller.Validate.ValidateNumericInput(textBox.Text))
-                {
-                    isItNumeric = false;
-                    break;
-                }
-            }
-            return isItNumeric;
-        }
+        
         private List<TextBox> getNumericTextBoxes()
         {
             var numericTextBoxes = new List<TextBox>();
 
-            foreach (var numericTextBoxName in userControl.numericIntegerTextBoxName)
+            foreach (var numericTextBoxName in ucNumericIntegerTextBoxNames)
             {
                 numericTextBoxes.Add((TextBox)userControl.Controls[numericTextBoxName]);
             }
 
             return numericTextBoxes;
-        }
-        public static void modifyAllEmptyOrNullTextbox(UserControl uc)
-        {
-            foreach (var textBox in uc.Controls.OfType<TextBox>())
-            {
-                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false)
-                {
-                    textBox.BackColor = invalidTextBox_Color;
-                }
-            }
         }
     }
 }

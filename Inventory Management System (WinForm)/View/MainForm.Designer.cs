@@ -32,6 +32,7 @@
             this.modifcationControlsUC = new Inventory_Managment_System.View.ModifcationControlsUC();
             this.searchControlUC = new Inventory_Managment_System.View.SearchControlUC();
             this.tabControlUC = new Inventory_Managment_System.View.TabControlUC();
+            this.exitBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // appNameLbl
@@ -66,11 +67,22 @@
             this.tabControlUC.Size = new System.Drawing.Size(645, 285);
             this.tabControlUC.TabIndex = 5;
             // 
+            // exitBtn
+            // 
+            this.exitBtn.Location = new System.Drawing.Point(592, 414);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(56, 27);
+            this.exitBtn.TabIndex = 7;
+            this.exitBtn.Text = "Exit";
+            this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 427);
+            this.ClientSize = new System.Drawing.Size(672, 459);
+            this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.tabControlUC);
             this.Controls.Add(this.searchControlUC);
             this.Controls.Add(this.modifcationControlsUC);
@@ -79,6 +91,7 @@
             this.Text = "Main Screen";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -86,5 +99,6 @@
         private View.ModifcationControlsUC modifcationControlsUC;
         private View.SearchControlUC searchControlUC;
         private View.TabControlUC tabControlUC;
+        private Button exitBtn;
     }
 }

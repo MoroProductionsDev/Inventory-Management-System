@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.productMaxTxtBox = new System.Windows.Forms.TextBox();
             this.productMinTxtBox = new System.Windows.Forms.TextBox();
             this.productPriceTxtBox = new System.Windows.Forms.TextBox();
@@ -60,110 +60,111 @@
             this.deleteBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.partsToProductLbl = new System.Windows.Forms.Label();
+            this.searchControlUC = new Inventory_Managment_System.View.SearchControlUC();
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // productMaxTxtBox
             // 
-            this.productMaxTxtBox.Location = new System.Drawing.Point(108, 356);
+            this.productMaxTxtBox.Location = new System.Drawing.Point(115, 373);
             this.productMaxTxtBox.Name = "productMaxTxtBox";
             this.productMaxTxtBox.Size = new System.Drawing.Size(69, 23);
-            this.productMaxTxtBox.TabIndex = 23;
+            this.productMaxTxtBox.TabIndex = 11;
             this.productMaxTxtBox.TextChanged += new System.EventHandler(this.productMaxTxtBox_TextChanged);
             // 
             // productMinTxtBox
             // 
-            this.productMinTxtBox.Location = new System.Drawing.Point(266, 356);
+            this.productMinTxtBox.Location = new System.Drawing.Point(273, 373);
             this.productMinTxtBox.Name = "productMinTxtBox";
             this.productMinTxtBox.Size = new System.Drawing.Size(69, 23);
-            this.productMinTxtBox.TabIndex = 25;
+            this.productMinTxtBox.TabIndex = 13;
             this.productMinTxtBox.TextChanged += new System.EventHandler(this.productMinTxtBox_TextChanged);
             // 
             // productPriceTxtBox
             // 
-            this.productPriceTxtBox.Location = new System.Drawing.Point(108, 316);
+            this.productPriceTxtBox.Location = new System.Drawing.Point(115, 333);
             this.productPriceTxtBox.Name = "productPriceTxtBox";
             this.productPriceTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.productPriceTxtBox.TabIndex = 21;
+            this.productPriceTxtBox.TabIndex = 9;
             this.productPriceTxtBox.TextChanged += new System.EventHandler(this.productPriceTxtBox_TextChanged);
             // 
             // productInventoryTxtBox
             // 
-            this.productInventoryTxtBox.Location = new System.Drawing.Point(108, 276);
+            this.productInventoryTxtBox.Location = new System.Drawing.Point(115, 293);
             this.productInventoryTxtBox.Name = "productInventoryTxtBox";
             this.productInventoryTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.productInventoryTxtBox.TabIndex = 19;
+            this.productInventoryTxtBox.TabIndex = 7;
             this.productInventoryTxtBox.TextChanged += new System.EventHandler(this.productInventoryTxtBox_TextChanged);
             // 
             // productNameTxtBox
             // 
-            this.productNameTxtBox.Location = new System.Drawing.Point(108, 236);
+            this.productNameTxtBox.Location = new System.Drawing.Point(115, 253);
             this.productNameTxtBox.Name = "productNameTxtBox";
             this.productNameTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.productNameTxtBox.TabIndex = 17;
+            this.productNameTxtBox.TabIndex = 5;
             this.productNameTxtBox.TextChanged += new System.EventHandler(this.productNameTxtBox_TextChanged);
             // 
             // productIDTxtBox
             // 
-            this.productIDTxtBox.Location = new System.Drawing.Point(108, 196);
+            this.productIDTxtBox.Location = new System.Drawing.Point(115, 213);
             this.productIDTxtBox.Name = "productIDTxtBox";
             this.productIDTxtBox.ReadOnly = true;
             this.productIDTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.productIDTxtBox.TabIndex = 15;
+            this.productIDTxtBox.TabIndex = 3;
             // 
             // productMaxLbl
             // 
             this.productMaxLbl.AutoSize = true;
-            this.productMaxLbl.Location = new System.Drawing.Point(55, 359);
+            this.productMaxLbl.Location = new System.Drawing.Point(62, 376);
             this.productMaxLbl.Name = "productMaxLbl";
             this.productMaxLbl.Size = new System.Drawing.Size(30, 15);
-            this.productMaxLbl.TabIndex = 22;
+            this.productMaxLbl.TabIndex = 10;
             this.productMaxLbl.Text = "Max";
             // 
             // productMinLbl
             // 
             this.productMinLbl.AutoSize = true;
-            this.productMinLbl.Location = new System.Drawing.Point(232, 359);
+            this.productMinLbl.Location = new System.Drawing.Point(239, 376);
             this.productMinLbl.Name = "productMinLbl";
             this.productMinLbl.Size = new System.Drawing.Size(28, 15);
-            this.productMinLbl.TabIndex = 24;
+            this.productMinLbl.TabIndex = 12;
             this.productMinLbl.Text = "Min";
             // 
             // productPriceLbl
             // 
             this.productPriceLbl.AutoSize = true;
-            this.productPriceLbl.Location = new System.Drawing.Point(17, 316);
+            this.productPriceLbl.Location = new System.Drawing.Point(24, 333);
             this.productPriceLbl.Name = "productPriceLbl";
             this.productPriceLbl.Size = new System.Drawing.Size(68, 15);
-            this.productPriceLbl.TabIndex = 20;
+            this.productPriceLbl.TabIndex = 8;
             this.productPriceLbl.Text = "Price / Cost";
             // 
             // productInventoryLbl
             // 
             this.productInventoryLbl.AutoSize = true;
-            this.productInventoryLbl.Location = new System.Drawing.Point(28, 277);
+            this.productInventoryLbl.Location = new System.Drawing.Point(35, 294);
             this.productInventoryLbl.Name = "productInventoryLbl";
             this.productInventoryLbl.Size = new System.Drawing.Size(57, 15);
-            this.productInventoryLbl.TabIndex = 18;
+            this.productInventoryLbl.TabIndex = 6;
             this.productInventoryLbl.Text = "Inventory";
             // 
             // productNameLbl
             // 
             this.productNameLbl.AutoSize = true;
-            this.productNameLbl.Location = new System.Drawing.Point(46, 238);
+            this.productNameLbl.Location = new System.Drawing.Point(53, 255);
             this.productNameLbl.Name = "productNameLbl";
             this.productNameLbl.Size = new System.Drawing.Size(39, 15);
-            this.productNameLbl.TabIndex = 16;
+            this.productNameLbl.TabIndex = 4;
             this.productNameLbl.Text = "Name";
             // 
             // productIDLbl
             // 
             this.productIDLbl.AutoSize = true;
-            this.productIDLbl.Location = new System.Drawing.Point(67, 199);
+            this.productIDLbl.Location = new System.Drawing.Point(74, 216);
             this.productIDLbl.Name = "productIDLbl";
             this.productIDLbl.Size = new System.Drawing.Size(18, 15);
-            this.productIDLbl.TabIndex = 14;
+            this.productIDLbl.TabIndex = 2;
             this.productIDLbl.Text = "ID";
             // 
             // partsDataGridView
@@ -179,18 +180,18 @@
             this.partPrice,
             this.partMin,
             this.partMax});
-            this.partsDataGridView.Location = new System.Drawing.Point(414, 53);
+            this.partsDataGridView.Location = new System.Drawing.Point(421, 70);
             this.partsDataGridView.MultiSelect = false;
             this.partsDataGridView.Name = "partsDataGridView";
             this.partsDataGridView.ReadOnly = true;
             this.partsDataGridView.RowHeadersVisible = false;
             this.partsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.partsDataGridView.RowsDefaultCellStyle.SelectionForeColor = DefaultForeColor; // default fore colore == font color
-            this.partsDataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.Yellow;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Yellow;
+            this.partsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.partsDataGridView.RowTemplate.Height = 25;
             this.partsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.partsDataGridView.Size = new System.Drawing.Size(623, 180);
-            this.partsDataGridView.TabIndex = 26;
+            this.partsDataGridView.TabIndex = 14;
             // 
             // partID
             // 
@@ -256,10 +257,10 @@
             // allPartsLbl
             // 
             this.allPartsLbl.AutoSize = true;
-            this.allPartsLbl.Location = new System.Drawing.Point(414, 21);
+            this.allPartsLbl.Location = new System.Drawing.Point(421, 38);
             this.allPartsLbl.Name = "allPartsLbl";
             this.allPartsLbl.Size = new System.Drawing.Size(50, 15);
-            this.allPartsLbl.TabIndex = 28;
+            this.allPartsLbl.TabIndex = 0;
             this.allPartsLbl.Text = "All Parts";
             // 
             // associatedPartsDataGridView
@@ -275,18 +276,18 @@
             this.associatedPartPrice,
             this.associatedPartMin,
             this.associatedPartMax});
-            this.associatedPartsDataGridView.Location = new System.Drawing.Point(414, 324);
+            this.associatedPartsDataGridView.Location = new System.Drawing.Point(421, 341);
             this.associatedPartsDataGridView.MultiSelect = false;
             this.associatedPartsDataGridView.Name = "associatedPartsDataGridView";
             this.associatedPartsDataGridView.ReadOnly = true;
             this.associatedPartsDataGridView.RowHeadersVisible = false;
             this.associatedPartsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.associatedPartsDataGridView.RowsDefaultCellStyle.SelectionForeColor = DefaultForeColor; // default fore colore == font color
-            this.associatedPartsDataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.Yellow;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Yellow;
+            this.associatedPartsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.associatedPartsDataGridView.RowTemplate.Height = 25;
             this.associatedPartsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.associatedPartsDataGridView.Size = new System.Drawing.Size(623, 180);
-            this.associatedPartsDataGridView.TabIndex = 29;
+            this.associatedPartsDataGridView.TabIndex = 17;
             // 
             // associatedPartID
             // 
@@ -351,35 +352,43 @@
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(947, 525);
+            this.deleteBtn.Location = new System.Drawing.Point(954, 542);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(55, 31);
-            this.deleteBtn.TabIndex = 31;
+            this.deleteBtn.TabIndex = 18;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(947, 254);
+            this.addBtn.Location = new System.Drawing.Point(954, 271);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(55, 31);
-            this.addBtn.TabIndex = 30;
+            this.addBtn.TabIndex = 15;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = true;
             // 
             // partsToProductLbl
             // 
             this.partsToProductLbl.AutoSize = true;
-            this.partsToProductLbl.Location = new System.Drawing.Point(414, 295);
+            this.partsToProductLbl.Location = new System.Drawing.Point(421, 312);
             this.partsToProductLbl.Name = "partsToProductLbl";
             this.partsToProductLbl.Size = new System.Drawing.Size(186, 15);
-            this.partsToProductLbl.TabIndex = 32;
+            this.partsToProductLbl.TabIndex = 16;
             this.partsToProductLbl.Text = "Parts Associated with this Product";
+            // 
+            // searchControlUC
+            // 
+            this.searchControlUC.Location = new System.Drawing.Point(792, 20);
+            this.searchControlUC.Name = "searchControlUC";
+            this.searchControlUC.Size = new System.Drawing.Size(252, 32);
+            this.searchControlUC.TabIndex = 1;
             // 
             // ProductUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.searchControlUC);
             this.Controls.Add(this.partsToProductLbl);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.addBtn);
@@ -399,7 +408,7 @@
             this.Controls.Add(this.productNameLbl);
             this.Controls.Add(this.productIDLbl);
             this.Name = "ProductUC";
-            this.Size = new System.Drawing.Size(1077, 576);
+            this.Size = new System.Drawing.Size(1077, 592);
             this.Load += new System.EventHandler(this.ProductUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGridView)).EndInit();
@@ -440,5 +449,6 @@
         private Button deleteBtn;
         private Label allPartsLbl;
         private Label partsToProductLbl;
+        private SearchControlUC searchControlUC;
     }
 }

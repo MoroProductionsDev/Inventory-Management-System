@@ -24,27 +24,28 @@ namespace Inventory_Managment_System.View
             UIValidator.modifyAllEmptyOrNullTextbox(productUC);
         }
 
-        //private void saveBtn_Click(object sender, EventArgs e)
-        //{
-        //    var isInhouseRdBtnChecked = ((RadioButton)productUC.Controls["inHouseRdBtn"]).Checked;
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            var isInhouseRdBtnChecked = false;
 
-        //    if (!productUC.checkTextBoxesForEmptyString() && productUC.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
-        //    {
-        //        if (isInhouseRdBtnChecked)
-        //        {
+            //if (!productUC.productUCValidator.checkTextBoxesForEmptyString() 
+            //    && productUC.productUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
+            //{
+            //    if (isInhouseRdBtnChecked)
+            //    {
 
-        //            Controller.Controller.addInhousePartToInventory(in productUC);
-        //        }
-        //        else
-        //        {
-        //            Controller.Controller.addOutsourcedPartToInventory(in productUC);
-        //        }
-        //        TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
+            //        Controller.Controller.addInhousePartToInventory(in productUC);
+            //    }
+            //    else
+            //    {
+            //        Controller.Controller.addOutsourcedPartToInventory(in productUC);
+            //    }
+            //    TabControlUC.tabControlUC_Instance.recreateProductsDataTable();
 
-        //        this.Close();
-        //        Program.ShowInitialAppForm();
-        //    }
-        //}
+            //    this.Close();
+            //    Program.ShowInitialAppForm();
+            //}
+        }
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {

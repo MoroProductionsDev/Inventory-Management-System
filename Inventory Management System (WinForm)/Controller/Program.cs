@@ -26,5 +26,10 @@ namespace Inventory_Managment_System.Controller
         {
             Application.OpenForms["MainForm"].Hide();
         }
+
+        public static void Exit()
+        {
+            Application.Exit();
+        }
     }
 }
