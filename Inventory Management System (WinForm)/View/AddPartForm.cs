@@ -28,7 +28,7 @@ namespace Inventory_Managment_System.View
         {
             var isInhouseRdBtnChecked = ((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked;
 
-            if (!partUC.checkTextBoxesForEmptyString() && partUC.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
+            if (!partUC.partUCValidator.checkTextBoxesForEmptyString() && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
                 if (isInhouseRdBtnChecked)
                 {
@@ -58,7 +58,7 @@ namespace Inventory_Managment_System.View
             {
                 if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false)
                 {
-                    textBox.BackColor = Color.OrangeRed;
+                    textBox.BackColor = partUC.partUCValidator.invalidTextBox_Color;
                 }
             }
         }
