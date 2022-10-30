@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.partMaxTxtBox = new System.Windows.Forms.TextBox();
-            this.partMinTxtBox = new System.Windows.Forms.TextBox();
-            this.partPriceTxtBox = new System.Windows.Forms.TextBox();
-            this.partInventoryTxtBox = new System.Windows.Forms.TextBox();
-            this.partNameTxtBox = new System.Windows.Forms.TextBox();
-            this.partIDTxtBox = new System.Windows.Forms.TextBox();
-            this.partMaxLbl = new System.Windows.Forms.Label();
-            this.partMinLbl = new System.Windows.Forms.Label();
-            this.partPriceLbl = new System.Windows.Forms.Label();
-            this.partInventoryLbl = new System.Windows.Forms.Label();
-            this.partNameLbl = new System.Windows.Forms.Label();
-            this.partIDLbl = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.productMaxTxtBox = new System.Windows.Forms.TextBox();
+            this.productMinTxtBox = new System.Windows.Forms.TextBox();
+            this.productPriceTxtBox = new System.Windows.Forms.TextBox();
+            this.productInventoryTxtBox = new System.Windows.Forms.TextBox();
+            this.productNameTxtBox = new System.Windows.Forms.TextBox();
+            this.productIDTxtBox = new System.Windows.Forms.TextBox();
+            this.productMaxLbl = new System.Windows.Forms.Label();
+            this.productMinLbl = new System.Windows.Forms.Label();
+            this.productPriceLbl = new System.Windows.Forms.Label();
+            this.productInventoryLbl = new System.Windows.Forms.Label();
+            this.productNameLbl = new System.Windows.Forms.Label();
+            this.productIDLbl = new System.Windows.Forms.Label();
             this.partsDataGridView = new System.Windows.Forms.DataGridView();
             this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,102 +64,107 @@
             ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // partMaxTxtBox
+            // productMaxTxtBox
             // 
-            this.partMaxTxtBox.Location = new System.Drawing.Point(108, 356);
-            this.partMaxTxtBox.Name = "partMaxTxtBox";
-            this.partMaxTxtBox.Size = new System.Drawing.Size(69, 23);
-            this.partMaxTxtBox.TabIndex = 23;
+            this.productMaxTxtBox.Location = new System.Drawing.Point(108, 356);
+            this.productMaxTxtBox.Name = "productMaxTxtBox";
+            this.productMaxTxtBox.Size = new System.Drawing.Size(69, 23);
+            this.productMaxTxtBox.TabIndex = 23;
+            this.productMaxTxtBox.TextChanged += new System.EventHandler(this.productMaxTxtBox_TextChanged);
             // 
-            // partMinTxtBox
+            // productMinTxtBox
             // 
-            this.partMinTxtBox.Location = new System.Drawing.Point(266, 356);
-            this.partMinTxtBox.Name = "partMinTxtBox";
-            this.partMinTxtBox.Size = new System.Drawing.Size(69, 23);
-            this.partMinTxtBox.TabIndex = 25;
+            this.productMinTxtBox.Location = new System.Drawing.Point(266, 356);
+            this.productMinTxtBox.Name = "productMinTxtBox";
+            this.productMinTxtBox.Size = new System.Drawing.Size(69, 23);
+            this.productMinTxtBox.TabIndex = 25;
+            this.productMinTxtBox.TextChanged += new System.EventHandler(this.productMinTxtBox_TextChanged);
             // 
-            // partPriceTxtBox
+            // productPriceTxtBox
             // 
-            this.partPriceTxtBox.Location = new System.Drawing.Point(108, 316);
-            this.partPriceTxtBox.Name = "partPriceTxtBox";
-            this.partPriceTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.partPriceTxtBox.TabIndex = 21;
+            this.productPriceTxtBox.Location = new System.Drawing.Point(108, 316);
+            this.productPriceTxtBox.Name = "productPriceTxtBox";
+            this.productPriceTxtBox.Size = new System.Drawing.Size(119, 23);
+            this.productPriceTxtBox.TabIndex = 21;
+            this.productPriceTxtBox.TextChanged += new System.EventHandler(this.productPriceTxtBox_TextChanged);
             // 
-            // partInventoryTxtBox
+            // productInventoryTxtBox
             // 
-            this.partInventoryTxtBox.Location = new System.Drawing.Point(108, 276);
-            this.partInventoryTxtBox.Name = "partInventoryTxtBox";
-            this.partInventoryTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.partInventoryTxtBox.TabIndex = 19;
+            this.productInventoryTxtBox.Location = new System.Drawing.Point(108, 276);
+            this.productInventoryTxtBox.Name = "productInventoryTxtBox";
+            this.productInventoryTxtBox.Size = new System.Drawing.Size(119, 23);
+            this.productInventoryTxtBox.TabIndex = 19;
+            this.productInventoryTxtBox.TextChanged += new System.EventHandler(this.productInventoryTxtBox_TextChanged);
             // 
-            // partNameTxtBox
+            // productNameTxtBox
             // 
-            this.partNameTxtBox.Location = new System.Drawing.Point(108, 236);
-            this.partNameTxtBox.Name = "partNameTxtBox";
-            this.partNameTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.partNameTxtBox.TabIndex = 17;
+            this.productNameTxtBox.Location = new System.Drawing.Point(108, 236);
+            this.productNameTxtBox.Name = "productNameTxtBox";
+            this.productNameTxtBox.Size = new System.Drawing.Size(119, 23);
+            this.productNameTxtBox.TabIndex = 17;
+            this.productNameTxtBox.TextChanged += new System.EventHandler(this.productNameTxtBox_TextChanged);
             // 
-            // partIDTxtBox
+            // productIDTxtBox
             // 
-            this.partIDTxtBox.Location = new System.Drawing.Point(108, 196);
-            this.partIDTxtBox.Name = "partIDTxtBox";
-            this.partIDTxtBox.ReadOnly = true;
-            this.partIDTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.partIDTxtBox.TabIndex = 15;
+            this.productIDTxtBox.Location = new System.Drawing.Point(108, 196);
+            this.productIDTxtBox.Name = "productIDTxtBox";
+            this.productIDTxtBox.ReadOnly = true;
+            this.productIDTxtBox.Size = new System.Drawing.Size(119, 23);
+            this.productIDTxtBox.TabIndex = 15;
             // 
-            // partMaxLbl
+            // productMaxLbl
             // 
-            this.partMaxLbl.AutoSize = true;
-            this.partMaxLbl.Location = new System.Drawing.Point(55, 359);
-            this.partMaxLbl.Name = "partMaxLbl";
-            this.partMaxLbl.Size = new System.Drawing.Size(30, 15);
-            this.partMaxLbl.TabIndex = 22;
-            this.partMaxLbl.Text = "Max";
+            this.productMaxLbl.AutoSize = true;
+            this.productMaxLbl.Location = new System.Drawing.Point(55, 359);
+            this.productMaxLbl.Name = "productMaxLbl";
+            this.productMaxLbl.Size = new System.Drawing.Size(30, 15);
+            this.productMaxLbl.TabIndex = 22;
+            this.productMaxLbl.Text = "Max";
             // 
-            // partMinLbl
+            // productMinLbl
             // 
-            this.partMinLbl.AutoSize = true;
-            this.partMinLbl.Location = new System.Drawing.Point(232, 359);
-            this.partMinLbl.Name = "partMinLbl";
-            this.partMinLbl.Size = new System.Drawing.Size(28, 15);
-            this.partMinLbl.TabIndex = 24;
-            this.partMinLbl.Text = "Min";
+            this.productMinLbl.AutoSize = true;
+            this.productMinLbl.Location = new System.Drawing.Point(232, 359);
+            this.productMinLbl.Name = "productMinLbl";
+            this.productMinLbl.Size = new System.Drawing.Size(28, 15);
+            this.productMinLbl.TabIndex = 24;
+            this.productMinLbl.Text = "Min";
             // 
-            // partPriceLbl
+            // productPriceLbl
             // 
-            this.partPriceLbl.AutoSize = true;
-            this.partPriceLbl.Location = new System.Drawing.Point(17, 316);
-            this.partPriceLbl.Name = "partPriceLbl";
-            this.partPriceLbl.Size = new System.Drawing.Size(68, 15);
-            this.partPriceLbl.TabIndex = 20;
-            this.partPriceLbl.Text = "Price / Cost";
+            this.productPriceLbl.AutoSize = true;
+            this.productPriceLbl.Location = new System.Drawing.Point(17, 316);
+            this.productPriceLbl.Name = "productPriceLbl";
+            this.productPriceLbl.Size = new System.Drawing.Size(68, 15);
+            this.productPriceLbl.TabIndex = 20;
+            this.productPriceLbl.Text = "Price / Cost";
             // 
-            // partInventoryLbl
+            // productInventoryLbl
             // 
-            this.partInventoryLbl.AutoSize = true;
-            this.partInventoryLbl.Location = new System.Drawing.Point(28, 277);
-            this.partInventoryLbl.Name = "partInventoryLbl";
-            this.partInventoryLbl.Size = new System.Drawing.Size(57, 15);
-            this.partInventoryLbl.TabIndex = 18;
-            this.partInventoryLbl.Text = "Inventory";
+            this.productInventoryLbl.AutoSize = true;
+            this.productInventoryLbl.Location = new System.Drawing.Point(28, 277);
+            this.productInventoryLbl.Name = "productInventoryLbl";
+            this.productInventoryLbl.Size = new System.Drawing.Size(57, 15);
+            this.productInventoryLbl.TabIndex = 18;
+            this.productInventoryLbl.Text = "Inventory";
             // 
-            // partNameLbl
+            // productNameLbl
             // 
-            this.partNameLbl.AutoSize = true;
-            this.partNameLbl.Location = new System.Drawing.Point(46, 238);
-            this.partNameLbl.Name = "partNameLbl";
-            this.partNameLbl.Size = new System.Drawing.Size(39, 15);
-            this.partNameLbl.TabIndex = 16;
-            this.partNameLbl.Text = "Name";
+            this.productNameLbl.AutoSize = true;
+            this.productNameLbl.Location = new System.Drawing.Point(46, 238);
+            this.productNameLbl.Name = "productNameLbl";
+            this.productNameLbl.Size = new System.Drawing.Size(39, 15);
+            this.productNameLbl.TabIndex = 16;
+            this.productNameLbl.Text = "Name";
             // 
-            // partIDLbl
+            // productIDLbl
             // 
-            this.partIDLbl.AutoSize = true;
-            this.partIDLbl.Location = new System.Drawing.Point(67, 199);
-            this.partIDLbl.Name = "partIDLbl";
-            this.partIDLbl.Size = new System.Drawing.Size(18, 15);
-            this.partIDLbl.TabIndex = 14;
-            this.partIDLbl.Text = "ID";
+            this.productIDLbl.AutoSize = true;
+            this.productIDLbl.Location = new System.Drawing.Point(67, 199);
+            this.productIDLbl.Name = "productIDLbl";
+            this.productIDLbl.Size = new System.Drawing.Size(18, 15);
+            this.productIDLbl.TabIndex = 14;
+            this.productIDLbl.Text = "ID";
             // 
             // partsDataGridView
             // 
@@ -180,8 +185,8 @@
             this.partsDataGridView.ReadOnly = true;
             this.partsDataGridView.RowHeadersVisible = false;
             this.partsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Yellow;
-            this.partsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.partsDataGridView.RowsDefaultCellStyle.SelectionForeColor = DefaultForeColor; // default fore colore == font color
+            this.partsDataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.Yellow;
             this.partsDataGridView.RowTemplate.Height = 25;
             this.partsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.partsDataGridView.Size = new System.Drawing.Size(623, 180);
@@ -276,8 +281,8 @@
             this.associatedPartsDataGridView.ReadOnly = true;
             this.associatedPartsDataGridView.RowHeadersVisible = false;
             this.associatedPartsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Yellow;
-            this.associatedPartsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.associatedPartsDataGridView.RowsDefaultCellStyle.SelectionForeColor = DefaultForeColor; // default fore colore == font color
+            this.associatedPartsDataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.Yellow;
             this.associatedPartsDataGridView.RowTemplate.Height = 25;
             this.associatedPartsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.associatedPartsDataGridView.Size = new System.Drawing.Size(623, 180);
@@ -381,20 +386,21 @@
             this.Controls.Add(this.associatedPartsDataGridView);
             this.Controls.Add(this.allPartsLbl);
             this.Controls.Add(this.partsDataGridView);
-            this.Controls.Add(this.partMaxTxtBox);
-            this.Controls.Add(this.partMinTxtBox);
-            this.Controls.Add(this.partPriceTxtBox);
-            this.Controls.Add(this.partInventoryTxtBox);
-            this.Controls.Add(this.partNameTxtBox);
-            this.Controls.Add(this.partIDTxtBox);
-            this.Controls.Add(this.partMaxLbl);
-            this.Controls.Add(this.partMinLbl);
-            this.Controls.Add(this.partPriceLbl);
-            this.Controls.Add(this.partInventoryLbl);
-            this.Controls.Add(this.partNameLbl);
-            this.Controls.Add(this.partIDLbl);
+            this.Controls.Add(this.productMaxTxtBox);
+            this.Controls.Add(this.productMinTxtBox);
+            this.Controls.Add(this.productPriceTxtBox);
+            this.Controls.Add(this.productInventoryTxtBox);
+            this.Controls.Add(this.productNameTxtBox);
+            this.Controls.Add(this.productIDTxtBox);
+            this.Controls.Add(this.productMaxLbl);
+            this.Controls.Add(this.productMinLbl);
+            this.Controls.Add(this.productPriceLbl);
+            this.Controls.Add(this.productInventoryLbl);
+            this.Controls.Add(this.productNameLbl);
+            this.Controls.Add(this.productIDLbl);
             this.Name = "ProductUC";
             this.Size = new System.Drawing.Size(1077, 576);
+            this.Load += new System.EventHandler(this.ProductUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -404,18 +410,18 @@
 
         #endregion
 
-        private TextBox partIDTxtBox;
-        private TextBox partNameTxtBox;
-        private TextBox partPriceTxtBox;
-        private TextBox partInventoryTxtBox;
-        private TextBox partMinTxtBox;
-        private TextBox partMaxTxtBox;
-        private Label partIDLbl;
-        private Label partNameLbl;
-        private Label partPriceLbl;
-        private Label partInventoryLbl;
-        private Label partMaxLbl;
-        private Label partMinLbl;
+        private TextBox productIDTxtBox;
+        private TextBox productNameTxtBox;
+        private TextBox productPriceTxtBox;
+        private TextBox productInventoryTxtBox;
+        private TextBox productMinTxtBox;
+        private TextBox productMaxTxtBox;
+        private Label productIDLbl;
+        private Label productNameLbl;
+        private Label productPriceLbl;
+        private Label productInventoryLbl;
+        private Label productMaxLbl;
+        private Label productMinLbl;
         private DataGridView partsDataGridView;
         private DataGridView associatedPartsDataGridView;
         private DataGridViewTextBoxColumn partID;

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using Inventory_Managment_System.Model;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace Inventory_Managment_System.View
     public class UIValidator
     {
         private dynamic userControl; // This will be the partUC or the productUC (User Controller)s
-        public readonly Color validTextBox_Color = Color.White;
-        public readonly Color invalidTextBox_Color = Color.OrangeRed;
+        public static readonly Color validTextBox_Color = Color.White;
+        public static readonly Color invalidTextBox_Color = Color.OrangeRed;
         public readonly ToolTip toolTip; //to display the textbox tool message
         public readonly string[] ucNumericIntegerTextBoxName;
         private bool validatingPartUC;
@@ -56,17 +57,16 @@ namespace Inventory_Managment_System.View
             } else if (uc.GetType() == typeof(ProductUC))
             {
                 this.userControl = (ProductUC) uc;
-                ucTextBoxList = new List<TextBox>() { userControl.productNameTxtBox, userControl.productInventoryTxtBox,
-                                userControl.productPriceTxtBox, userControl.productMinTxtBox, userControl.productMaxTxtBox };
-                ucLabelList = new List<Label>() { userControl.productNameLbl, userControl.productInventoryLbl,
-                                userControl.productPriceLbl, userControl.productMinLbl, userControl.productMaxLbl };
+                ucTextBoxList = new List<TextBox>() { userControl.Controls["productNameTxtBox"], userControl.Controls["productInventoryTxtBox"],
+                                userControl.Controls["productPriceTxtBox"], userControl.Controls["productMinTxtBox"], userControl.Controls["productMaxTxtBox"]};
+                ucLabelList = new List<Label>() { userControl.Controls["productNameLbl"], userControl.Controls["productInventoryLbl"],
+                                userControl.Controls["productPriceLbl"], userControl.Controls["productMinLbl"], userControl.Controls["productMaxLbl"]};
 
-                ucNumericIntegerTextBoxName = new string[] {userControl.productInventoryTxtBox.Name,
-                        userControl.productMinTxtBox.Name, userControl.productMaxTxtBox.Name };
+                ucNumericIntegerTextBoxName = new string[] {userControl.Controls["productInventoryTxtBox"].Name,
+                        userControl.Controls["productMinTxtBox"].Name, userControl.Controls["productMaxTxtBox"].Name};
 
                 validatingPartUC = false;
             }
-            
         }
 
 
@@ -176,7 +176,7 @@ namespace Inventory_Managment_System.View
             string userInputVarName = null;
             if (validationType.Equals(ValType.NullAndEmptyString))
             {
-                if (((TextBox)sender).Equals(ucTextBoxList[(int)Prop.Name]))
+                if (((TextBox)sender).Equals(ucTextBoxList[(int) Prop.Name]))
                 {
                     userInputVarName = ucLabelList[(int) Prop.Name].Text;
                 }
@@ -190,21 +190,21 @@ namespace Inventory_Managment_System.View
             }
             else if (validationType.Equals(ValType.Integer) || validationType.Equals(ValType.Decimal))
             {
-                if (((TextBox)sender).Equals(ucTextBoxList[(int)Prop.Inventory])) 
+                if (((TextBox)sender).Equals(ucTextBoxList[(int) Prop.Inventory])) 
                 {
-                    userInputVarName = ucLabelList[(int)Prop.Inventory].Text;
+                    userInputVarName = ucLabelList[(int) Prop.Inventory].Text;
                 }
-                else if (((TextBox)sender).Equals(ucTextBoxList[(int)Prop.Min]))
+                else if (((TextBox)sender).Equals(ucTextBoxList[(int) Prop.Min]))
                 {
-                    userInputVarName = ucLabelList[(int)Prop.Min].Text;
+                    userInputVarName = ucLabelList[(int) Prop.Min].Text;
                 }
-                else if (((TextBox)sender).Equals(ucTextBoxList[(int)Prop.Max]))
+                else if (((TextBox)sender).Equals(ucTextBoxList[(int) Prop.Max]))
                 {
-                    userInputVarName = ucLabelList[(int)Prop.Max].Text;
+                    userInputVarName = ucLabelList[(int) Prop.Max].Text;
                 }
-                else if (((TextBox)sender).Equals(ucTextBoxList[(int)Prop.Price]))
+                else if (((TextBox)sender).Equals(ucTextBoxList[(int) Prop.Price]))
                 {
-                    userInputVarName = ucLabelList[(int)Prop.Price].Text;
+                    userInputVarName = ucLabelList[(int) Prop.Price].Text;
                 }
                 else if (validatingPartUC && ((TextBox)sender).Equals(userControl.Controls["machineIDorCompanyNameTxtBox"]) 
                         && userControl.Controls["inHouseRdBtn"].Checked)
@@ -269,6 +269,16 @@ namespace Inventory_Managment_System.View
             }
 
             return numericTextBoxes;
+        }
+        public static void modifyAllEmptyOrNullTextbox(UserControl uc)
+        {
+            foreach (var textBox in uc.Controls.OfType<TextBox>())
+            {
+                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false)
+                {
+                    textBox.BackColor = invalidTextBox_Color;
+                }
+            }
         }
     }
 }

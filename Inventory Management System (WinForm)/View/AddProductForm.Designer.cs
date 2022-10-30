@@ -41,6 +41,7 @@
             this.productUC.Name = "productUC";
             this.productUC.Size = new System.Drawing.Size(1077, 566);
             this.productUC.TabIndex = 1;
+            this.productUC.Load += new System.EventHandler(this.productUC_Load);
             // 
             // addProductLbl
             // 

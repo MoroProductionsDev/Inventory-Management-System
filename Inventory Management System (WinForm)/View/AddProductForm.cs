@@ -19,9 +19,9 @@ namespace Inventory_Managment_System.View
             InitializeComponent();
         }
 
-        private void partUC_Load(object sender, EventArgs e)
+        private void productUC_Load(object sender, EventArgs e)
         {
-            modifyAllEmptyOrNullTextbox();
+            UIValidator.modifyAllEmptyOrNullTextbox(productUC);
         }
 
         //private void saveBtn_Click(object sender, EventArgs e)
@@ -50,17 +50,6 @@ namespace Inventory_Managment_System.View
         {
             this.Close();
             Program.ShowInitialAppForm();
-        }
-
-        private void modifyAllEmptyOrNullTextbox()
-        {
-            foreach (var textBox in productUC.Controls.OfType<TextBox>())
-            {
-                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false)
-                {
-                    textBox.BackColor = Color.OrangeRed;
-                }
-            }
         }
     }
 }

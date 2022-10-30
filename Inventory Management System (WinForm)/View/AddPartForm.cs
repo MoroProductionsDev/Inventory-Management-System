@@ -21,7 +21,7 @@ namespace Inventory_Managment_System.View
         }
         private void partUC_Load(object sender, EventArgs e)
         {
-            modifyAllEmptyOrNullTextbox();
+            UIValidator.modifyAllEmptyOrNullTextbox(partUC);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -50,17 +50,6 @@ namespace Inventory_Managment_System.View
         {
             this.Close();
             Program.ShowInitialAppForm();
-        }
-
-        private void modifyAllEmptyOrNullTextbox()
-        {
-            foreach (var textBox in partUC.Controls.OfType<TextBox>())
-            {
-                if (textBox.Text == null || textBox.Text == String.Empty && textBox.ReadOnly == false)
-                {
-                    textBox.BackColor = partUC.partUCValidator.invalidTextBox_Color;
-                }
-            }
         }
     }
 }
