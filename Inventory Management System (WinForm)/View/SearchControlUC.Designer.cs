@@ -57,6 +57,7 @@
             this.Controls.Add(this.searchLbl);
             this.Name = "SearchControlUC";
             this.Size = new System.Drawing.Size(252, 32);
+            this.Load += new System.EventHandler(this.SearchControlUC_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

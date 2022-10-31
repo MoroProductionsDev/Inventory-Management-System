@@ -54,7 +54,9 @@ namespace Inventory_Managment_System.View
 
             if (!UITextBoxValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
-                var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
+                var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["partsDataGridView"];
+                var selectedPartsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
+                
                 if (isInhouseRdBtnChecked)
                 {
                     Controller.Controller.updateInhousePartToInventory(in selectedPartsRowIndex, in partUC);
@@ -63,7 +65,8 @@ namespace Inventory_Managment_System.View
                 {
                     Controller.Controller.updateOutsourcedPartToInventory(in selectedPartsRowIndex, in partUC);
                 }
-                TabControlUC.tabControlUC_Instance.recreatePartsDataTable(selectedPartsRowIndex);
+
+                UIDataGridViewValidator.recreateTableData(partsDataGridView, Inventory.AllParts, selectedPartsRowIndex);
 
                 this.Close();
                 Program.ShowInitialAppForm();

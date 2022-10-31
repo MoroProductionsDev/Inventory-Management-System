@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Inventory_Managment_System.Controller
 {
@@ -124,9 +125,10 @@ namespace Inventory_Managment_System.Controller
             return Inventory.lookupPart(index);
         }
 
-        public static int searchForPartNameInTheInventory(in string searchString)
+        public static int searchForPartNameInTheInventory(in DataGridView partsDataGridView, in string searchString)
         {
-            return TabControlUC.tabControlUC_Instance.findMatchingPart(searchString);
+
+            return UIDataGridViewValidator.findMatchingPart(partsDataGridView, Inventory.AllParts,searchString);
         }
 
         private static Part modifyPartTypes(PartUC partUserComponent, in Part storedpart)
@@ -155,9 +157,9 @@ namespace Inventory_Managment_System.Controller
             return modifiablePart;
         }
 
-        public static int searchForProductNameInTheInventory(in string searchString)
+        public static int searchForProductNameInTheInventory(in DataGridView productsDataGridView, in string searchString)
         {
-            return TabControlUC.tabControlUC_Instance.findMatchingProduct(searchString);
+            return UIDataGridViewValidator.findMatchingPart(productsDataGridView, Inventory.Products, searchString);
         }
 
         //public static void addPart(Part part)

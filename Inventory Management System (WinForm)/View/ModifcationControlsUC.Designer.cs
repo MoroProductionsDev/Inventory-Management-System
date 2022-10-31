@@ -63,15 +63,16 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
-            // ModifcationControls
+            // ModifcationControlsUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.modifyBtn);
             this.Controls.Add(this.addBtn);
-            this.Name = "ModifcationControls";
+            this.Name = "ModifcationControlsUC";
             this.Size = new System.Drawing.Size(226, 35);
+            this.Load += new System.EventHandler(this.ModifcationControlsUC_Load);
             this.ResumeLayout(false);
 
         }

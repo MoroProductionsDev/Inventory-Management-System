@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,26 +18,34 @@ namespace Inventory_Managment_System.View
 {
     public partial class ModifcationControlsUC : UserControl
     {
-        private static string[] tabPageNames = {TabControlUC.tabControlUC_Instance.PartsPage.Name,
-                                                TabControlUC.tabControlUC_Instance.ProductsPage.Name};
         private Dictionary<string, Form> partForms;
         private Dictionary<string, Form> productForms;
+        private TabControl inventoryTabControl;
+        private string[] tabPageNames;
+        private readonly string[] tableNames = {"partsDataGridView", "productsDataGridView"};
         public ModifcationControlsUC()
         {
             InitializeComponent();
             partForms = new Dictionary<string, Form>();
             productForms = new Dictionary<string, Form>();
         }
+
+        private void ModifcationControlsUC_Load(object sender, EventArgs e)
+        {
+            inventoryTabControl = (TabControl)TabControlUC.tabControlUC_Instance.Controls["InventoryTbCtrl"];
+            tabPageNames = new string[] { inventoryTabControl.TabPages[0].Name, inventoryTabControl.TabPages[1].Name };
+        }
         private void addBtn_Click(object sender, EventArgs e) {
             closeAllPartsForms();
             closeAllProductsForms();
-            if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
+            
+            if (inventoryTabControl.SelectedTab.Name == tabPageNames[0])
             {
                 partForms["addPartForm"] = new AddPartForm(); // Form has to be added her to avoid opening disposed object
                 partForms["addPartForm"].Show();
                 Program.HideInitialAppForm();
             }
-            else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+            else if (inventoryTabControl.SelectedTab.Name == tabPageNames[1])
             {
                 productForms["addProductForm"] = new AddProductForm(); // Form has to be added her to avoid opening disposed object
                 productForms["addProductForm"].Show();
@@ -48,11 +58,12 @@ namespace Inventory_Managment_System.View
 
             closeAllPartsForms();
             closeAllProductsForms();
-            if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
+            if (inventoryTabControl.SelectedTab.Name == tabPageNames[0])
             {
-                var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
+                var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[0]];
+                var selectedPartsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
 
-                if (selectedPartsRowIndex != (int)TabControlUC.IndexVal.Invalid)
+                if (selectedPartsRowIndex != (int) UIDataGridViewValidator.IndexVal.Invalid)
                 {
                     partForms["modifyPartForm"] = new ModifyPartForm(selectedPartsRowIndex); // Form has to be added her to avoid opening disposed object
                     partForms["modifyPartForm"].Show();
@@ -63,11 +74,13 @@ namespace Inventory_Managment_System.View
                     displayUnselectedRowWarning(action);
                 }
             }
-            else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+            else if (inventoryTabControl.SelectedTab.Name == tabPageNames[1])
             {
-                var selectedProductsRowIndex = TabControlUC.tabControlUC_Instance.getProductsSelectedRowIndex();
+                var productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[1]];
 
-                if (selectedProductsRowIndex != (int)TabControlUC.IndexVal.Invalid)
+                var selectedProductsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(productsDataGridView);
+
+                if (selectedProductsRowIndex != (int) UIDataGridViewValidator.IndexVal.Invalid)
                 {
                     //productForms["modifyProductForm"] = new ModifyProductForm(selectedProductsRowIndex); // Form has to be added her to avoid opening disposed object
                     //productForms["modifyProductForm"].Show();
@@ -83,36 +96,39 @@ namespace Inventory_Managment_System.View
         {
             const string action = "delete";
 
-            if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
+            if (inventoryTabControl.SelectedTab.Name == tabPageNames[0])
             {
-                var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
+                var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[0]];
+                var selectedPartsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
 
-                if (selectedPartsRowIndex != (int) TabControlUC.IndexVal.Invalid)
+                if (selectedPartsRowIndex != (int) UIDataGridViewValidator.IndexVal.Invalid)
                 {
                     var confirmedDeletion = displayDeletionWarning();
 
                     if (confirmedDeletion)
                     {
                         Controller.Controller.deletePartFromInventory(selectedPartsRowIndex);
-                        TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
+
+                        UIDataGridViewValidator.recreateTableData(partsDataGridView, Inventory.AllParts);
                     }
                 } else
                 {
                     displayUnselectedRowWarning(action);
                 }
             }
-            else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+            else if (inventoryTabControl.SelectedTab.Name == tabPageNames[1])
             {
-                var selectedProductsRowIndex = TabControlUC.tabControlUC_Instance.getProductsSelectedRowIndex();
+                var productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[1]];
+                var selectedProductsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(productsDataGridView);
 
-                if (selectedProductsRowIndex != (int)TabControlUC.IndexVal.Invalid)
+                if (selectedProductsRowIndex != (int) UIDataGridViewValidator.IndexVal.Invalid)
                 {
                     var confirmedDeletion = displayDeletionWarning();
 
                     if (confirmedDeletion)
                     {
-                        //Controller.Controller.deletePartFromInventory(selectedProductsRowIndex);
-                        TabControlUC.tabControlUC_Instance.recreateProductsDataTable();
+                        //Controller.Controller.deleteProductFromInventory(selectedProductsRowIndex);
+                        UIDataGridViewValidator.recreateTableData(productsDataGridView, Inventory.Products);
                     }
                 } else
                 {

@@ -12,6 +12,11 @@ namespace Inventory_Managment_System.View
 {
     public static class UIDataGridViewValidator
     {
+        public enum IndexVal
+        {
+            Invalid = -1,
+        }
+
         public static void unselectRowInTable(in DataGridView dataGridView)
         {
             dataGridView.ClearSelection();
@@ -38,6 +43,11 @@ namespace Inventory_Managment_System.View
             return selectedRowIndex;
         }
 
+        public static int getTableRowCount(in DataGridView dataGridView)
+        {
+            return dataGridView.Rows.Count;
+        }
+
         public static void setTableSelectedRowIndex(in DataGridView dataGridView, in int index)
         {
             dataGridView.Rows[index].Selected = true;
@@ -55,7 +65,7 @@ namespace Inventory_Managment_System.View
                         part.Price, part.Min, part.Max
                     });
                 }
-            } else if (list.GetType().Equals(typeof(BindingList<Part>)))
+            } else if (list.GetType().Equals(typeof(BindingList<Product>)))
             {
                 var productList = list.Cast<Product>();
                 foreach (var product in productList)

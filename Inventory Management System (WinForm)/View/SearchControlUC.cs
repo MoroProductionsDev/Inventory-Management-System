@@ -14,11 +14,17 @@ namespace Inventory_Managment_System.View
 {
     public partial class SearchControlUC : UserControl
     {
-        private static string[] tabPageNames = {TabControlUC.tabControlUC_Instance.PartsPage.Name,
-                                                TabControlUC.tabControlUC_Instance.ProductsPage.Name};
+        private TabControl inventoryTabControl;
+        private string[] tabPageNames;
+        private readonly string[] tableNames = { "partsDataGridView", "productsDataGridView" };
         public SearchControlUC()
         {
             InitializeComponent();
+        }
+        private void SearchControlUC_Load(object sender, EventArgs e)
+        {
+            inventoryTabControl = TabControlUC.tabControlUC_Instance.InventoryTabControl;
+            tabPageNames = new string[] { inventoryTabControl.TabPages[0].Name, inventoryTabControl.TabPages[1].Name };
         }
 
         private void searchLbl_Click(object sender, EventArgs e)
@@ -26,34 +32,38 @@ namespace Inventory_Managment_System.View
             string searchString = searchTxtbox.Text.Trim();
             int matchingIndex = -1;
 
-            if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
+            if (inventoryTabControl.SelectedTab.Name == tabPageNames[0])
             {
+                var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[0]];
+
                 if (!string.IsNullOrEmpty(searchString))
                 {
-                    matchingIndex = Controller.Controller.searchForPartNameInTheInventory(searchString);
+                    matchingIndex = Controller.Controller.searchForPartNameInTheInventory(partsDataGridView, searchString);
                 }
 
                 if (matchingIndex != -1)
                 {
-                    TabControlUC.tabControlUC_Instance.setPartsSelectedRowIndex(matchingIndex);
+                    UIDataGridViewValidator.setTableSelectedRowIndex(partsDataGridView, matchingIndex);
                 } else
                 {
-                    TabControlUC.unselectRowInTable(TabControlUC.tabControlUC_Instance.tableDataGridView["partsDataGridView"]);
+                    UIDataGridViewValidator.unselectRowInTable(partsDataGridView);
                 }
             }
-            else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+            else if (inventoryTabControl.SelectedTab.Name == tabPageNames[1])
             {
+                var productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[1]];
+
                 if (!string.IsNullOrEmpty(searchString))
                 {
-                    matchingIndex = Controller.Controller.searchForProductNameInTheInventory(searchString);
+                    matchingIndex = Controller.Controller.searchForProductNameInTheInventory(productsDataGridView, searchString);
                 }
 
                 if (matchingIndex != -1)
                 {
-                    TabControlUC.tabControlUC_Instance.setProductsSelectedRowIndex(matchingIndex);
+                    UIDataGridViewValidator.setTableSelectedRowIndex(productsDataGridView, matchingIndex);
                 } else
                 {
-                    TabControlUC.unselectRowInTable(TabControlUC.tabControlUC_Instance.tableDataGridView["productsDataGridView"]);
+                    UIDataGridViewValidator.unselectRowInTable(productsDataGridView);
                 }
             }
         }
