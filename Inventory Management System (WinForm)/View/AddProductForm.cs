@@ -21,7 +21,7 @@ namespace Inventory_Managment_System.View
 
         private void productUC_Load(object sender, EventArgs e)
         {
-            UIValidator.modifyAllEmptyOrNullTextbox(productUC);
+            UITextBoxValidator.modifyAllEmptyOrNullTextbox(productUC);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)

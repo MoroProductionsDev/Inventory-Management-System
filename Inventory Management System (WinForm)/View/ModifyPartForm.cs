@@ -52,7 +52,7 @@ namespace Inventory_Managment_System.View
             var isInhouseRdBtnChecked = ((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked;
             var isOutsourcedRdBtnChecked = ((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked;
 
-            if (!UIValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
+            if (!UITextBoxValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
                 var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
                 if (isInhouseRdBtnChecked)

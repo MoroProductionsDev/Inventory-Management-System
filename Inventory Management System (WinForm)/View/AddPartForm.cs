@@ -21,14 +21,14 @@ namespace Inventory_Managment_System.View
         }
         private void partUC_Load(object sender, EventArgs e)
         {
-            UIValidator.modifyAllEmptyOrNullTextbox(partUC);
+            UITextBoxValidator.modifyAllEmptyOrNullTextbox(partUC);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
             var isInhouseRdBtnChecked = ((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked;
 
-            if (!UIValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
+            if (!UITextBoxValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
                 if (isInhouseRdBtnChecked)
                 {

@@ -17,11 +17,11 @@ namespace Inventory_Managment_System.View
 {
     public partial class PartUC : UserControl
     {
-        public readonly UIValidator partUCValidator;
+        public readonly UITextBoxValidator partUCValidator;
         public PartUC()
         {
             InitializeComponent();
-            partUCValidator = new UIValidator(this);
+            partUCValidator = new UITextBoxValidator(this);
         }
 
         private void inHouseRdBtn_CheckedChanged(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace Inventory_Managment_System.View
             partUCValidator.toolTip.RemoveAll();
 
             // Validate the MachineID/CompanyName textbox when the [inHouse] radio button is checked 
-            partUCValidator.modifyTextbox(machineIDorCompanyNameTxtBox, e, UIValidator.ValType.Integer);
+            partUCValidator.modifyTextbox(machineIDorCompanyNameTxtBox, e, UITextBoxValidator.ValType.Integer);
         }
 
         private void outSourcedRdBtn_CheckedChanged(object sender, EventArgs e)
@@ -41,43 +41,43 @@ namespace Inventory_Managment_System.View
             partUCValidator.toolTip.RemoveAll();
 
             // Validate the MachineID/CompanyName textbox when the [outSourced] radio button is checked 
-            partUCValidator.modifyTextbox(machineIDorCompanyNameTxtBox, e, UIValidator.ValType.NullAndEmptyString);
+            partUCValidator.modifyTextbox(machineIDorCompanyNameTxtBox, e, UITextBoxValidator.ValType.NullAndEmptyString);
         }
 
         private void partNameTxtBox_TextChanged(object sender, EventArgs e)
         {
-            partUCValidator.modifyTextbox(sender, e, UIValidator.ValType.NullAndEmptyString);
+            partUCValidator.modifyTextbox(sender, e, UITextBoxValidator.ValType.NullAndEmptyString);
         }
 
         private void partInventoryTxtBox_TextChanged(object sender, EventArgs e)
         {
-            partUCValidator.modifyTextbox(sender, e, UIValidator.ValType.Integer);
+            partUCValidator.modifyTextbox(sender, e, UITextBoxValidator.ValType.Integer);
         }
 
         private void partPriceTxtBox_TextChanged(object sender, EventArgs e)
         {
-            partUCValidator.modifyTextbox(sender, e, UIValidator.ValType.Decimal);
+            partUCValidator.modifyTextbox(sender, e, UITextBoxValidator.ValType.Decimal);
         }
 
         private void partMinTxtBox_TextChanged(object sender, EventArgs e)
         {
-            partUCValidator.modifyTextbox(sender, e, UIValidator.ValType.Integer);
+            partUCValidator.modifyTextbox(sender, e, UITextBoxValidator.ValType.Integer);
         }
 
         private void partMaxTxtBox_TextChanged(object sender, EventArgs e)
         {
-            partUCValidator.modifyTextbox(sender, e, UIValidator.ValType.Integer);
+            partUCValidator.modifyTextbox(sender, e, UITextBoxValidator.ValType.Integer);
         }
 
         private void machineIDorCompanyNameTxtBox_TextChanged(object sender, EventArgs e)
         {
             if (inHouseRdBtn.Checked)
             {
-                partUCValidator.modifyTextbox(sender, e, UIValidator.ValType.Integer);
+                partUCValidator.modifyTextbox(sender, e, UITextBoxValidator.ValType.Integer);
             }
             else
             {
-                partUCValidator.modifyTextbox(sender, e, UIValidator.ValType.NullAndEmptyString);
+                partUCValidator.modifyTextbox(sender, e, UITextBoxValidator.ValType.NullAndEmptyString);
             }
         }
     }

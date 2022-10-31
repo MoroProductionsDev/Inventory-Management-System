@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Inventory_Managment_System.View
 {
-    public class UIValidator
+    public class UITextBoxValidator
     {
         private dynamic userControl; // This will be the partUC or the productUC (User Controller)s
         public static readonly Color validTextBox_Color = Color.White;
@@ -36,7 +36,7 @@ namespace Inventory_Managment_System.View
             Max = 4,
         }
 
-        public UIValidator(UserControl uc)
+        public UITextBoxValidator(UserControl uc)
         {
             toolTip = new ToolTip();
 
