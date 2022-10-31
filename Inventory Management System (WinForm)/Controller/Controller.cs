@@ -2,6 +2,7 @@
 using Inventory_Managment_System.View;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -155,6 +156,28 @@ namespace Inventory_Managment_System.Controller
                     int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text));
             }
             return modifiablePart;
+        }
+
+        public static void addProductToInventory(in ProductUC productUserComponent, in BindingList<Part> associatedParts)
+        {
+            var newProduct = new Product(
+                 productUserComponent.Controls["productNameTxtBox"].Text,
+                 decimal.Parse(productUserComponent.Controls["productPriceTxtBox"].Text),
+                 int.Parse(productUserComponent.Controls["productInventoryTxtBox"].Text),
+                 int.Parse(productUserComponent.Controls["productMinTxtBox"].Text),
+                 int.Parse(productUserComponent.Controls["productMaxTxtBox"].Text));
+
+            addAssociatedPartsToProduct(newProduct, associatedParts);
+
+            Inventory.addProduct(newProduct);
+        }
+
+        private static void addAssociatedPartsToProduct(in Product product, in BindingList<Part> associatedParts)
+        {
+            foreach (var part in associatedParts)
+            {
+                product.addAssociatedPart(part);
+            }
         }
 
         public static int searchForProductNameInTheInventory(in DataGridView productsDataGridView, in string searchString)

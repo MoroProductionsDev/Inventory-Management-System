@@ -12,8 +12,8 @@ namespace Inventory_Managment_System.Controller
 {
     internal class Data
     {
-        private BindingList<Part> allPartList;
-        private BindingList<Product> productList;
+        private readonly BindingList<Part> allPartList;
+        private readonly BindingList<Product> productList;
 
         public Data() {
             allPartList = Inventory.AllParts;

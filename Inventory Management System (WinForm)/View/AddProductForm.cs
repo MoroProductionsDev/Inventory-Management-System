@@ -27,23 +27,25 @@ namespace Inventory_Managment_System.View
         private void saveBtn_Click(object sender, EventArgs e)
         {
 
-            //if (!productUC.productUCValidator.checkTextBoxesForEmptyString() 
-            //    && productUC.productUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
-            //{
-            //    if (isInhouseRdBtnChecked)
-            //    {
 
-            //        Controller.Controller.addInhousePartToInventory(in productUC);
-            //    }
-            //    else
-            //    {
-            //        Controller.Controller.addOutsourcedPartToInventory(in productUC);
-            //    }
-            //    TabControlUC.tabControlUC_Instance.recreateProductsDataTable();
+            if (!UITextBoxValidator.checkTextBoxesForEmptyString(productUC) && productUC.productUCValidator.checkTextBoxesForNumericInput(false))
+            {
+                var productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["productsDataGridView"];
 
-            //    this.Close();
-            //    Program.ShowInitialAppForm();
-            //}
+                if (!productUC.DisplayedAssociatedParts.Count.Equals(0))
+                {
+                    Controller.Controller.addProductToInventory(in productUC, productUC.DisplayedAssociatedParts);
+
+                    var newProductRowIndex = UIDataGridViewValidator.getTableRowCount(productsDataGridView);
+                    UIDataGridViewValidator.recreateTableData(productsDataGridView, Inventory.Products, newProductRowIndex);
+
+                    this.Close();
+                    Program.ShowInitialAppForm();
+                } else
+                {
+                    // MsgBox Warning
+                }
+            }
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)

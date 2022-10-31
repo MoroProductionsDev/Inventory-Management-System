@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Inventory_Managment_System.Controller;
 using Inventory_Managment_System.Model;
-using static Inventory_Managment_System.View.TabControlUC;
 
 namespace Inventory_Managment_System.View
 {
     public partial class ProductUC : UserControl
     {
         public readonly UITextBoxValidator productUCValidator;
-        private readonly BindingList<Part> associatedParts;
+        public BindingList<Part> DisplayedAssociatedParts { get; private set; }
+
         public ProductUC()
         {
             InitializeComponent();
             productUCValidator = new UITextBoxValidator(this);
-            associatedParts = new BindingList<Part>();
+            DisplayedAssociatedParts = new BindingList<Part>();
         }
 
         private void ProductUC_Load(object sender, EventArgs e)
@@ -43,7 +43,6 @@ namespace Inventory_Managment_System.View
 
             if (selectedPartsRowIndex != (int)UIDataGridViewValidator.IndexVal.Invalid)
             {
-                // Do something
                 addAssociatedPartToTable(selectedPartsRowIndex);
             }
             else
@@ -60,7 +59,6 @@ namespace Inventory_Managment_System.View
 
             if (selectedPartsRowIndex != (int)UIDataGridViewValidator.IndexVal.Invalid)
             {
-                // Do something
                 removeAssociatedPartFromTable(selectedPartsRowIndex);
             }
             else
@@ -71,14 +69,14 @@ namespace Inventory_Managment_System.View
 
         private void addAssociatedPartToTable(in int index)
         {
-            associatedParts.Add(Controller.Controller.lookUpPartFromTheInventory(index));
-            UIDataGridViewValidator.recreateTableData(associatedPartsDataGridView, associatedParts);
+            DisplayedAssociatedParts.Add(Controller.Controller.lookUpPartFromTheInventory(index));
+            UIDataGridViewValidator.recreateTableData(associatedPartsDataGridView, DisplayedAssociatedParts);
         }
 
         private void removeAssociatedPartFromTable(in int index)
         {
-            associatedParts.RemoveAt(index);
-            UIDataGridViewValidator.recreateTableData(associatedPartsDataGridView, associatedParts);
+            DisplayedAssociatedParts.RemoveAt(index);
+            UIDataGridViewValidator.recreateTableData(associatedPartsDataGridView, DisplayedAssociatedParts);
         }
 
         private void productNameTxtBox_TextChanged(object sender, EventArgs e)
