@@ -31,9 +31,27 @@ namespace Inventory_Managment_System.View
         {
             Controller.Controller.createPartList();
             Controller.Controller.createProductList();
-
+            
             insertDataInPartsTable();
             insertDataInProductsTable();
+
+            unselectRowInTable(this.partsDataGridView);
+        }
+
+        private void inventoryTbCtrl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (((TabControl)sender).SelectedIndex == 0)
+            {
+                unselectRowInTable(this.partsDataGridView);
+            } else if (((TabControl)sender).SelectedIndex == 1)
+            {
+                unselectRowInTable(this.productsDataGridView);
+            }
+        }
+
+        private void unselectRowInTable(DataGridView dataGridView)
+        {
+            dataGridView.ClearSelection();
         }
 
         private void clearPartsDataTable()

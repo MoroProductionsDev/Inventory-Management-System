@@ -33,6 +33,9 @@ namespace Inventory_Managment_System.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.inventoryTbCtrl = new System.Windows.Forms.TabControl();
             this.partsTabPage = new System.Windows.Forms.TabPage();
             this.partsDataGridView = new System.Windows.Forms.DataGridView();
@@ -66,6 +69,7 @@ namespace Inventory_Managment_System.View
             this.inventoryTbCtrl.SelectedIndex = 0;
             this.inventoryTbCtrl.Size = new System.Drawing.Size(636, 278);
             this.inventoryTbCtrl.TabIndex = 1;
+            this.inventoryTbCtrl.SelectedIndexChanged += new System.EventHandler(this.inventoryTbCtrl_SelectedIndexChanged);
             // 
             // partsTabPage
             // 
@@ -77,7 +81,6 @@ namespace Inventory_Managment_System.View
             this.partsTabPage.TabIndex = 0;
             this.partsTabPage.Text = "Parts";
             this.partsTabPage.UseVisualStyleBackColor = true;
-
             // 
             // partsDataGridView
             // 
@@ -85,6 +88,7 @@ namespace Inventory_Managment_System.View
             this.partsDataGridView.AllowUserToDeleteRows = false;
             this.partsDataGridView.AllowUserToResizeColumns = false;
             this.partsDataGridView.AllowUserToResizeRows = false;
+            this.partsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.partsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.partID,
             this.partName,
@@ -94,21 +98,17 @@ namespace Inventory_Managment_System.View
             this.partMax});
             this.partsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.partsDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.partsDataGridView.Name = "partsDataGridView";
-            this.partsDataGridView.RowsDefaultCellStyle.SelectionForeColor = DefaultForeColor; // default fore colore == font color
-            this.partsDataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.Yellow;
-            this.partsDataGridView.AllowUserToResizeRows = false;
             this.partsDataGridView.MultiSelect = false;
+            this.partsDataGridView.Name = "partsDataGridView";
             this.partsDataGridView.ReadOnly = true;
             this.partsDataGridView.RowHeadersVisible = false;
             this.partsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Yellow;
+            this.partsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.partsDataGridView.RowTemplate.Height = 25;
             this.partsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.partsDataGridView.Size = new System.Drawing.Size(622, 244);
             this.partsDataGridView.TabIndex = 0;
-            this.partsDataGridView.BackColor = System.Drawing.Color.LightYellow;
-            this.partsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.partsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing; // disables 
             // 
             // partID
             // 
@@ -187,6 +187,16 @@ namespace Inventory_Managment_System.View
             this.productsDataGridView.AllowUserToAddRows = false;
             this.productsDataGridView.AllowUserToDeleteRows = false;
             this.productsDataGridView.AllowUserToResizeColumns = false;
+            this.productsDataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productID,
             this.productName,
@@ -196,22 +206,17 @@ namespace Inventory_Managment_System.View
             this.productMax});
             this.productsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productsDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.productsDataGridView.Name = "productsDataGridView";
-            this.productsDataGridView.RowsDefaultCellStyle.SelectionForeColor = DefaultForeColor; // default fore color == font color
-            this.productsDataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.Yellow;
-            this.productsDataGridView.AllowUserToResizeColumns = false;
-            this.productsDataGridView.AllowUserToResizeRows = false;
-            this.productsDataGridView.ReadOnly = true;
             this.productsDataGridView.MultiSelect = false;
+            this.productsDataGridView.Name = "productsDataGridView";
+            this.productsDataGridView.ReadOnly = true;
             this.productsDataGridView.RowHeadersVisible = false;
             this.productsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Yellow;
+            this.productsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.productsDataGridView.RowTemplate.Height = 25;
             this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productsDataGridView.Size = new System.Drawing.Size(622, 244);
             this.productsDataGridView.TabIndex = 1;
-            this.productsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.productsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing; // disables header resizing
-            this.productsDataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = productsDataGridView.ColumnHeadersDefaultCellStyle.BackColor; // disables header highlighting
             // 
             // productID
             // 
@@ -274,22 +279,20 @@ namespace Inventory_Managment_System.View
             this.productMax.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.productMax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // TabControl
+            // TabControlUC
             // 
-            this.Load+= new System.EventHandler(this.tabControl_Load);
-
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.inventoryTbCtrl);
-            this.Name = "TabControl";
+            this.Name = "TabControlUC";
             this.Size = new System.Drawing.Size(641, 285);
+            this.Load += new System.EventHandler(this.tabControl_Load);
             this.inventoryTbCtrl.ResumeLayout(false);
             this.partsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGridView)).EndInit();
             this.productsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         public TabPage PartsPage {get => partsTabPage;}
