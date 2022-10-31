@@ -26,7 +26,6 @@ namespace Inventory_Managment_System.View
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            var isInhouseRdBtnChecked = false;
 
             //if (!productUC.productUCValidator.checkTextBoxesForEmptyString() 
             //    && productUC.productUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))

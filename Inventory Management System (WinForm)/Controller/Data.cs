@@ -14,6 +14,7 @@ namespace Inventory_Managment_System.Controller
     {
         private BindingList<Part> allPartList;
         private BindingList<Product> productList;
+
         public Data() {
             allPartList = Inventory.AllParts;
             productList = Inventory.Products;

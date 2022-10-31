@@ -60,6 +60,7 @@ namespace Inventory_Managment_System.View
             closeAllProductsForms();
             if (inventoryTabControl.SelectedTab.Name == tabPageNames[0])
             {
+                var obj = "part";
                 var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[0]];
                 var selectedPartsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
 
@@ -71,11 +72,12 @@ namespace Inventory_Managment_System.View
                 }
                 else
                 {
-                    displayUnselectedRowWarning(action);
+                    UIMsgBox.displayUnselectedRowWarning(obj, action);
                 }
             }
             else if (inventoryTabControl.SelectedTab.Name == tabPageNames[1])
             {
+                var obj = "product";
                 var productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[1]];
 
                 var selectedProductsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(productsDataGridView);
@@ -88,7 +90,7 @@ namespace Inventory_Managment_System.View
                 }
                 else
                 {
-                    displayUnselectedRowWarning(action);
+                    UIMsgBox.displayUnselectedRowWarning(obj, action);
                 }
             }
         }
@@ -98,12 +100,13 @@ namespace Inventory_Managment_System.View
 
             if (inventoryTabControl.SelectedTab.Name == tabPageNames[0])
             {
+                var obj = "part";
                 var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[0]];
                 var selectedPartsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
 
                 if (selectedPartsRowIndex != (int) UIDataGridViewValidator.IndexVal.Invalid)
                 {
-                    var confirmedDeletion = displayDeletionWarning();
+                    var confirmedDeletion = UIMsgBox.displayDeletionWarning();
 
                     if (confirmedDeletion)
                     {
@@ -113,17 +116,18 @@ namespace Inventory_Managment_System.View
                     }
                 } else
                 {
-                    displayUnselectedRowWarning(action);
+                    UIMsgBox.displayUnselectedRowWarning(obj, action);
                 }
             }
             else if (inventoryTabControl.SelectedTab.Name == tabPageNames[1])
             {
+                var obj = "product";
                 var productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView[tableNames[1]];
                 var selectedProductsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(productsDataGridView);
 
                 if (selectedProductsRowIndex != (int) UIDataGridViewValidator.IndexVal.Invalid)
                 {
-                    var confirmedDeletion = displayDeletionWarning();
+                    var confirmedDeletion = UIMsgBox.displayDeletionWarning();
 
                     if (confirmedDeletion)
                     {
@@ -132,7 +136,7 @@ namespace Inventory_Managment_System.View
                     }
                 } else
                 {
-                    displayUnselectedRowWarning(action);
+                    UIMsgBox.displayUnselectedRowWarning(obj, action);
                 }
             }
         }
@@ -150,24 +154,6 @@ namespace Inventory_Managment_System.View
             {
                 form.Value.Close();
             }
-        }
-
-        private bool displayDeletionWarning()
-        {
-            string warningMsg = "Are you sure you want to delete this part?";
-            MessageBoxButtons msgBoxButtons = MessageBoxButtons.YesNo;
-
-            var result = MessageBox.Show(warningMsg, "Warning", msgBoxButtons, MessageBoxIcon.Warning);
-
-            return result == DialogResult.Yes;
-        }
-
-        public void displayUnselectedRowWarning(string action)
-        {
-            string informationMsg = $"Please select something to {action}.";
-            MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK;
-
-            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Information);
         }
     }
 }

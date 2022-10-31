@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Inventory_Managment_System.Controller;
 using Inventory_Managment_System.Model;
 using static Inventory_Managment_System.View.TabControlUC;
 
@@ -15,10 +16,12 @@ namespace Inventory_Managment_System.View
     public partial class ProductUC : UserControl
     {
         public readonly UITextBoxValidator productUCValidator;
+        private readonly BindingList<Part> associatedParts;
         public ProductUC()
         {
             InitializeComponent();
             productUCValidator = new UITextBoxValidator(this);
+            associatedParts = new BindingList<Part>();
         }
 
         private void ProductUC_Load(object sender, EventArgs e)
@@ -28,42 +31,54 @@ namespace Inventory_Managment_System.View
 
         private void loadAllParts()
         {
-            var partList = Inventory.AllParts;
+            UIDataGridViewValidator.insertDataInTable(partsDataGridView, Inventory.AllParts);
+            UIDataGridViewValidator.unselectRowInTable(partsDataGridView);
+        }
 
-            UIDataGridViewValidator.insertDataInTable(partsDataGridView, partList);
-            //foreach (var part in partList)
-            //{
-            //    this.partsDataGridView.Rows.Add(new object[] { part.PartID, part.Name, part.InStock,
-            //            part.Price, part.Min, part.Max
-            //    });
-            //}
-        }
-        private void unselectRowInTable(DataGridView dataGridView)
+        private void addBtn_Click(object sender, EventArgs e)
         {
-            dataGridView.ClearSelection();
-        }
-        //private int getProductsSelectedRowIndex()
-        //{
-        //    var selectedRow = productsDataGridView.SelectedRows;
-        //    int selectedRowIndex;
-        //    try
-        //    {
-        //        selectedRowIndex = selectedRow[0].Index;
-        //    }
-        //    catch (ArgumentOutOfRangeException)
-        //    {
-        //        selectedRowIndex = (int)IndexVal.Invalid;
-        //    }
+            var obj = "part";
+            var action = "add";
+            var selectedPartsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
 
-        //    return selectedRowIndex;
-        //}
-        public int getPartsRowCount()
-        {
-            return partsDataGridView.Rows.Count;
+            if (selectedPartsRowIndex != (int)UIDataGridViewValidator.IndexVal.Invalid)
+            {
+                // Do something
+                addAssociatedPartToTable(selectedPartsRowIndex);
+            }
+            else
+            {
+                UIMsgBox.displayUnselectedRowWarning(obj, action);
+            }
         }
-        private void setPartsSelectedRowIndex(in int index)
+
+        private void deleteBtn_Click(object sender, EventArgs e)
         {
-            partsDataGridView.Rows[index].Selected = true;
+            var obj = "associated part";
+            var action = "deleted";
+            var selectedPartsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(associatedPartsDataGridView);
+
+            if (selectedPartsRowIndex != (int)UIDataGridViewValidator.IndexVal.Invalid)
+            {
+                // Do something
+                removeAssociatedPartFromTable(selectedPartsRowIndex);
+            }
+            else
+            {
+                UIMsgBox.displayUnselectedRowWarning(obj, action);
+            }
+        }
+
+        private void addAssociatedPartToTable(in int index)
+        {
+            associatedParts.Add(Controller.Controller.lookUpPartFromTheInventory(index));
+            UIDataGridViewValidator.recreateTableData(associatedPartsDataGridView, associatedParts);
+        }
+
+        private void removeAssociatedPartFromTable(in int index)
+        {
+            associatedParts.RemoveAt(index);
+            UIDataGridViewValidator.recreateTableData(associatedPartsDataGridView, associatedParts);
         }
 
         private void productNameTxtBox_TextChanged(object sender, EventArgs e)
