@@ -180,6 +180,12 @@ namespace Inventory_Managment_System.Controller
             }
         }
 
+        public static Product lookUpProductFromTheInventory(in int index)
+        {
+            return Inventory.lookupProduct(index);
+        }
+
+
         public static int searchForProductNameInTheInventory(in DataGridView productsDataGridView, in string searchString)
         {
             return UIDataGridViewValidator.findMatchingPart(productsDataGridView, Inventory.Products, searchString);

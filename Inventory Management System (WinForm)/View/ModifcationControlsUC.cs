@@ -84,9 +84,9 @@ namespace Inventory_Managment_System.View
 
                 if (selectedProductsRowIndex != (int) UIDataGridViewValidator.IndexVal.Invalid)
                 {
-                    //productForms["modifyProductForm"] = new ModifyProductForm(selectedProductsRowIndex); // Form has to be added her to avoid opening disposed object
-                    //productForms["modifyProductForm"].Show();
-                    //Program.HideInitialAppForm();
+                    productForms["modifyProductForm"] = new ModifyProductForm(selectedProductsRowIndex); // Form has to be added her to avoid opening disposed object
+                    productForms["modifyProductForm"].Show();
+                    Program.HideInitialAppForm();
                 }
                 else
                 {

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -65,6 +66,15 @@ namespace Inventory_Managment_System.View
             {
                 UIMsgBox.displayUnselectedRowWarning(obj, action);
             }
+        }
+
+        public void initializeAssociatedPartsInTable(BindingList<Part> associatedParts)
+        {
+            for (var idx = 0; idx < associatedParts.Count; ++idx)
+            {
+                DisplayedAssociatedParts.Add(Controller.Controller.lookUpPartFromTheInventory(idx));
+            }
+            UIDataGridViewValidator.recreateTableData(associatedPartsDataGridView, DisplayedAssociatedParts);
         }
 
         private void addAssociatedPartToTable(in int index)
