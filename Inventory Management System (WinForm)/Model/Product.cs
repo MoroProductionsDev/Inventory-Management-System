@@ -23,7 +23,7 @@ namespace Inventory_Managment_System.Model
         public Product(string name, decimal price, int inStock, int min, int max)
         {
             AssociatedParts = new BindingList<Part>();
-            ProductID = ++productCount;
+            ProductID = productCount++;
             Name = name;
             Price = price;
             InStock = inStock;

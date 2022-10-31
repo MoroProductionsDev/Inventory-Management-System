@@ -168,7 +168,7 @@ namespace Inventory_Managment_System.View
             {
                 selectedRowIndex = selectedRow[0].Index;
             }
-            catch (ArgumentOutOfRangeException argOutOfRangeExcp)
+            catch (ArgumentOutOfRangeException)
             {
                 selectedRowIndex = (int) IndexVal.Invalid;
             }
