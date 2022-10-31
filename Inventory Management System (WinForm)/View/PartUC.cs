@@ -29,6 +29,9 @@ namespace Inventory_Managment_System.View
             this.partMachineIDLbl.Visible = true;
             this.partCompanyNameLbl.Visible = false;
             partUCValidator.toolTip.RemoveAll();
+
+            // Validate the MachineID/CompanyName textbox when the [inHouse] radio button is checked 
+            partUCValidator.modifyTextbox(machineIDorCompanyNameTxtBox, e, UIValidator.ValType.Integer);
         }
 
         private void outSourcedRdBtn_CheckedChanged(object sender, EventArgs e)
@@ -36,6 +39,9 @@ namespace Inventory_Managment_System.View
             this.partMachineIDLbl.Visible = false;
             this.partCompanyNameLbl.Visible = true;
             partUCValidator.toolTip.RemoveAll();
+
+            // Validate the MachineID/CompanyName textbox when the [outSourced] radio button is checked 
+            partUCValidator.modifyTextbox(machineIDorCompanyNameTxtBox, e, UIValidator.ValType.NullAndEmptyString);
         }
 
         private void partNameTxtBox_TextChanged(object sender, EventArgs e)

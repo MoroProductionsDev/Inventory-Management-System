@@ -79,30 +79,32 @@ namespace Inventory_Managment_System.View
         }
 
 
-        private void inHouseRdBtn_CheckedChanged(object sender, EventArgs e)
-        {
-            this.partUC.Controls["partMachineIDLbl"].Visible = true;
-            this.partUC.Controls["partCompanyNameLbl"].Visible = false;
-            partUC.partUCValidator.toolTip.RemoveAll();
+        //private void inHouseRdBtn_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    this.partUC.Controls["partMachineIDLbl"].Visible = true;
+        //    this.partUC.Controls["partCompanyNameLbl"].Visible = false;
+        //    partUC.partUCValidator.toolTip.RemoveAll();
 
-            if (switchedRadioButton)
-            {
-                ((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
-            }
-            switchedRadioButton = true;
-        }
+        //    //if (switchedRadioButton)
+        //    //{
+        //    //    ((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
+        //    //}
+        //    //switchedRadioButton = true;
+        //}
 
-        private void outSourcedRdBtn_CheckedChanged(object sender, EventArgs e)
-        {
-            this.partUC.Controls["partMachineIDLbl"].Visible = false;
-            this.partUC.Controls["partCompanyNameLbl"].Visible = true;
-            partUC.partUCValidator.toolTip.RemoveAll();
+        //private void outSourcedRdBtn_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    this.partUC.Controls["partMachineIDLbl"].Visible = false;
+        //    this.partUC.Controls["partCompanyNameLbl"].Visible = true;
+        //    partUC.partUCValidator.toolTip.RemoveAll();
 
-            if (switchedRadioButton)
-            {
-                ((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
-            }
-            switchedRadioButton = true;
-        }
+        //    partUC.
+
+        //    //if (switchedRadioButton)
+        //    //{
+        //    //    ((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
+        //    //}
+        //    //switchedRadioButton = true;
+        //}
     }
 }
