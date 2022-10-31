@@ -19,8 +19,6 @@ namespace Inventory_Managment_System.View
     public partial class ModifyPartForm : Form
     {
         private readonly int selectedRowIndex;
-        private Part selectedModifiablePart;
-        bool switchedRadioButton; // stop if from triggering the radio button changed when the form load.
         public ModifyPartForm(in int rowIndex)
         {
             InitializeComponent();
@@ -29,7 +27,7 @@ namespace Inventory_Managment_System.View
 
         private void ModifyPartForm_Load(object sender, EventArgs e)
         {
-            selectedModifiablePart = Controller.Controller.lookUpPartFromTheInventory(selectedRowIndex);
+            var selectedModifiablePart = Controller.Controller.lookUpPartFromTheInventory(selectedRowIndex);
             partUC.Controls["partIDTxtBox"].Text = selectedModifiablePart.PartID.ToString();
             partUC.Controls["partNameTxtBox"].Text = selectedModifiablePart.Name;
             partUC.Controls["partInventoryTxtBox"].Text = selectedModifiablePart.InStock.ToString();
@@ -77,34 +75,5 @@ namespace Inventory_Managment_System.View
             this.Close();
             Program.ShowInitialAppForm();
         }
-
-
-        //private void inHouseRdBtn_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    this.partUC.Controls["partMachineIDLbl"].Visible = true;
-        //    this.partUC.Controls["partCompanyNameLbl"].Visible = false;
-        //    partUC.partUCValidator.toolTip.RemoveAll();
-
-        //    //if (switchedRadioButton)
-        //    //{
-        //    //    ((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
-        //    //}
-        //    //switchedRadioButton = true;
-        //}
-
-        //private void outSourcedRdBtn_CheckedChanged(object sender, EventArgs e)
-        //{
-        //    this.partUC.Controls["partMachineIDLbl"].Visible = false;
-        //    this.partUC.Controls["partCompanyNameLbl"].Visible = true;
-        //    partUC.partUCValidator.toolTip.RemoveAll();
-
-        //    partUC.
-
-        //    //if (switchedRadioButton)
-        //    //{
-        //    //    ((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
-        //    //}
-        //    //switchedRadioButton = true;
-        //}
     }
 }

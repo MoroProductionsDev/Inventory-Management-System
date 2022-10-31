@@ -62,8 +62,6 @@
             this.Load += new System.EventHandler(this.ModifyPartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
-            //this.inHouseRdBtn.CheckedChanged += new System.EventHandler(this.inHouseRdBtn_CheckedChanged);
-            //this.outSourcedRdBtn.CheckedChanged += new System.EventHandler(this.outSourcedRdBtn_CheckedChanged);
             this.partUC.Controls["saveBtn"].Click += new System.EventHandler(this.saveBtn_Click); // save btn event for its child
             this.partUC.Controls["cancelBtn"].Click += new System.EventHandler(this.cancelBtn_Click); // cancel btn event for its child
         }
