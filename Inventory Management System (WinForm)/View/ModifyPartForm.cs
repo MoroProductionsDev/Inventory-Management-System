@@ -26,8 +26,6 @@ namespace Inventory_Managment_System.View
             InitializeComponent();
             selectedRowIndex = rowIndex;
         }
-        //machineIDorCompanyNameTxtBox.Clear();
-        // covers scenerio when the radiobutton [Inhouse, Outsource] are toggle
 
         private void ModifyPartForm_Load(object sender, EventArgs e)
         {
