@@ -19,39 +19,42 @@ namespace Inventory_Managment_System.View
     public partial class ModifyPartForm : Form
     {
         private readonly int selectedRowIndex;
+        private Part selectedModifiablePart;
+        bool switchedRadioButton; // stop if from triggering the radio button changed when the form load.
         public ModifyPartForm(in int rowIndex)
         {
             InitializeComponent();
             selectedRowIndex = rowIndex;
         }
+        //machineIDorCompanyNameTxtBox.Clear();
+        // covers scenerio when the radiobutton [Inhouse, Outsource] are toggle
 
         private void ModifyPartForm_Load(object sender, EventArgs e)
         {
-            Part selectedPart = Controller.Controller.lookUpPartFromTheInventory(selectedRowIndex);
-            partUC.Controls["partIDTxtBox"].Text = selectedPart.PartID.ToString();
-            partUC.Controls["partNameTxtBox"].Text = selectedPart.Name;
-            partUC.Controls["partInventoryTxtBox"].Text = selectedPart.InStock.ToString();
-            partUC.Controls["partPriceTxtBox"].Text = selectedPart.Price.ToString();
-            partUC.Controls["partMinTxtBox"].Text = selectedPart.Min.ToString();
-            partUC.Controls["partMaxTxtBox"].Text = selectedPart.Max.ToString();
+            selectedModifiablePart = Controller.Controller.lookUpPartFromTheInventory(selectedRowIndex);
+            partUC.Controls["partIDTxtBox"].Text = selectedModifiablePart.PartID.ToString();
+            partUC.Controls["partNameTxtBox"].Text = selectedModifiablePart.Name;
+            partUC.Controls["partInventoryTxtBox"].Text = selectedModifiablePart.InStock.ToString();
+            partUC.Controls["partPriceTxtBox"].Text = selectedModifiablePart.Price.ToString();
+            partUC.Controls["partMinTxtBox"].Text = selectedModifiablePart.Min.ToString();
+            partUC.Controls["partMaxTxtBox"].Text = selectedModifiablePart.Max.ToString();
 
-            if (selectedPart.GetType().Equals(typeof(Inhouse)))
+            if (selectedModifiablePart.GetType().Equals(typeof(Inhouse)))
             {
-                partUC.Controls["machineIDorCompanyNameTxtBox"].Text = ((Inhouse)selectedPart).MachineID.ToString();
+                partUC.Controls["machineIDorCompanyNameTxtBox"].Text = ((Inhouse)selectedModifiablePart).MachineID.ToString();
                 partUC.Controls["inHouseRdBtn"].Select();
-                partUC.Controls["outSourcedRdBtn"].Enabled = false;
             }
-            else if (selectedPart.GetType().Equals(typeof(Outsourced)))
+            else if (selectedModifiablePart.GetType().Equals(typeof(Outsourced)))
             {
-                partUC.Controls["machineIDorCompanyNameTxtBox"].Text = ((Outsourced)selectedPart).CompanyName;
+                partUC.Controls["machineIDorCompanyNameTxtBox"].Text = ((Outsourced)selectedModifiablePart).CompanyName;
                 partUC.Controls["outSourcedRdBtn"].Select();
-                partUC.Controls["inHouseRdBtn"].Enabled = false;
             }
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
             var isInhouseRdBtnChecked = ((RadioButton)partUC.Controls["inHouseRdBtn"]).Checked;
+            var isOutsourcedRdBtnChecked = ((RadioButton)partUC.Controls["outSourcedRdBtn"]).Checked;
 
             if (!UIValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
@@ -60,7 +63,7 @@ namespace Inventory_Managment_System.View
                 {
                     Controller.Controller.updateInhousePartToInventory(in selectedPartsRowIndex, in partUC);
                 }
-                else
+                else if (isOutsourcedRdBtnChecked)
                 {
                     Controller.Controller.updateOutsourcedPartToInventory(in selectedPartsRowIndex, in partUC);
                 }
@@ -75,6 +78,34 @@ namespace Inventory_Managment_System.View
         {
             this.Close();
             Program.ShowInitialAppForm();
+        }
+
+
+        private void inHouseRdBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            this.partUC.Controls["partMachineIDLbl"].Visible = true;
+            this.partUC.Controls["partCompanyNameLbl"].Visible = false;
+            partUC.partUCValidator.toolTip.RemoveAll();
+
+            if (switchedRadioButton)
+            {
+                ((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
+            }
+            switchedRadioButton = true;
+        }
+
+        private void outSourcedRdBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            this.partUC.Controls["partMachineIDLbl"].Visible = false;
+            this.partUC.Controls["partCompanyNameLbl"].Visible = true;
+            partUC.partUCValidator.toolTip.RemoveAll();
+            //((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
+
+            if (switchedRadioButton)
+            {
+                ((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
+            }
+            switchedRadioButton = true;
         }
     }
 }

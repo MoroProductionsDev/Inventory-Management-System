@@ -24,12 +24,6 @@ namespace Inventory_Managment_System.View
             partUCValidator = new UIValidator(this);
         }
 
-        private void PartUC_Load(object sender, EventArgs e)
-        {
-            machineIDorCompanyNameTxtBox.BackColor = UIValidator.validTextBox_Color;
-            machineIDorCompanyNameTxtBox.Clear();
-        }
-
         private void inHouseRdBtn_CheckedChanged(object sender, EventArgs e)
         {
             this.partMachineIDLbl.Visible = true;
@@ -42,9 +36,6 @@ namespace Inventory_Managment_System.View
             this.partMachineIDLbl.Visible = false;
             this.partCompanyNameLbl.Visible = true;
             partUCValidator.toolTip.RemoveAll();
-            //machineIDorCompanyNameTxtBox.Clear();
-            // covers scenerio when the radiobutton [Inhouse, Outsource] are toggle
-            machineIDorCompanyNameTxtBox_TextChanged(sender, e);
         }
 
         private void partNameTxtBox_TextChanged(object sender, EventArgs e)

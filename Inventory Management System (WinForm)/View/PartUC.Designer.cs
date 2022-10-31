@@ -256,7 +256,6 @@ namespace Inventory_Managment_System.View
             this.Controls.Add(this.partIDLbl);
             this.Name = "PartUC";
             this.Size = new System.Drawing.Size(461, 355);
-            this.Load += new System.EventHandler(this.PartUC_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

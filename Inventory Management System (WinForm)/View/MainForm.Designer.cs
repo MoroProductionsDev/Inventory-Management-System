@@ -69,7 +69,7 @@
             // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(592, 414);
+            this.exitBtn.Location = new System.Drawing.Point(592, 407);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(56, 27);
             this.exitBtn.TabIndex = 7;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 459);
+            this.ClientSize = new System.Drawing.Size(672, 452);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.tabControlUC);
             this.Controls.Add(this.searchControlUC);

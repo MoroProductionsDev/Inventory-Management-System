@@ -73,28 +73,44 @@ namespace Inventory_Managment_System.Controller
         {
             var storedInhousePart = Inventory.lookupPart(index);
 
-            storedInhousePart.Name = partUserComponent.Controls["partNameTxtBox"].Text;
-            storedInhousePart.Price = decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text);
-            storedInhousePart.InStock = int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text);
-            storedInhousePart.Min = int.Parse(partUserComponent.Controls["partMinTxtBox"].Text);
-            storedInhousePart.Max = int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text);
-            ((Inhouse)storedInhousePart).MachineID = int.Parse(partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text);
+            if (storedInhousePart.GetType().Equals(typeof(Inhouse)))
+            {
+                storedInhousePart.Name = partUserComponent.Controls["partNameTxtBox"].Text;
+                storedInhousePart.Price = decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text);
+                storedInhousePart.InStock = int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text);
+                storedInhousePart.Min = int.Parse(partUserComponent.Controls["partMinTxtBox"].Text);
+                storedInhousePart.Max = int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text);
+                ((Inhouse)storedInhousePart).MachineID = int.Parse(partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text);
 
-            Inventory.updatePart(index, storedInhousePart);
+                Inventory.updatePart(index, storedInhousePart);
+            }
+            else
+            {
+                var newInhousePart = modifyPartTypes(partUserComponent, storedInhousePart); // this will store the same part but modified.
+                Inventory.updatePart(index, newInhousePart);
+            }
         }
 
         public static void updateOutsourcedPartToInventory(in int index, in PartUC partUserComponent)
         {
             var storedOutsourcedPart = Inventory.lookupPart(index);
 
-            storedOutsourcedPart.Name = partUserComponent.Controls["partNameTxtBox"].Text;
-            storedOutsourcedPart.Price = decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text);
-            storedOutsourcedPart.InStock = int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text);
-            storedOutsourcedPart.Min = int.Parse(partUserComponent.Controls["partMinTxtBox"].Text);
-            storedOutsourcedPart.Max = int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text);
-            ((Outsourced)storedOutsourcedPart).CompanyName = partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text;
+            if (storedOutsourcedPart.GetType().Equals(typeof(Outsourced)))
+            {
+                storedOutsourcedPart.Name = partUserComponent.Controls["partNameTxtBox"].Text;
+                storedOutsourcedPart.Price = decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text);
+                storedOutsourcedPart.InStock = int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text);
+                storedOutsourcedPart.Min = int.Parse(partUserComponent.Controls["partMinTxtBox"].Text);
+                storedOutsourcedPart.Max = int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text);
+                ((Outsourced)storedOutsourcedPart).CompanyName = partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text;
 
-            Inventory.updatePart(index, storedOutsourcedPart);
+                Inventory.updatePart(index, storedOutsourcedPart);
+            }
+            else
+            {
+                var newOutsourcedPart = modifyPartTypes(partUserComponent, storedOutsourcedPart); // this will store the same part but modified.
+                Inventory.updatePart(index, newOutsourcedPart);
+            }
         }
 
         public static void deletePartFromInventory(in int index)
@@ -113,20 +129,46 @@ namespace Inventory_Managment_System.Controller
             return TabControlUC.tabControlUC_Instance.findMatchingPart(searchString);
         }
 
-        //public static void addPart(Part part)
-        //{
-        //    //AllPartList.Add(part);
-        //}
-        //public static void addInventoryPart(in PartUC partUC)
-        //{
-        //    int id;
-        //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
-        //    Validate.ValidateNumericInput(partUC.IDTxtBox.Text, out id);
-        //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
-        //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
-        //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
-        //}
-    }
+        private static Part modifyPartTypes(PartUC partUserComponent, in Part storedpart)
+        {
+            Part modifiablePart;
+            if (storedpart.GetType().Equals(typeof(Inhouse)))
+            {
+                modifiablePart = new Outsourced(
+                    partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text,
+                    partUserComponent.Controls["partNameTxtBox"].Text,
+                    decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
+                    int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
+                    int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
+                    int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text));
+            }
+            else
+            {
+                modifiablePart = new Inhouse(
+                    int.Parse(partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text),
+                    partUserComponent.Controls["partNameTxtBox"].Text,
+                    decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
+                    int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
+                    int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
+                    int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text));
+            }
+            return modifiablePart;
+        }
+
+            //public static void addPart(Part part)
+            //{
+            //    //AllPartList.Add(part);
+            //}
+            //public static void addInventoryPart(in PartUC partUC)
+            //{
+            //    int id;
+            //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
+            //    Validate.ValidateNumericInput(partUC.IDTxtBox.Text, out id);
+            //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
+            //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
+            //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
+            //}
+        }
 
 
 }

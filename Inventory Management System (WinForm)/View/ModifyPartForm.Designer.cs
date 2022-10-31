@@ -30,6 +30,8 @@
         {
             this.partUC = new Inventory_Managment_System.View.PartUC();
             this.modifyPartLbl = new System.Windows.Forms.Label();
+            this.inHouseRdBtn = (RadioButton) partUC.Controls["inHouseRdBtn"]; // cast the radio button of the partUC to use the CheckChanged Event Handler
+            this.outSourcedRdBtn = (RadioButton)partUC.Controls["outSourcedRdBtn"]; // cast the radio button of the partUC to use the CheckChanged Event Handler
             this.SuspendLayout();
             // 
             // partUC
@@ -60,6 +62,8 @@
             this.Load += new System.EventHandler(this.ModifyPartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.inHouseRdBtn.CheckedChanged += new System.EventHandler(this.inHouseRdBtn_CheckedChanged);
+            this.outSourcedRdBtn.CheckedChanged += new System.EventHandler(this.outSourcedRdBtn_CheckedChanged);
             this.partUC.Controls["saveBtn"].Click += new System.EventHandler(this.saveBtn_Click); // save btn event for its child
             this.partUC.Controls["cancelBtn"].Click += new System.EventHandler(this.cancelBtn_Click); // cancel btn event for its child
         }
@@ -68,5 +72,7 @@
 
         private PartUC partUC;
         private Label modifyPartLbl;
+        private RadioButton inHouseRdBtn;
+        private RadioButton outSourcedRdBtn;
     }
 }

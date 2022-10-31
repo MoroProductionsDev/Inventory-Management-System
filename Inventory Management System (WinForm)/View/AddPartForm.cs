@@ -32,7 +32,6 @@ namespace Inventory_Managment_System.View
             {
                 if (isInhouseRdBtnChecked)
                 {
-
                     Controller.Controller.addInhousePartToInventory(in partUC);
                 }
                 else
