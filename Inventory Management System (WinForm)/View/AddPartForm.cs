@@ -38,7 +38,9 @@ namespace Inventory_Managment_System.View
                 {
                     Controller.Controller.addOutsourcedPartToInventory(in partUC);
                 }
-                TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
+
+                var newPartRowIndex = TabControlUC.tabControlUC_Instance.getPartsRowCount();
+                TabControlUC.tabControlUC_Instance.recreatePartsDataTable(newPartRowIndex);
                 
                 this.Close();
                 Program.ShowInitialAppForm();

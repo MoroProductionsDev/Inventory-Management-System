@@ -65,7 +65,7 @@ namespace Inventory_Managment_System.View
                 {
                     Controller.Controller.updateOutsourcedPartToInventory(in selectedPartsRowIndex, in partUC);
                 }
-                TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
+                TabControlUC.tabControlUC_Instance.recreatePartsDataTable(selectedPartsRowIndex);
 
                 this.Close();
                 Program.ShowInitialAppForm();
@@ -97,7 +97,6 @@ namespace Inventory_Managment_System.View
             this.partUC.Controls["partMachineIDLbl"].Visible = false;
             this.partUC.Controls["partCompanyNameLbl"].Visible = true;
             partUC.partUCValidator.toolTip.RemoveAll();
-            //((TextBox)this.partUC.Controls["machineIDorCompanyNameTxtBox"]).Clear();
 
             if (switchedRadioButton)
             {

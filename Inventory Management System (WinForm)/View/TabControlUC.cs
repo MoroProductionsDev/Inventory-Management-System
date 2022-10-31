@@ -18,6 +18,11 @@ namespace Inventory_Managment_System.View
         public readonly TabControl InventoryTbCtrl;
         public readonly Dictionary<string, DataGridView> tableDataGridView;
        
+        // Enum to identify the return from an unselected index row
+        public enum IndexVal
+        {
+            Invalid = -1,
+        }
         public TabControlUC()
         {
             InitializeComponent();
@@ -116,19 +121,41 @@ namespace Inventory_Managment_System.View
         {
             clearPartsDataTable();
             insertDataInPartsTable();
+            unselectRowInTable(this.partsDataGridView);
+        }
+
+        public void recreatePartsDataTable(int index)
+        {
+            clearPartsDataTable();
+            insertDataInPartsTable();
+            setPartsSelectedRowIndex(index);
         }
 
         public void recreateProductsDataTable()
         {
             clearProductsDataTable();
             insertDataInProductsTable();
+            unselectRowInTable(this.productsDataGridView);
         }
 
+        public void recreateProductsDataTable(int index)
+        {
+            clearProductsDataTable();
+            insertDataInProductsTable();
+            setProductsSelectedRowIndex(index);
+        }
 
         public int getPartsSelectedRowIndex()
         {
             var selectedRow = partsDataGridView.SelectedRows;
-            var selectedRowIndex = selectedRow[0].Index;
+            int selectedRowIndex; 
+            try
+            {
+                selectedRowIndex = selectedRow[0].Index;
+            } catch (ArgumentOutOfRangeException)
+            {
+                selectedRowIndex = (int) IndexVal.Invalid;
+            }
 
             return selectedRowIndex;
         }
@@ -136,16 +163,34 @@ namespace Inventory_Managment_System.View
         public int getProductsSelectedRowIndex()
         {
             var selectedRow = productsDataGridView.SelectedRows;
-            var selectedRowIndex = selectedRow[0].Index;
+            int selectedRowIndex;
+            try
+            {
+                selectedRowIndex = selectedRow[0].Index;
+            }
+            catch (ArgumentOutOfRangeException argOutOfRangeExcp)
+            {
+                selectedRowIndex = (int) IndexVal.Invalid;
+            }
 
             return selectedRowIndex;
+        }
+
+        public int getPartsRowCount()
+        {
+            return partsDataGridView.Rows.Count;
+        }
+
+        public int getProductsRowCount()
+        {
+            return productsDataGridView.Rows.Count;
         }
 
         public void setPartsSelectedRowIndex(in int index)
         {
             partsDataGridView.Rows[index].Selected = true;
         }
-        public void setProductsSelectedRowInd(in int index)
+        public void setProductsSelectedRowIndex(in int index)
         {
             productsDataGridView.Rows[index].Selected = true;
         }

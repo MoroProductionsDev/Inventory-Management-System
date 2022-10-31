@@ -33,9 +33,6 @@ namespace Inventory_Managment_System.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.inventoryTbCtrl = new System.Windows.Forms.TabControl();
             this.partsTabPage = new System.Windows.Forms.TabPage();
             this.partsDataGridView = new System.Windows.Forms.DataGridView();
@@ -53,12 +50,18 @@ namespace Inventory_Managment_System.View
             this.productPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
             this.inventoryTbCtrl.SuspendLayout();
             this.partsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGridView)).BeginInit();
             this.productsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsDataGridView)).BeginInit();
             this.SuspendLayout();
+            //
+            // dataGridViewCellStyle
+            //
+            this.dataGridViewCellStyle.SelectionBackColor = System.Drawing.Color.Yellow;
+            this.dataGridViewCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
             // inventoryTbCtrl
             // 
@@ -103,8 +106,7 @@ namespace Inventory_Managment_System.View
             this.partsDataGridView.ReadOnly = true;
             this.partsDataGridView.RowHeadersVisible = false;
             this.partsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Yellow;
-            this.partsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.partsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle;
             this.partsDataGridView.RowTemplate.Height = 25;
             this.partsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.partsDataGridView.Size = new System.Drawing.Size(622, 244);
@@ -188,14 +190,14 @@ namespace Inventory_Managment_System.View
             this.productsDataGridView.AllowUserToDeleteRows = false;
             this.productsDataGridView.AllowUserToResizeColumns = false;
             this.productsDataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            ////// dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            ////// dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            ////// dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            ////// dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            ////// dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            ////dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            ////// dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            //this.productsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productID,
@@ -211,8 +213,7 @@ namespace Inventory_Managment_System.View
             this.productsDataGridView.ReadOnly = true;
             this.productsDataGridView.RowHeadersVisible = false;
             this.productsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Yellow;
-            this.productsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.productsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle;
             this.productsDataGridView.RowTemplate.Height = 25;
             this.productsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productsDataGridView.Size = new System.Drawing.Size(622, 244);
@@ -317,5 +318,6 @@ namespace Inventory_Managment_System.View
         private DataGridViewTextBoxColumn productPrice;
         private DataGridViewTextBoxColumn productMin;
         private DataGridViewTextBoxColumn productMax;
+        private DataGridViewCellStyle dataGridViewCellStyle;
     }
 }

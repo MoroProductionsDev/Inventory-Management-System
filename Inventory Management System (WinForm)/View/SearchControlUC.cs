@@ -37,7 +37,7 @@ namespace Inventory_Managment_System.View
 
                 if (matchingIndex != -1)
                 {
-                    TabControlUC.tabControlUC_Instance.setProductsSelectedRowInd(matchingIndex);
+                    TabControlUC.tabControlUC_Instance.setProductsSelectedRowIndex(matchingIndex);
                 }
             }
         }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Inventory_Managment_System.Controller;
 using Inventory_Managment_System.Model;
 using Inventory_Managment_System.View;
+using static Inventory_Managment_System.View.TabControlUC;
 
 namespace Inventory_Managment_System.View
 {
@@ -43,41 +44,80 @@ namespace Inventory_Managment_System.View
         }
         private void modifyBtn_Click(object sender, EventArgs e)
         {
+            const string action = "modify";
+
             closeAllPartsForms();
             closeAllProductsForms();
             if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
             {
                 var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
-                partForms["modifyPartForm"] = new ModifyPartForm(selectedPartsRowIndex); // Form has to be added her to avoid opening disposed object
-                partForms["modifyPartForm"].Show();
-                Program.HideInitialAppForm();
+
+                if (selectedPartsRowIndex != (int)TabControlUC.IndexVal.Invalid)
+                {
+                    partForms["modifyPartForm"] = new ModifyPartForm(selectedPartsRowIndex); // Form has to be added her to avoid opening disposed object
+                    partForms["modifyPartForm"].Show();
+                    Program.HideInitialAppForm();
+                }
+                else
+                {
+                    displayUnselectedRowWarning(action);
+                }
             }
             else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
             {
                 var selectedProductsRowIndex = TabControlUC.tabControlUC_Instance.getProductsSelectedRowIndex();
-                productForms["modifyProductForm"] = new ModifyProductForm(); // Form has to be added her to avoid opening disposed object
-                productForms["modifyProductForm"].Show();
-                Program.HideInitialAppForm();
-            }
 
+                if (selectedProductsRowIndex != (int)TabControlUC.IndexVal.Invalid)
+                {
+                    //productForms["modifyProductForm"] = new ModifyProductForm(selectedProductsRowIndex); // Form has to be added her to avoid opening disposed object
+                    //productForms["modifyProductForm"].Show();
+                    //Program.HideInitialAppForm();
+                }
+                else
+                {
+                    displayUnselectedRowWarning(action);
+                }
+            }
         }
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            var hasClickedYes = displayDeletionWarning();
+            const string action = "delete";
 
-            if (hasClickedYes)
+            if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
             {
-                if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
+                var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
+
+                if (selectedPartsRowIndex != (int) TabControlUC.IndexVal.Invalid)
                 {
-                    var selectedPartsRowIndex = TabControlUC.tabControlUC_Instance.getPartsSelectedRowIndex();
-                    Controller.Controller.deletePartFromInventory(selectedPartsRowIndex);
-                }
-                else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+                    var confirmedDeletion = displayDeletionWarning();
+
+                    if (confirmedDeletion)
+                    {
+                        Controller.Controller.deletePartFromInventory(selectedPartsRowIndex);
+                        TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
+                    }
+                } else
                 {
-                    var selectedProductsRowIndex = TabControlUC.tabControlUC_Instance.getProductsSelectedRowIndex();
-                    
+                    displayUnselectedRowWarning(action);
                 }
-                TabControlUC.tabControlUC_Instance.recreatePartsDataTable();
+            }
+            else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
+            {
+                var selectedProductsRowIndex = TabControlUC.tabControlUC_Instance.getProductsSelectedRowIndex();
+
+                if (selectedProductsRowIndex != (int)TabControlUC.IndexVal.Invalid)
+                {
+                    var confirmedDeletion = displayDeletionWarning();
+
+                    if (confirmedDeletion)
+                    {
+                        //Controller.Controller.deletePartFromInventory(selectedProductsRowIndex);
+                        TabControlUC.tabControlUC_Instance.recreateProductsDataTable();
+                    }
+                } else
+                {
+                    displayUnselectedRowWarning(action);
+                }
             }
         }
         private void closeAllPartsForms()
@@ -104,6 +144,14 @@ namespace Inventory_Managment_System.View
             var result = MessageBox.Show(warningMsg, "Warning", msgBoxButtons, MessageBoxIcon.Warning);
 
             return result == DialogResult.Yes;
+        }
+
+        public void displayUnselectedRowWarning(string action)
+        {
+            string informationMsg = $"Please select something to {action}.";
+            MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK;
+
+            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Information);
         }
     }
 }
