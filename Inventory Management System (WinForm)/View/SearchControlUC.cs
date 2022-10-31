@@ -22,22 +22,37 @@ namespace Inventory_Managment_System.View
 
         private void searchLbl_Click(object sender, EventArgs e)
         {
+            string searchString = searchTxtbox.Text.Trim();
+            int matchingIndex = -1;
+
             if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[0])
             {
-                var matchingIndex = Controller.Controller.searchForPartNameInTheInventory(searchTxtbox.Text.Trim());
-                
-                if(matchingIndex != -1)
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    matchingIndex = Controller.Controller.searchForPartNameInTheInventory(searchString);
+                }
+
+                if (matchingIndex != -1)
                 {
                     TabControlUC.tabControlUC_Instance.setPartsSelectedRowIndex(matchingIndex);
+                } else
+                {
+                    TabControlUC.unselectRowInTable(TabControlUC.tabControlUC_Instance.tableDataGridView["partsDataGridView"]);
                 }
             }
             else if (TabControlUC.tabControlUC_Instance.InventoryTbCtrl.SelectedTab.Name == tabPageNames[1])
             {
-                var matchingIndex = Controller.Controller.searchForPartNameInTheInventory(searchTxtbox.Text.Trim());
+                if (!string.IsNullOrEmpty(searchString))
+                {
+                    matchingIndex = Controller.Controller.searchForProductNameInTheInventory(searchString);
+                }
 
                 if (matchingIndex != -1)
                 {
                     TabControlUC.tabControlUC_Instance.setProductsSelectedRowIndex(matchingIndex);
+                } else
+                {
+                    TabControlUC.unselectRowInTable(TabControlUC.tabControlUC_Instance.tableDataGridView["productsDataGridView"]);
                 }
             }
         }

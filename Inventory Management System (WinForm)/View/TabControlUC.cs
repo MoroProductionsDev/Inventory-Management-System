@@ -54,7 +54,7 @@ namespace Inventory_Managment_System.View
             }
         }
 
-        private void unselectRowInTable(DataGridView dataGridView)
+        public static void unselectRowInTable(DataGridView dataGridView)
         {
             dataGridView.ClearSelection();
         }
@@ -109,6 +109,30 @@ namespace Inventory_Managment_System.View
                 ++matchingRow;
             }
             
+            if (!found)
+            {
+                matchingRow = -1;
+            }
+
+            return matchingRow;
+        }
+
+        public int findMatchingProduct(string searchString)
+        {
+            var productList = Inventory.Products;
+            bool found = false;
+            int matchingRow = 0; // this will match the size of the partList
+
+            foreach (var product in productList)
+            {
+                if (product.Name.ToUpper().Contains(searchString.ToUpper()))
+                {
+                    found = true;
+                    break;
+                }
+                ++matchingRow;
+            }
+
             if (!found)
             {
                 matchingRow = -1;

@@ -155,20 +155,25 @@ namespace Inventory_Managment_System.Controller
             return modifiablePart;
         }
 
-            //public static void addPart(Part part)
-            //{
-            //    //AllPartList.Add(part);
-            //}
-            //public static void addInventoryPart(in PartUC partUC)
-            //{
-            //    int id;
-            //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
-            //    Validate.ValidateNumericInput(partUC.IDTxtBox.Text, out id);
-            //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
-            //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
-            //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
-            //}
+        public static int searchForProductNameInTheInventory(in string searchString)
+        {
+            return TabControlUC.tabControlUC_Instance.findMatchingProduct(searchString);
         }
+
+        //public static void addPart(Part part)
+        //{
+        //    //AllPartList.Add(part);
+        //}
+        //public static void addInventoryPart(in PartUC partUC)
+        //{
+        //    int id;
+        //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
+        //    Validate.ValidateNumericInput(partUC.IDTxtBox.Text, out id);
+        //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
+        //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
+        //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
+        //}
+    }
 
 
 }
