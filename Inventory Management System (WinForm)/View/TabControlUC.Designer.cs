@@ -190,14 +190,6 @@ namespace Inventory_Managment_System.View
             this.productsDataGridView.AllowUserToDeleteRows = false;
             this.productsDataGridView.AllowUserToResizeColumns = false;
             this.productsDataGridView.AllowUserToResizeRows = false;
-            ////// dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            ////// dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            ////// dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            ////// dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            ////// dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            ////dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            ////// dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            //this.productsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.productsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.productsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productID,
