@@ -28,19 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.productUC = new Inventory_Managment_System.View.ProductUC();
             this.addProductLbl = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.productUC = new Inventory_Managment_System.View.ProductUC();
             this.SuspendLayout();
-            // 
-            // productUC
-            // 
-            this.productUC.Location = new System.Drawing.Point(11, 32);
-            this.productUC.Name = "productUC";
-            this.productUC.Size = new System.Drawing.Size(1077, 578);
-            this.productUC.TabIndex = 1;
-            this.productUC.Load += new System.EventHandler(this.productUC_Load);
             // 
             // addProductLbl
             // 
@@ -54,7 +46,7 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(965, 616);
+            this.cancelBtn.Location = new System.Drawing.Point(847, 618);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(55, 31);
             this.cancelBtn.TabIndex = 18;
@@ -64,7 +56,7 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(893, 616);
+            this.saveBtn.Location = new System.Drawing.Point(775, 618);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(55, 31);
             this.saveBtn.TabIndex = 17;
@@ -72,15 +64,22 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
+            // productUC
+            // 
+            this.productUC.Location = new System.Drawing.Point(12, 32);
+            this.productUC.Name = "productUC";
+            this.productUC.Size = new System.Drawing.Size(946, 580);
+            this.productUC.TabIndex = 19;
+            // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1101, 665);
+            this.ClientSize = new System.Drawing.Size(974, 671);
+            this.Controls.Add(this.productUC);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.addProductLbl);
-            this.Controls.Add(this.productUC);
             this.Name = "AddProductForm";
             this.Text = "Add Product";
             this.ResumeLayout(false);
@@ -89,10 +88,9 @@
         }
 
         #endregion
-
-        private ProductUC productUC;
         private Label addProductLbl;
         private Button cancelBtn;
         private Button saveBtn;
+        private ProductUC productUC;
     }
 }

@@ -31,8 +31,8 @@
             this.appNameLbl = new System.Windows.Forms.Label();
             this.modifcationControlsUC = new Inventory_Managment_System.View.ModifcationControlsUC();
             this.searchControlUC = new Inventory_Managment_System.View.SearchControlUC();
-            this.tabControlUC = new Inventory_Managment_System.View.TabControlUC();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.tabControlUC = new Inventory_Managment_System.View.TabControlUC();
             this.SuspendLayout();
             // 
             // appNameLbl
@@ -48,28 +48,21 @@
             // 
             // modifcationControlsUC
             // 
-            this.modifcationControlsUC.Location = new System.Drawing.Point(423, 368);
+            this.modifcationControlsUC.Location = new System.Drawing.Point(307, 369);
             this.modifcationControlsUC.Name = "modifcationControlsUC";
             this.modifcationControlsUC.Size = new System.Drawing.Size(226, 35);
             this.modifcationControlsUC.TabIndex = 3;
             // 
             // searchControlUC
             // 
-            this.searchControlUC.Location = new System.Drawing.Point(397, 39);
+            this.searchControlUC.Location = new System.Drawing.Point(281, 40);
             this.searchControlUC.Name = "searchControlUC";
             this.searchControlUC.Size = new System.Drawing.Size(252, 32);
             this.searchControlUC.TabIndex = 4;
             // 
-            // tabControlUC
-            // 
-            this.tabControlUC.Location = new System.Drawing.Point(16, 77);
-            this.tabControlUC.Name = "tabControlUC";
-            this.tabControlUC.Size = new System.Drawing.Size(645, 285);
-            this.tabControlUC.TabIndex = 5;
-            // 
             // exitBtn
             // 
-            this.exitBtn.Location = new System.Drawing.Point(592, 407);
+            this.exitBtn.Location = new System.Drawing.Point(476, 408);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(56, 27);
             this.exitBtn.TabIndex = 7;
@@ -77,13 +70,20 @@
             this.exitBtn.UseVisualStyleBackColor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
+            // tabControlUC
+            // 
+            this.tabControlUC.Location = new System.Drawing.Point(16, 77);
+            this.tabControlUC.Name = "tabControlUC";
+            this.tabControlUC.Size = new System.Drawing.Size(523, 285);
+            this.tabControlUC.TabIndex = 8;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 452);
-            this.Controls.Add(this.exitBtn);
+            this.ClientSize = new System.Drawing.Size(553, 452);
             this.Controls.Add(this.tabControlUC);
+            this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.searchControlUC);
             this.Controls.Add(this.modifcationControlsUC);
             this.Controls.Add(this.appNameLbl);
@@ -98,7 +98,7 @@
         private Label appNameLbl;
         private View.ModifcationControlsUC modifcationControlsUC;
         private View.SearchControlUC searchControlUC;
-        private View.TabControlUC tabControlUC;
         private Button exitBtn;
+        private TabControlUC tabControlUC;
     }
 }

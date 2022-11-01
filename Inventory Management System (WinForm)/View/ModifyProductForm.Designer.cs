@@ -38,7 +38,7 @@
             // 
             this.productUC.Location = new System.Drawing.Point(12, 12);
             this.productUC.Name = "productUC";
-            this.productUC.Size = new System.Drawing.Size(1077, 578);
+            this.productUC.Size = new System.Drawing.Size(950, 578);
             this.productUC.TabIndex = 0;
             this.productUC.Load += new System.EventHandler(this.productUC_Load);
             // 
@@ -53,29 +53,29 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(966, 596);
+            this.cancelBtn.Location = new System.Drawing.Point(846, 596);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(55, 31);
             this.cancelBtn.TabIndex = 20;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
-            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click); // cancel btn event for its child
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(894, 596);
+            this.saveBtn.Location = new System.Drawing.Point(774, 596);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(55, 31);
             this.saveBtn.TabIndex = 19;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
-            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click); // save btn event for its child
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // ModifyProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 643);
+            this.ClientSize = new System.Drawing.Size(974, 648);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.modifyProductLbl);
