@@ -22,10 +22,5 @@ namespace Inventory_Managment_System.Model
         {
             return $"{nameof(CompanyName)} {CompanyName}\n" + base.ToString();
         }
-
-        public string ToStringForProducts()
-        {
-            return $"{nameof(CompanyName)}: {CompanyName}\n" + base.ToStringForProducts();
-        }
     }
 }

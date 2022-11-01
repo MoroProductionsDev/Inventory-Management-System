@@ -103,15 +103,5 @@ namespace Inventory_Managment_System.Model
             }
             return prodList;
         }
-
-        public static new string ToStringParts()
-        {
-            string partList = "";
-            foreach (var prod in allParts)
-            {
-                partList += prod;
-            }
-            return partList;
-        }
     }
 }

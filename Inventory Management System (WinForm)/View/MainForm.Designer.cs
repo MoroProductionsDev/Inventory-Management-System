@@ -28,23 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.appNameLbl = new System.Windows.Forms.Label();
             this.modifcationControlsUC = new Inventory_Managment_System.View.ModifcationControlsUC();
             this.searchControlUC = new Inventory_Managment_System.View.SearchControlUC();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.appNameLbl = new System.Windows.Forms.Label();
             this.tabControlUC = new Inventory_Managment_System.View.TabControlUC();
             this.SuspendLayout();
-            // 
-            // appNameLbl
-            // 
-            this.appNameLbl.AutoSize = true;
-            this.appNameLbl.Font = new System.Drawing.Font("Segoe UI Historic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.appNameLbl.Location = new System.Drawing.Point(16, 9);
-            this.appNameLbl.Name = "appNameLbl";
-            this.appNameLbl.Size = new System.Drawing.Size(213, 20);
-            this.appNameLbl.TabIndex = 0;
-            this.appNameLbl.Text = "Inventory Management System";
-            this.appNameLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // modifcationControlsUC
             // 
@@ -59,6 +48,17 @@
             this.searchControlUC.Name = "searchControlUC";
             this.searchControlUC.Size = new System.Drawing.Size(252, 32);
             this.searchControlUC.TabIndex = 4;
+            // 
+            // appNameLbl
+            // 
+            this.appNameLbl.AutoSize = true;
+            this.appNameLbl.Font = new System.Drawing.Font("Segoe UI Historic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.appNameLbl.Location = new System.Drawing.Point(16, 9);
+            this.appNameLbl.Name = "appNameLbl";
+            this.appNameLbl.Size = new System.Drawing.Size(213, 20);
+            this.appNameLbl.TabIndex = 0;
+            this.appNameLbl.Text = "Inventory Management System";
+            this.appNameLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // exitBtn
             // 
@@ -95,9 +95,9 @@
         }
 
         #endregion
-        private Label appNameLbl;
         private View.ModifcationControlsUC modifcationControlsUC;
         private View.SearchControlUC searchControlUC;
+        private Label appNameLbl;
         private Button exitBtn;
         private TabControlUC tabControlUC;
     }
