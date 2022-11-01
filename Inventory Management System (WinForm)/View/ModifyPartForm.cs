@@ -54,22 +54,36 @@ namespace Inventory_Managment_System.View
 
             if (!UITextBoxValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
-                var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["partsDataGridView"];
-                var selectedPartsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
+                try
+                {
+                    var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["partsDataGridView"];
+                    var selectedPartRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
                 
-                if (isInhouseRdBtnChecked)
-                {
-                    Controller.Controller.updateInhousePartToInventory(in selectedPartsRowIndex, in partUC);
-                }
-                else if (isOutsourcedRdBtnChecked)
-                {
-                    Controller.Controller.updateOutsourcedPartToInventory(in selectedPartsRowIndex, in partUC);
-                }
+                    if (isInhouseRdBtnChecked)
+                    {
+                        Controller.Controller.updateInhousePartInInventory(in partUC, in selectedPartRowIndex);
+                    }
+                    else if (isOutsourcedRdBtnChecked)
+                    {
+                        Controller.Controller.updateOutsourcedPartInInventory(in partUC, in selectedPartRowIndex);
+                    }
 
-                UIDataGridViewValidator.recreateTableData(partsDataGridView, Inventory.AllParts, selectedPartsRowIndex);
+                    UIDataGridViewValidator.recreateTableData(partsDataGridView, Inventory.AllParts, selectedPartRowIndex);
 
-                this.Close();
-                Program.ShowInitialAppForm();
+                    this.Close();
+                    Program.ShowInitialAppForm();
+                } catch (ArgumentOutOfRangeException argOutOfRangeExcp)
+                {
+                    if (argOutOfRangeExcp.ParamName != null && argOutOfRangeExcp.ParamName.Equals("Max [ArgumentOutOfRangeException]"))
+                    {
+                        UIMsgBox.displayMinExceedsMaxWarning(int.Parse(partUC.Controls["partMinTxtBox"].Text),
+                                                    int.Parse(partUC.Controls["partMaxTxtBox"].Text));
+                    }
+                    else
+                    {
+                        throw argOutOfRangeExcp;
+                    }
+                }
             }
         }
 

@@ -59,6 +59,7 @@
             this.cancelBtn.TabIndex = 20;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click); // cancel btn event for its child
             // 
             // saveBtn
             // 
@@ -68,12 +69,13 @@
             this.saveBtn.TabIndex = 19;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click); // save btn event for its child
             // 
             // ModifyProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 629);
+            this.ClientSize = new System.Drawing.Size(1102, 643);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.modifyProductLbl);
@@ -82,7 +84,6 @@
             this.Text = "Modify Product";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

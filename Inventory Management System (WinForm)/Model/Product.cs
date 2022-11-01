@@ -11,7 +11,7 @@ namespace Inventory_Managment_System.Model
 {
     internal class Product
     {
-        public BindingList<Part> AssociatedParts { get; }
+        public BindingList<Part> AssociatedParts { get; set; }
         public int ProductID { get; }
         public string Name { get; set; }
         private decimal price;
@@ -38,7 +38,7 @@ namespace Inventory_Managment_System.Model
             {
                 if (value < 0.0M)
                 {
-                    throw new ArgumentOutOfRangeException(
+                    throw new ArgumentOutOfRangeException("Price [ArgumentOutOfRangeException]",
                         $"\n<{nameof(Product)}> : <{nameof(Price)}> cannot a negative number!");
                 }
                 price = value;
@@ -53,7 +53,7 @@ namespace Inventory_Managment_System.Model
                 if (value <= 0)
                 {
                     Console.WriteLine(min);
-                    throw new ArgumentOutOfRangeException(
+                    throw new ArgumentOutOfRangeException("Min [ArgumentOutOfRangeException]",
                         $"\n<{nameof(Product)}> : <{nameof(Min)}> {value} cannot be less than or equal to 0.");
                 }
                 min = value;
@@ -65,14 +65,9 @@ namespace Inventory_Managment_System.Model
             get => max;
             set
             {
-                if (value == int.MaxValue)
+                if (value < min)
                 {
-                    throw new ArgumentNullException(
-                        $"\n<{nameof(Product)}> : <{nameof(Min)}> {min} hasn't been initialize yet!");
-                }
-                else if (value < min)
-                {
-                    throw new ArgumentOutOfRangeException(
+                    throw new ArgumentOutOfRangeException("Max [ArgumentOutOfRangeException]",
                         $"\n<{nameof(Product)}> : <{nameof(Max)}> {value} cannot be less than {min}");
                 }
                 max = value;
@@ -111,7 +106,7 @@ namespace Inventory_Managment_System.Model
             if (index < 0 || index >= AssociatedParts.Count)
             {
                 throw new IndexOutOfRangeException(
-                $"\n<{nameof(Product)}> : <{nameof(index)}> {index} is out of range.\n" +
+                $"<{nameof(Product)}> : <{nameof(index)}> {index} is out of range.\n" +
                 $"{nameof(AssociatedParts)} list has {AssociatedParts.Count} elements.");
             }
 

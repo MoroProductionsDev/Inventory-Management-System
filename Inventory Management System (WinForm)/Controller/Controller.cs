@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -71,7 +72,7 @@ namespace Inventory_Managment_System.Controller
             Inventory.addPart(newOutsourcedPart);
         }
 
-        public static void updateInhousePartToInventory(in int index, in PartUC partUserComponent)
+        public static void updateInhousePartInInventory(in PartUC partUserComponent, in int index)
         {
             var storedInhousePart = Inventory.lookupPart(index);
 
@@ -93,12 +94,12 @@ namespace Inventory_Managment_System.Controller
             }
         }
 
-        public static void updateOutsourcedPartToInventory(in int index, in PartUC partUserComponent)
+        public static void updateOutsourcedPartInInventory(in PartUC partUserComponent, in int index)
         {
             var storedOutsourcedPart = Inventory.lookupPart(index);
 
             if (storedOutsourcedPart.GetType().Equals(typeof(Outsourced)))
-            {
+            {   
                 storedOutsourcedPart.Name = partUserComponent.Controls["partNameTxtBox"].Text;
                 storedOutsourcedPart.Price = decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text);
                 storedOutsourcedPart.InStock = int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text);
@@ -128,7 +129,6 @@ namespace Inventory_Managment_System.Controller
 
         public static int searchForPartNameInTheInventory(in DataGridView partsDataGridView, in string searchString)
         {
-
             return UIDataGridViewValidator.findMatchingPart(partsDataGridView, Inventory.AllParts,searchString);
         }
 
@@ -158,7 +158,7 @@ namespace Inventory_Managment_System.Controller
             return modifiablePart;
         }
 
-        public static void addProductToInventory(in ProductUC productUserComponent, in BindingList<Part> associatedParts)
+        public static void addProductToInventory(in ProductUC productUserComponent, in BindingList<Part> newAssociatedParts)
         {
             var newProduct = new Product(
                  productUserComponent.Controls["productNameTxtBox"].Text,
@@ -167,9 +167,24 @@ namespace Inventory_Managment_System.Controller
                  int.Parse(productUserComponent.Controls["productMinTxtBox"].Text),
                  int.Parse(productUserComponent.Controls["productMaxTxtBox"].Text));
 
-            addAssociatedPartsToProduct(newProduct, associatedParts);
+            addAssociatedPartsToProduct(newProduct, newAssociatedParts);
 
             Inventory.addProduct(newProduct);
+        }
+
+        public static void updateProductInInventory(in ProductUC productUserComponent, in BindingList<Part> newAssociatedParts, in int index)
+        {
+            var storedProduct = Inventory.lookupProduct(index);
+
+            storedProduct.Name = productUserComponent.Controls["productNameTxtBox"].Text;
+            storedProduct.Price = decimal.Parse(productUserComponent.Controls["productPriceTxtBox"].Text);
+            storedProduct.InStock = int.Parse(productUserComponent.Controls["productInventoryTxtBox"].Text);
+            storedProduct.Min = int.Parse(productUserComponent.Controls["productMinTxtBox"].Text);
+            storedProduct.Max = int.Parse(productUserComponent.Controls["productMaxTxtBox"].Text);
+
+            storedProduct.AssociatedParts = newAssociatedParts;
+
+            Inventory.updateProduct(index, storedProduct);
         }
 
         private static void addAssociatedPartsToProduct(in Product product, in BindingList<Part> associatedParts)
@@ -190,21 +205,5 @@ namespace Inventory_Managment_System.Controller
         {
             return UIDataGridViewValidator.findMatchingPart(productsDataGridView, Inventory.Products, searchString);
         }
-
-        //public static void addPart(Part part)
-        //{
-        //    //AllPartList.Add(part);
-        //}
-        //public static void addInventoryPart(in PartUC partUC)
-        //{
-        //    int id;
-        //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
-        //    Validate.ValidateNumericInput(partUC.IDTxtBox.Text, out id);
-        //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
-        //    Validate.ValidateNullorEmptyString(partUC.InventoryTxtBox.Text);
-        //    Validate.ValidateNullorEmptyString(partUC.NameTxtBox.Text);
-        //}
     }
-
-
 }

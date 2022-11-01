@@ -31,22 +31,36 @@ namespace Inventory_Managment_System.View
             if (!UITextBoxValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
                 var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["partsDataGridView"];
-
-                if (isInhouseRdBtnChecked)
+                try
                 {
-                    Controller.Controller.addInhousePartToInventory(in partUC);
-                }
-                else
+                    if (isInhouseRdBtnChecked)
+                    {
+                        Controller.Controller.addInhousePartToInventory(in partUC);
+                    }
+                    else
+                    {
+                        Controller.Controller.addOutsourcedPartToInventory(in partUC);
+                    }
+
+                    var newPartRowIndex = UIDataGridViewValidator.getTableRowCount(partsDataGridView);
+
+                    UIDataGridViewValidator.recreateTableData(partsDataGridView, Inventory.AllParts, newPartRowIndex);
+
+                    this.Close();
+                    Program.ShowInitialAppForm();
+
+                } catch(ArgumentOutOfRangeException argOutOfRangeExcp)
                 {
-                    Controller.Controller.addOutsourcedPartToInventory(in partUC);
+                    if (argOutOfRangeExcp.ParamName != null && argOutOfRangeExcp.ParamName.Equals("Max [ArgumentOutOfRangeException]"))
+                    {
+                        UIMsgBox.displayMinExceedsMaxWarning(int.Parse(partUC.Controls["partMinTxtBox"].Text),
+                                                    int.Parse(partUC.Controls["partMaxTxtBox"].Text));
+                    }
+                    else
+                    {
+                        throw argOutOfRangeExcp;
+                    }
                 }
-
-                var newPartRowIndex = UIDataGridViewValidator.getTableRowCount(partsDataGridView);
-
-                UIDataGridViewValidator.recreateTableData(partsDataGridView, Inventory.AllParts, newPartRowIndex);
-                
-                this.Close();
-                Program.ShowInitialAppForm();
             }
         }
 

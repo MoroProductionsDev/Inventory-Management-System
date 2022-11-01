@@ -17,7 +17,7 @@ namespace Inventory_Managment_System.Model
 
         private static int partCount; // keeps the count statically for all parts created.
         public Part(string name, decimal price, int inStock, int min, int max) {
-            PartID = partCount++;
+            PartID = partCount++; // post increment
             Name = name;
             Price = price;
             InStock = inStock;
@@ -38,7 +38,7 @@ namespace Inventory_Managment_System.Model
             {
                 if (value < 0.0M)
                 {
-                    throw new ArgumentOutOfRangeException(
+                    throw new ArgumentOutOfRangeException("Price [ArgumentOutOfRangeException]",
                         $"\n<{nameof(Part)}> : <{nameof(Price)}> cannot a negative number!");
                 }
                 price = value;
@@ -52,8 +52,7 @@ namespace Inventory_Managment_System.Model
             {
                 if (value <= 0)
                 {
-                    Console.WriteLine(min);
-                    throw new ArgumentOutOfRangeException(
+                    throw new ArgumentOutOfRangeException("Min [ArgumentOutOfRangeException]",
                         $"\n<{nameof(Part)}> : <{nameof(Min)}> {value} cannot be less than or equal to 0.");
                 }
                 min = value;
@@ -65,14 +64,9 @@ namespace Inventory_Managment_System.Model
             get => max;
             set
             {
-                if (value == int.MaxValue)
+                if (value < min)
                 {
-                    throw new ArgumentNullException(
-                        $"\n<{nameof(Part)}> : <{nameof(Min)}> {min} hasn't been initialize yet!");
-                }
-                else if (value < min)
-                {
-                    throw new ArgumentOutOfRangeException(
+                    throw new ArgumentOutOfRangeException("Max [ArgumentOutOfRangeException]", 
                         $"\n<{nameof(Part)}> : <{nameof(Max)}> {value} cannot be less than {min}");
                 }
                 max = value;

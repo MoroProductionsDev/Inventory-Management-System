@@ -106,7 +106,7 @@ namespace Inventory_Managment_System.View
 
                 if (selectedPartsRowIndex != (int) UIDataGridViewValidator.IndexVal.Invalid)
                 {
-                    var confirmedDeletion = UIMsgBox.displayDeletionWarning();
+                    var confirmedDeletion = UIMsgBox.displayDeletionWarning(obj);
 
                     if (confirmedDeletion)
                     {
@@ -127,7 +127,7 @@ namespace Inventory_Managment_System.View
 
                 if (selectedProductsRowIndex != (int) UIDataGridViewValidator.IndexVal.Invalid)
                 {
-                    var confirmedDeletion = UIMsgBox.displayDeletionWarning();
+                    var confirmedDeletion = UIMsgBox.displayDeletionWarning(obj);
 
                     if (confirmedDeletion)
                     {

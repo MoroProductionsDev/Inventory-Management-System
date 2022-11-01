@@ -34,28 +34,41 @@ namespace Inventory_Managment_System.View
             productUC.initializeAssociatedPartsInTable(selectedModifiableProduct.AssociatedParts);
         }
 
-        //private void saveBtn_Click(object sender, EventArgs e)
-        //{
-        //    if (!UITextBoxValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
-        //    {
-        //        var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["partsDataGridView"];
-        //        var selectedPartsRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            if (!UITextBoxValidator.checkTextBoxesForEmptyString(productUC) && productUC.productUCValidator.checkTextBoxesForNumericInput(false))
+            {
+                var productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["productsDataGridView"];
+                var selectedProductRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(productsDataGridView);
+                try
+                {
+                    if (!productUC.DisplayedAssociatedParts.Count.Equals(0))
+                    {
+                        Controller.Controller.updateProductInInventory(in productUC, productUC.DisplayedAssociatedParts, selectedProductRowIndex);
 
-        //        if (isInhouseRdBtnChecked)
-        //        {
-        //            Controller.Controller.updateInhousePartToInventory(in selectedPartsRowIndex, in partUC);
-        //        }
-        //        else if (isOutsourcedRdBtnChecked)
-        //        {
-        //            Controller.Controller.updateOutsourcedPartToInventory(in selectedPartsRowIndex, in partUC);
-        //        }
+                        UIDataGridViewValidator.recreateTableData(productsDataGridView, Inventory.Products);
 
-        //        UIDataGridViewValidator.recreateTableData(partsDataGridView, Inventory.AllParts, selectedPartsRowIndex);
-
-        //        this.Close();
-        //        Program.ShowInitialAppForm();
-        //    }
-        //}
+                        this.Close();
+                        Program.ShowInitialAppForm();
+                    }
+                    else
+                    {
+                        UIMsgBox.displayNoAssociatedPartWarning();
+                    }
+                }
+                catch (ArgumentOutOfRangeException argOutOfRangeExcp)
+                {
+                    if(argOutOfRangeExcp.ParamName !=null && argOutOfRangeExcp.ParamName.Equals("Max [ArgumentOutOfRangeException]"))
+                    {
+                        UIMsgBox.displayMinExceedsMaxWarning(int.Parse(productUC.Controls["productMinTxtBox"].Text),
+                                                    int.Parse(productUC.Controls["productMaxTxtBox"].Text));
+                    } else
+                    {
+                        throw argOutOfRangeExcp;
+                    }
+                }
+            }
+        }
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();

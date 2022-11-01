@@ -15,6 +15,8 @@ namespace Inventory_Managment_System.Controller
         public static bool ValidateNumericInput(string userInput)
         {
             bool isNumeric;
+            // [char.IsNumber] will also validate for negative numbers.
+            // For this case it is convinient.
             if (userInput.All(char.IsNumber))
             {
                 isNumeric = true;
