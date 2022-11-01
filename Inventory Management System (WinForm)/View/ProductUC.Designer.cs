@@ -257,6 +257,7 @@
             this.searchControlUC.Name = "searchControlUC";
             this.searchControlUC.Size = new System.Drawing.Size(252, 32);
             this.searchControlUC.TabIndex = 1;
+            this.searchControlUC.Controls["searchBtn"].Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // partID
             // 

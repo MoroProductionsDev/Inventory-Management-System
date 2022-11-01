@@ -50,11 +50,21 @@ namespace Inventory_Managment_System.View
                 }
                 catch (ArgumentOutOfRangeException argOutOfRangeExcp)
                 {
-                    if(argOutOfRangeExcp.ParamName !=null && argOutOfRangeExcp.ParamName.Equals("Max [ArgumentOutOfRangeException]"))
+                    if (argOutOfRangeExcp.ParamName != null)
                     {
-                        UIMsgBox.displayMinExceedsMaxWarning(int.Parse(productUC.Controls["productMinTxtBox"].Text),
-                                                    int.Parse(productUC.Controls["productMaxTxtBox"].Text));
-                    } else
+                        if (argOutOfRangeExcp.ParamName.Equals("Max [ArgumentOutOfRangeException]"))
+                        {
+                            UIMsgBox.displayMinExceedsMaxWarning(int.Parse(productUC.Controls["productMinTxtBox"].Text),
+                                        int.Parse(productUC.Controls["productMaxTxtBox"].Text));
+                        }
+                        else if (argOutOfRangeExcp.ParamName.Equals("InStock [ArgumentOutOfRangeException]"))
+                        {
+                            UIMsgBox.displayInStockOutOfRangeWarning(int.Parse(productUC.Controls["productMinTxtBox"].Text),
+                                        int.Parse(productUC.Controls["productMaxTxtBox"].Text),
+                                        int.Parse(productUC.Controls["productInventoryTxtBox"].Text));
+                        }
+                    }
+                    else
                     {
                         throw argOutOfRangeExcp;
                     }

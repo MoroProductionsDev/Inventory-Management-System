@@ -20,7 +20,7 @@ namespace Inventory_Managment_System.Model
             return $"{nameof(MachineID)}: {MachineID}\n" + base.ToString();
         }
 
-        public string ToStringForProducts()
+        public new string ToStringForProducts()
         {
             return $"{nameof(MachineID)}: {MachineID}\n" + base.ToString();
         }

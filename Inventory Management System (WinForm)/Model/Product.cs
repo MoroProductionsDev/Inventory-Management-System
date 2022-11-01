@@ -15,20 +15,20 @@ namespace Inventory_Managment_System.Model
         public int ProductID { get; }
         public string Name { get; set; }
         private decimal price;
-        private int inStock;
         private int min;
         private int max;
+        private int inStock;
         private static int productCount;    // keeps the count statically for all products created.
 
-        public Product(string name, decimal price, int inStock, int min, int max)
+        public Product(string name, decimal price, int min, int max, int inStock)
         {
             AssociatedParts = new BindingList<Part>();
             ProductID = productCount++;
             Name = name;
             Price = price;
-            InStock = inStock;
             Min = min;
             Max = max;
+            InStock = inStock;
         }
 
         public decimal Price
@@ -50,11 +50,11 @@ namespace Inventory_Managment_System.Model
             get => min;
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     Console.WriteLine(min);
                     throw new ArgumentOutOfRangeException("Min [ArgumentOutOfRangeException]",
-                        $"\n<{nameof(Product)}> : <{nameof(Min)}> {value} cannot be less than or equal to 0.");
+                        $"\n<{nameof(Product)}> : <{nameof(Min)}> {value} cannot be less than 0.");
                 }
                 min = value;
             }
@@ -79,6 +79,13 @@ namespace Inventory_Managment_System.Model
             get => inStock;
             set
             {
+                if (value > max || value < min)
+                {
+                    throw new ArgumentOutOfRangeException("InStock [ArgumentOutOfRangeException]",
+                        $"\n<{nameof(Product)}> : <{nameof(InStock)}> {value} cannot be less than {min}" +
+                                            $"and greather than {max}.");
+                }
+
                 inStock = value;
             }
         }

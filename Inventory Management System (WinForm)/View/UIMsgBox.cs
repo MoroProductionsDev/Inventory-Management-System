@@ -43,5 +43,14 @@ namespace Inventory_Managment_System.View
 
             MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Information);
         }
+
+        public static void displayInStockOutOfRangeWarning(int min, int max, int inStock)
+        {
+            string informationMsg = $"Instock amount of {inStock} cannot be less than the minimum {min} or " + 
+                                    $"greater than the maximum {max}.";
+            MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK;
+
+            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Information);
+        }
     }
 }

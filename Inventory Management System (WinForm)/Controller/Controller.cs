@@ -16,23 +16,23 @@ namespace Inventory_Managment_System.Controller
         public static Data data = new Data();
         public static void createPartList()
         {
-            Inventory.addPart(new Inhouse(133, "screw", 3.99M, 1, 1, 2));
-            Inventory.addPart(new Inhouse(224, "nail", 10.34M, 3, 5, 10));
-            Inventory.addPart(new Inhouse(332, "hammer", 3.99M, 5, 4, 8));
-            Inventory.addPart(new Inhouse(578, "brush", 2.45M, 2, 3, 3));
+            Inventory.addPart(new Inhouse(133, "screw", 3.99M, 1, 2, 1));
+            Inventory.addPart(new Inhouse(224, "nail", 10.34M, 5, 10, 8));
+            Inventory.addPart(new Inhouse(332, "hammer", 3.99M, 4, 8, 5));
+            Inventory.addPart(new Inhouse(578, "brush", 2.45M, 3, 3, 3));
 
-            Inventory.addPart(new Outsourced("Lowes", "fence", 3.99M, 1, 1, 2));
-            Inventory.addPart(new Outsourced("Home Depot", "block", 10.34M, 3, 5, 10));
-            Inventory.addPart(new Outsourced("Intel", "Silicon Chip", 659.99M, 5, 4, 8));
-            Inventory.addPart(new Outsourced("Asus", "MotherBoard", 479.98M, 2, 3, 3));
+            Inventory.addPart(new Outsourced("Lowes", "fence", 3.99M, 1, 2, 1));
+            Inventory.addPart(new Outsourced("Home Depot", "block", 10.34M, 5, 10, 7));
+            Inventory.addPart(new Outsourced("Intel", "Silicon Chip", 659.99M, 4, 10, 8));
+            Inventory.addPart(new Outsourced("Asus", "MotherBoard", 479.98M, 1, 3, 3));
         }
 
         public static void createProductList()
         {
 
-            Inventory.addProduct(new Product("Yellow Bicycle", 15.67M, 12, 20, 25));
-            Inventory.addProduct(new Product("Red Bicycle", 19.34M, 15, 20, 25));
-            Inventory.addProduct(new Product("Blue Bicycle", 23.86M, 19, 20, 25));
+            Inventory.addProduct(new Product("Yellow Bicycle", 15.67M, 12, 25, 20));
+            Inventory.addProduct(new Product("Red Bicycle", 19.34M, 15, 25, 20));
+            Inventory.addProduct(new Product("Blue Bicycle", 23.86M, 5, 25, 23));
 
             Inventory.lookupProduct(0).addAssociatedPart(data.AllPartList[2]);
             Inventory.lookupProduct(0).addAssociatedPart(data.AllPartList[3]);
@@ -52,9 +52,9 @@ namespace Inventory_Managment_System.Controller
                  int.Parse(partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text),
                  partUserComponent.Controls["partNameTxtBox"].Text,
                  decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
-                 int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
                  int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
-                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text));
+                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text),
+                 int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text));
 
             Inventory.addPart(newInhousePart);
         }
@@ -65,9 +65,9 @@ namespace Inventory_Managment_System.Controller
                  partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text,
                  partUserComponent.Controls["partNameTxtBox"].Text,
                  decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
-                 int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
                  int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
-                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text));
+                 int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text),
+                 int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text));
 
             Inventory.addPart(newOutsourcedPart);
         }
@@ -80,9 +80,9 @@ namespace Inventory_Managment_System.Controller
             {
                 storedInhousePart.Name = partUserComponent.Controls["partNameTxtBox"].Text;
                 storedInhousePart.Price = decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text);
-                storedInhousePart.InStock = int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text);
                 storedInhousePart.Min = int.Parse(partUserComponent.Controls["partMinTxtBox"].Text);
                 storedInhousePart.Max = int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text);
+                storedInhousePart.InStock = int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text);
                 ((Inhouse)storedInhousePart).MachineID = int.Parse(partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text);
 
                 Inventory.updatePart(index, storedInhousePart);
@@ -102,9 +102,9 @@ namespace Inventory_Managment_System.Controller
             {   
                 storedOutsourcedPart.Name = partUserComponent.Controls["partNameTxtBox"].Text;
                 storedOutsourcedPart.Price = decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text);
-                storedOutsourcedPart.InStock = int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text);
                 storedOutsourcedPart.Min = int.Parse(partUserComponent.Controls["partMinTxtBox"].Text);
                 storedOutsourcedPart.Max = int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text);
+                storedOutsourcedPart.InStock = int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text);
                 ((Outsourced)storedOutsourcedPart).CompanyName = partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text;
 
                 Inventory.updatePart(index, storedOutsourcedPart);
@@ -141,9 +141,9 @@ namespace Inventory_Managment_System.Controller
                     partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text,
                     partUserComponent.Controls["partNameTxtBox"].Text,
                     decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
-                    int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
                     int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
-                    int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text));
+                    int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text),
+                    int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text));
             }
             else
             {
@@ -151,9 +151,9 @@ namespace Inventory_Managment_System.Controller
                     int.Parse(partUserComponent.Controls["machineIDorCompanyNameTxtBox"].Text),
                     partUserComponent.Controls["partNameTxtBox"].Text,
                     decimal.Parse(partUserComponent.Controls["partPriceTxtBox"].Text),
-                    int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text),
                     int.Parse(partUserComponent.Controls["partMinTxtBox"].Text),
-                    int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text));
+                    int.Parse(partUserComponent.Controls["partMaxTxtBox"].Text),
+                    int.Parse(partUserComponent.Controls["partInventoryTxtBox"].Text));
             }
             return modifiablePart;
         }
@@ -163,9 +163,9 @@ namespace Inventory_Managment_System.Controller
             var newProduct = new Product(
                  productUserComponent.Controls["productNameTxtBox"].Text,
                  decimal.Parse(productUserComponent.Controls["productPriceTxtBox"].Text),
-                 int.Parse(productUserComponent.Controls["productInventoryTxtBox"].Text),
                  int.Parse(productUserComponent.Controls["productMinTxtBox"].Text),
-                 int.Parse(productUserComponent.Controls["productMaxTxtBox"].Text));
+                 int.Parse(productUserComponent.Controls["productMaxTxtBox"].Text),
+                 int.Parse(productUserComponent.Controls["productInventoryTxtBox"].Text));
 
             addAssociatedPartsToProduct(newProduct, newAssociatedParts);
 
@@ -177,10 +177,10 @@ namespace Inventory_Managment_System.Controller
             var storedProduct = Inventory.lookupProduct(index);
 
             storedProduct.Name = productUserComponent.Controls["productNameTxtBox"].Text;
-            storedProduct.Price = decimal.Parse(productUserComponent.Controls["productPriceTxtBox"].Text);
-            storedProduct.InStock = int.Parse(productUserComponent.Controls["productInventoryTxtBox"].Text);
+            storedProduct.Price = decimal.Parse(productUserComponent.Controls["productPriceTxtBox"].Text);;
             storedProduct.Min = int.Parse(productUserComponent.Controls["productMinTxtBox"].Text);
             storedProduct.Max = int.Parse(productUserComponent.Controls["productMaxTxtBox"].Text);
+            storedProduct.InStock = int.Parse(productUserComponent.Controls["productInventoryTxtBox"].Text);
 
             storedProduct.AssociatedParts = newAssociatedParts;
 

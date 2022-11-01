@@ -11,18 +11,18 @@ namespace Inventory_Managment_System.Model
         public int PartID { get; }
         private string name;
         private decimal price;
-        private int inStock;
         private int min;
         private int max;
+        private int inStock;
 
         private static int partCount; // keeps the count statically for all parts created.
-        public Part(string name, decimal price, int inStock, int min, int max) {
+        public Part(string name, decimal price, int min, int max, int inStock) {
             PartID = partCount++; // post increment
             Name = name;
             Price = price;
-            InStock = inStock;
             Min = min;
             Max = max;
+            InStock = inStock;
         }
 
         public string Name
@@ -50,10 +50,10 @@ namespace Inventory_Managment_System.Model
             get => min;
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new ArgumentOutOfRangeException("Min [ArgumentOutOfRangeException]",
-                        $"\n<{nameof(Part)}> : <{nameof(Min)}> {value} cannot be less than or equal to 0.");
+                        $"\n<{nameof(Part)}> : <{nameof(Min)}> {value} cannot be less than 0.");
                 }
                 min = value;
             }
@@ -78,6 +78,13 @@ namespace Inventory_Managment_System.Model
             get => inStock;
             set
             {
+                if (value > max || value < min)
+                {
+                    throw new ArgumentOutOfRangeException("InStock [ArgumentOutOfRangeException]",
+                        $"\n<{nameof(Part)}> : <{nameof(InStock)}> {value} cannot be less than {min}" + 
+                                            $"and greather than {max}.");
+                }
+
                 inStock = value;
             }
         }
