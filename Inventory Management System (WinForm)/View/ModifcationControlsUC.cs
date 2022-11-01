@@ -131,7 +131,7 @@ namespace Inventory_Managment_System.View
 
                     if (confirmedDeletion)
                     {
-                        //Controller.Controller.deleteProductFromInventory(selectedProductsRowIndex);
+                        Controller.Controller.deleteProductFromInventory(selectedProductsRowIndex);
                         UIDataGridViewValidator.recreateTableData(productsDataGridView, Inventory.Products);
                     }
                 } else

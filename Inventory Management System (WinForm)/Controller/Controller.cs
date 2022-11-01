@@ -205,5 +205,9 @@ namespace Inventory_Managment_System.Controller
         {
             return UIDataGridViewValidator.findMatchingPart(productsDataGridView, Inventory.Products, searchString);
         }
+        public static void deleteProductFromInventory(in int index)
+        {
+            Inventory.removeProduct(index);
+        }
     }
 }
