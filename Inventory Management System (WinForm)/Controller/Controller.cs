@@ -19,7 +19,7 @@ namespace Inventory_Managment_System.Controller
             Inventory.addPart(new Inhouse(133, "screw", 3.99M, 1, 2, 1));
             Inventory.addPart(new Inhouse(224, "nail", 10.34M, 5, 10, 8));
             Inventory.addPart(new Inhouse(332, "hammer", 3.99M, 4, 8, 5));
-            Inventory.addPart(new Inhouse(578, "brush", 2.45M, 3, 3, 3));
+            Inventory.addPart(new Inhouse(578, "brush", 2.45M, 3, 4, 3));
 
             Inventory.addPart(new Outsourced("Lowes", "fence", 3.99M, 1, 2, 1));
             Inventory.addPart(new Outsourced("Home Depot", "block", 10.34M, 5, 10, 7));

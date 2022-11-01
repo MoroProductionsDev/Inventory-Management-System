@@ -33,24 +33,27 @@ namespace Inventory_Managment_System.View
             string informationMsg = $"Must have at least one associated part.";
             MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK;
 
-            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Information);
+            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Exclamation);
         }
 
         public static void displayMinExceedsMaxWarning(int min, int max)
         {
-            string informationMsg = $"Your minimum {min} exceeds your maximum {max}.";
+            string informationMsg = min == max ? $"Your minimum of {min} should not equal your maximum of {max}." :
+                                                $"Your minimum of {min} should not exceed your maximum of {max}.";
             MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK;
 
-            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Information);
+            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Error);
         }
 
         public static void displayInStockOutOfRangeWarning(int min, int max, int inStock)
         {
-            string informationMsg = $"Instock amount of {inStock} cannot be less than the minimum {min} or " + 
-                                    $"greater than the maximum {max}.";
+            
+            string informationMsg = inStock < min ? 
+                                    $"Instock of {inStock} should be less than the minimum of {min}." : 
+                                    $"Instock of {inStock} should be greater than the maximum of {max}.";
             MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK;
 
-            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Information);
+            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Error);
         }
     }
 }

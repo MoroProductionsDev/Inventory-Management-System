@@ -54,7 +54,7 @@ namespace Inventory_Managment_System.Model
                 {
                     throw new ArgumentOutOfRangeException("Min [ArgumentOutOfRangeException]",
                         $"\n<{nameof(Part)}> : <{nameof(Min)}> {value} cannot be less than 0.");
-                }
+                } 
                 min = value;
             }
         }
@@ -64,7 +64,7 @@ namespace Inventory_Managment_System.Model
             get => max;
             set
             {
-                if (value < min)
+                if (value <= min)
                 {
                     throw new ArgumentOutOfRangeException("Max [ArgumentOutOfRangeException]", 
                         $"\n<{nameof(Part)}> : <{nameof(Max)}> {value} cannot be less than {min}");
