@@ -19,10 +19,14 @@ namespace Inventory_Managment_System.View
     public partial class ModifyPartForm : Form
     {
         private readonly int selectedRowIndex;
+        private readonly DataGridView partsDataGridView;
+        private readonly int selectedPartRowIndex;
         public ModifyPartForm(in int rowIndex)
         {
             InitializeComponent();
             selectedRowIndex = rowIndex;
+            partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["partsDataGridView"];
+            selectedPartRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
         }
 
         private void ModifyPartForm_Load(object sender, EventArgs e)
@@ -56,9 +60,6 @@ namespace Inventory_Managment_System.View
             {
                 try
                 {
-                    var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["partsDataGridView"];
-                    var selectedPartRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(partsDataGridView);
-                
                     if (isInhouseRdBtnChecked)
                     {
                         Controller.Controller.updateInhousePartInInventory(in partUC, in selectedPartRowIndex);

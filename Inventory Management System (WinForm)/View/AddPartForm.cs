@@ -15,9 +15,11 @@ namespace Inventory_Managment_System.View
 {
     public partial class AddPartForm : Form
     {
+        private readonly DataGridView partsDataGridView;
         public AddPartForm()
         {
             InitializeComponent();
+            partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["partsDataGridView"];
         }
         private void partUC_Load(object sender, EventArgs e)
         {
@@ -30,7 +32,6 @@ namespace Inventory_Managment_System.View
 
             if (!UITextBoxValidator.checkTextBoxesForEmptyString(partUC) && partUC.partUCValidator.checkTextBoxesForNumericInput(isInhouseRdBtnChecked))
             {
-                var partsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["partsDataGridView"];
                 try
                 {
                     if (isInhouseRdBtnChecked)

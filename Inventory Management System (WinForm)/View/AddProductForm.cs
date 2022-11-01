@@ -14,9 +14,12 @@ namespace Inventory_Managment_System.View
 {
     public partial class AddProductForm : Form
     {
+        private readonly DataGridView productsDataGridView;
         public AddProductForm()
         {
             InitializeComponent();
+
+            productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["productsDataGridView"];
         }
 
         private void productUC_Load(object sender, EventArgs e)
@@ -28,8 +31,6 @@ namespace Inventory_Managment_System.View
         {
             if (!UITextBoxValidator.checkTextBoxesForEmptyString(productUC) && productUC.productUCValidator.checkTextBoxesForNumericInput(false))
             {
-                var productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["productsDataGridView"];
-
                 try
                 {
                     if (!productUC.DisplayedAssociatedParts.Count.Equals(0))

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.productMaxTxtBox = new System.Windows.Forms.TextBox();
             this.productMinTxtBox = new System.Windows.Forms.TextBox();
             this.productPriceTxtBox = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@
             this.associatedPartPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.associatedPartMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.associatedPartMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.partsToProductLbl = new System.Windows.Forms.Label();
@@ -63,6 +63,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.partsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGridView)).BeginInit();
             this.SuspendLayout();
+            //
+            // dataGridViewCellStyle
+            //
+            this.dataGridViewCellStyle.SelectionBackColor = System.Drawing.Color.Yellow;
+            this.dataGridViewCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
             // productMaxTxtBox
             // 
@@ -185,9 +190,7 @@
             this.partsDataGridView.ReadOnly = true;
             this.partsDataGridView.RowHeadersVisible = false;
             this.partsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.partsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.partsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle;
             this.partsDataGridView.RowTemplate.Height = 25;
             this.partsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.partsDataGridView.Size = new System.Drawing.Size(623, 180);
@@ -282,7 +285,7 @@
             this.associatedPartsDataGridView.ReadOnly = true;
             this.associatedPartsDataGridView.RowHeadersVisible = false;
             this.associatedPartsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.associatedPartsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.associatedPartsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle;
             this.associatedPartsDataGridView.RowTemplate.Height = 25;
             this.associatedPartsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.associatedPartsDataGridView.Size = new System.Drawing.Size(623, 180);
@@ -384,6 +387,7 @@
             this.searchControlUC.Name = "searchControlUC";
             this.searchControlUC.Size = new System.Drawing.Size(252, 32);
             this.searchControlUC.TabIndex = 1;
+            this.searchControlUC.Controls["searchBtn"].Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // ProductUC
             // 
@@ -415,7 +419,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.associatedPartsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

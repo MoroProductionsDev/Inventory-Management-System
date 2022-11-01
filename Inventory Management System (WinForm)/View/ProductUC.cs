@@ -16,6 +16,7 @@ namespace Inventory_Managment_System.View
     public partial class ProductUC : UserControl
     {
         public readonly UITextBoxValidator productUCValidator;
+        public readonly string[] tableNames;
         public BindingList<Part> DisplayedAssociatedParts { get; private set; }
 
         public ProductUC()
@@ -23,6 +24,8 @@ namespace Inventory_Managment_System.View
             InitializeComponent();
             productUCValidator = new UITextBoxValidator(this);
             DisplayedAssociatedParts = new BindingList<Part>();
+            tableNames = new string[] {this.searchControlUC.tableNames[0], 
+                            this.searchControlUC.tableNames[1]};
         }
 
         private void ProductUC_Load(object sender, EventArgs e)
@@ -65,6 +68,26 @@ namespace Inventory_Managment_System.View
             else
             {
                 UIMsgBox.displayUnselectedRowWarning(obj, action);
+            }
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            string searchString = this.searchControlUC.Controls["searchTxtbox"].Text.Trim();
+            int matchingIndex = -1;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                matchingIndex = Controller.Controller.searchForPartNameInTheInventory(this.partsDataGridView, searchString);
+            }
+
+            if (matchingIndex != -1)
+            {
+                UIDataGridViewValidator.setTableSelectedRowIndex(this.partsDataGridView, matchingIndex);
+            }
+            else
+            {
+                UIDataGridViewValidator.unselectRowInTable(this.partsDataGridView);
             }
         }
 

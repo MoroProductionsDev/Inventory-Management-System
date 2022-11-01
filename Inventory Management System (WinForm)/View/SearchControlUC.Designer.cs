@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.searchTxtbox = new System.Windows.Forms.TextBox();
-            this.searchLbl = new System.Windows.Forms.Button();
+            this.searchBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // searchTxtbox
@@ -39,22 +39,22 @@
             this.searchTxtbox.Size = new System.Drawing.Size(168, 23);
             this.searchTxtbox.TabIndex = 4;
             // 
-            // searchLbl
+            // searchBtn
             // 
-            this.searchLbl.Location = new System.Drawing.Point(3, 3);
-            this.searchLbl.Name = "searchLbl";
-            this.searchLbl.Size = new System.Drawing.Size(55, 23);
-            this.searchLbl.TabIndex = 3;
-            this.searchLbl.Text = "Search";
-            this.searchLbl.UseVisualStyleBackColor = true;
-            this.searchLbl.Click += new System.EventHandler(this.searchLbl_Click);
+            this.searchBtn.Location = new System.Drawing.Point(3, 3);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(55, 23);
+            this.searchBtn.TabIndex = 3;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // SearchControlUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.searchTxtbox);
-            this.Controls.Add(this.searchLbl);
+            this.Controls.Add(this.searchBtn);
             this.Name = "SearchControlUC";
             this.Size = new System.Drawing.Size(252, 32);
             this.Load += new System.EventHandler(this.SearchControlUC_Load);
@@ -66,6 +66,6 @@
         #endregion
 
         private TextBox searchTxtbox;
-        private Button searchLbl;
+        private Button searchBtn;
     }
 }

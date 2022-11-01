@@ -16,7 +16,7 @@ namespace Inventory_Managment_System.View
     {
         private TabControl inventoryTabControl;
         private string[] tabPageNames;
-        private readonly string[] tableNames = { "partsDataGridView", "productsDataGridView" };
+        public readonly string[] tableNames = { "partsDataGridView", "productsDataGridView" };
         public SearchControlUC()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace Inventory_Managment_System.View
             tabPageNames = new string[] { inventoryTabControl.TabPages[0].Name, inventoryTabControl.TabPages[1].Name };
         }
 
-        private void searchLbl_Click(object sender, EventArgs e)
+        private void searchBtn_Click(object sender, EventArgs e)
         {
             string searchString = searchTxtbox.Text.Trim();
             int matchingIndex = -1;

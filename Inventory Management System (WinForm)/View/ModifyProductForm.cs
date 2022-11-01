@@ -15,10 +15,15 @@ namespace Inventory_Managment_System.View
     public partial class ModifyProductForm : Form
     {
         private readonly int selectedRowIndex;
+        private readonly DataGridView productsDataGridView;
+        private readonly int selectedProductRowIndex;
         public ModifyProductForm(in int rowIndex)
         {
             InitializeComponent();
             selectedRowIndex = rowIndex;
+
+            productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["productsDataGridView"];
+            selectedProductRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(productsDataGridView);
         }
 
         private void productUC_Load(object sender, EventArgs e)
@@ -38,8 +43,6 @@ namespace Inventory_Managment_System.View
         {
             if (!UITextBoxValidator.checkTextBoxesForEmptyString(productUC) && productUC.productUCValidator.checkTextBoxesForNumericInput(false))
             {
-                var productsDataGridView = TabControlUC.tabControlUC_Instance.TableDataGridView["productsDataGridView"];
-                var selectedProductRowIndex = UIDataGridViewValidator.getTableSelectedRowIndex(productsDataGridView);
                 try
                 {
                     if (!productUC.DisplayedAssociatedParts.Count.Equals(0))
