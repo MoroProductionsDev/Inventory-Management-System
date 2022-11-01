@@ -45,19 +45,12 @@ namespace Inventory_Managment_System.View
             {
                 try
                 {
-                    if (!productUC.DisplayedAssociatedParts.Count.Equals(0))
-                    {
-                        Controller.Controller.updateProductInInventory(in productUC, productUC.DisplayedAssociatedParts, selectedProductRowIndex);
+                    Controller.Controller.updateProductInInventory(in productUC, productUC.DisplayedAssociatedParts, selectedProductRowIndex);
 
-                        UIDataGridViewValidator.recreateTableData(productsDataGridView, Inventory.Products);
+                    UIDataGridViewValidator.recreateTableData(productsDataGridView, Inventory.Products);
 
-                        this.Close();
-                        Program.ShowInitialAppForm();
-                    }
-                    else
-                    {
-                        UIMsgBox.displayNoAssociatedPartWarning();
-                    }
+                    this.Close();
+                    Program.ShowInitialAppForm();
                 }
                 catch (ArgumentOutOfRangeException argOutOfRangeExcp)
                 {

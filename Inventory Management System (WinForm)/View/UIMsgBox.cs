@@ -36,6 +36,16 @@ namespace Inventory_Managment_System.View
             MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Exclamation);
         }
 
+        public static void displayDeletingProductWithAssociatedParts(int associatedPartsCount)
+        {
+            string s = associatedPartsCount == 0 ? "" : "s";
+            string informationMsg = $"This product has {associatedPartsCount} associated part{s} attached to it.\n" +
+                                    $"Please remove the all associated part{s} from the product.";
+            MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK;
+
+            MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Stop);
+        }
+
         public static void displayMinExceedsMaxWarning(int min, int max)
         {
             string informationMsg = min == max ? $"Your minimum of {min} should not equal your maximum of {max}." :

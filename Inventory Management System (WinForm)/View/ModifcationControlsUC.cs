@@ -131,8 +131,21 @@ namespace Inventory_Managment_System.View
 
                     if (confirmedDeletion)
                     {
-                        Controller.Controller.deleteProductFromInventory(selectedProductsRowIndex);
-                        UIDataGridViewValidator.recreateTableData(productsDataGridView, Inventory.Products);
+                        var productAssociatedParts_Count = Controller.Controller.lookUpProductFromTheInventory(selectedProductsRowIndex).AssociatedParts.Count;
+                        
+                        try
+                        {
+                            if (productAssociatedParts_Count == 0)
+                            {
+                                Controller.Controller.deleteProductFromInventory(selectedProductsRowIndex);
+                                UIDataGridViewValidator.recreateTableData(productsDataGridView, Inventory.Products);
+                            } else
+                            {
+                                throw new ConstraintException();
+                            }
+                        } catch(ConstraintException) {
+                            UIMsgBox.displayDeletingProductWithAssociatedParts(productAssociatedParts_Count);
+                        }
                     }
                 } else
                 {
