@@ -45,7 +45,7 @@ namespace Inventory_Managment_System.View
             this.partMaxTxtBox = new System.Windows.Forms.TextBox();
             this.inHouseRdBtn = new System.Windows.Forms.RadioButton();
             this.outSourcedRdBtn = new System.Windows.Forms.RadioButton();
-            this.machineIDorCompanyNameTxtBox = new System.Windows.Forms.TextBox();
+            this.partMachineIDorCompanyNameTxtBox = new System.Windows.Forms.TextBox();
             this.partPriceTxtBox = new System.Windows.Forms.TextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -187,13 +187,13 @@ namespace Inventory_Managment_System.View
             this.outSourcedRdBtn.UseVisualStyleBackColor = true;
             this.outSourcedRdBtn.CheckedChanged += new System.EventHandler(this.outSourcedRdBtn_CheckedChanged);
             // 
-            // machineIDorCompanyNameTxtBox
+            // partMachineIDorCompanyNameTxtBox
             // 
-            this.machineIDorCompanyNameTxtBox.Location = new System.Drawing.Point(153, 267);
-            this.machineIDorCompanyNameTxtBox.Name = "machineIDorCompanyNameTxtBox";
-            this.machineIDorCompanyNameTxtBox.Size = new System.Drawing.Size(119, 23);
-            this.machineIDorCompanyNameTxtBox.TabIndex = 14;
-            this.machineIDorCompanyNameTxtBox.TextChanged += new System.EventHandler(this.machineIDorCompanyNameTxtBox_TextChanged);
+            this.partMachineIDorCompanyNameTxtBox.Location = new System.Drawing.Point(153, 267);
+            this.partMachineIDorCompanyNameTxtBox.Name = "partMachineIDorCompanyNameTxtBox";
+            this.partMachineIDorCompanyNameTxtBox.Size = new System.Drawing.Size(119, 23);
+            this.partMachineIDorCompanyNameTxtBox.TabIndex = 14;
+            this.partMachineIDorCompanyNameTxtBox.TextChanged += new System.EventHandler(this.machineIDorCompanyNameTxtBox_TextChanged);
             // 
             // partPriceTxtBox
             // 
@@ -237,7 +237,7 @@ namespace Inventory_Managment_System.View
             this.Controls.Add(this.partMachineIDLbl);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.machineIDorCompanyNameTxtBox);
+            this.Controls.Add(this.partMachineIDorCompanyNameTxtBox);
             this.Controls.Add(this.outSourcedRdBtn);
             this.Controls.Add(this.inHouseRdBtn);
             this.Controls.Add(this.partMaxTxtBox);
@@ -277,7 +277,7 @@ namespace Inventory_Managment_System.View
         private TextBox partPriceTxtBox;
         private TextBox partMinTxtBox;
         private TextBox partMaxTxtBox;
-        private TextBox machineIDorCompanyNameTxtBox;
+        private TextBox partMachineIDorCompanyNameTxtBox;
         private RadioButton inHouseRdBtn;
         private RadioButton outSourcedRdBtn;
         private Button saveBtn;

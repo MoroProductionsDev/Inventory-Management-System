@@ -31,7 +31,7 @@ namespace Inventory_Managment_System.View
             partUCValidator.toolTip.RemoveAll();
 
             // Validate the MachineID/CompanyName textbox when the [inHouse] radio button is checked 
-            partUCValidator.modifyTextbox(machineIDorCompanyNameTxtBox, e, UITextBoxValidator.ValType.Integer);
+            partUCValidator.modifyTextbox(partMachineIDorCompanyNameTxtBox, e, UITextBoxValidator.ValType.Integer);
         }
 
         private void outSourcedRdBtn_CheckedChanged(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace Inventory_Managment_System.View
             partUCValidator.toolTip.RemoveAll();
 
             // Validate the MachineID/CompanyName textbox when the [outSourced] radio button is checked 
-            partUCValidator.modifyTextbox(machineIDorCompanyNameTxtBox, e, UITextBoxValidator.ValType.NullAndEmptyString);
+            partUCValidator.modifyTextbox(partMachineIDorCompanyNameTxtBox, e, UITextBoxValidator.ValType.NullAndEmptyString);
         }
 
         private void partNameTxtBox_TextChanged(object sender, EventArgs e)

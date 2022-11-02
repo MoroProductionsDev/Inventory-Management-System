@@ -65,7 +65,7 @@ namespace Inventory_Managment_System.View
                 ucNumericIntegerTextBoxNames = new string[] {userControl.Controls["productInventoryTxtBox"].Name,
                         userControl.Controls["productMinTxtBox"].Name, userControl.Controls["productMaxTxtBox"].Name};
 
-                validatingPartUC = false;
+                validatingPartUC = false; 
             }
         }
 
@@ -114,7 +114,7 @@ namespace Inventory_Managment_System.View
             else
             {
                 // covers scenerio when the radiobutton [Inhouse, Outsource] are toggle
-                displayTheIndicatedToolTip(userControl.Controls["machineIDorCompanyNameTxtBox"], e, ValType.Decimal);
+                displayTheIndicatedToolTip(userControl.Controls["partMachineIDorCompanyNameTxtBox"], e, ValType.Decimal);
             }
         }
 
@@ -126,7 +126,7 @@ namespace Inventory_Managment_System.View
             {
                 if (validatingPartUC && isInhouseChecked)
                 {
-                    int.Parse(userControl.Controls["machineIDorCompanyNameTxtBox"].Text);
+                    int.Parse(userControl.Controls["partMachineIDorCompanyNameTxtBox"].Text);
                 }
 
                 Decimal.Parse(ucTextBoxList[(int)Prop.Price].Text);
@@ -236,7 +236,7 @@ namespace Inventory_Managment_System.View
                 {
                     userInputVarName = ucLabelList[(int) Prop.Name].Text;
                 }
-                else if (validatingPartUC && ((TextBox)sender).Equals(userControl.Controls["machineIDorCompanyNameTxtBox"]) 
+                else if (validatingPartUC && ((TextBox)sender).Equals(userControl.Controls["partMachineIDorCompanyNameTxtBox"]) 
                     && userControl.Controls["outSourcedRdBtn"].Checked)
                 {
                     userInputVarName = userControl.Controls["partCompanyNameLbl"].Text;
@@ -262,7 +262,7 @@ namespace Inventory_Managment_System.View
                 {
                     userInputVarName = ucLabelList[(int) Prop.Price].Text;
                 }
-                else if (validatingPartUC && ((TextBox)sender).Equals(userControl.Controls["machineIDorCompanyNameTxtBox"]) 
+                else if (validatingPartUC && ((TextBox)sender).Equals(userControl.Controls["partMachineIDorCompanyNameTxtBox"]) 
                         && userControl.Controls["inHouseRdBtn"].Checked)
                 {
                     userInputVarName = userControl.Controls["partMachineIDLbl"].Text;

@@ -40,7 +40,7 @@ namespace Inventory_Managment_System.View
         {
             string s = associatedPartsCount == 0 ? "" : "s";
             string informationMsg = $"This product has {associatedPartsCount} associated part{s} attached to it.\n" +
-                                    $"Please remove the all associated part{s} from the product.";
+                                    $"Modify the product and remove the all associated part{s} from the product.";
             MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK;
 
             MessageBox.Show(informationMsg, "Information", msgBoxButtons, MessageBoxIcon.Stop);

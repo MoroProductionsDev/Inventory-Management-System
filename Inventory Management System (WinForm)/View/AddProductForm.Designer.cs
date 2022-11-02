@@ -70,6 +70,7 @@
             this.productUC.Name = "productUC";
             this.productUC.Size = new System.Drawing.Size(946, 580);
             this.productUC.TabIndex = 19;
+            this.productUC.Load += new System.EventHandler(this.productUC_Load);
             // 
             // AddProductForm
             // 
